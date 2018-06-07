@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.manage.dao.DataSetDao">
+
+    <!--获取一级，数据集合列表-->
+    <select id="getDataAttrList" resultType="map" parameterType="map">
+        SELECT * FROM nlp_data_type
+        where attr = '0'
+        <if test="id != null">
+            and id = #{id}
+        </if>
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <!--一级分类的id作为attr值 获取二级分类集合列表-->
+    <select id="getDataTypeList" resultType="map" parameterType="map">
+        SELECT * FROM nlp_data_type where attr = #{id}
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <!--获取三级列表（所有数据）-->
+    <select id="getDataList" resultType="map" parameterType="map">
+        SELECT a.*,b.dictName
+        FROM nlp_data a
+        INNER JOIN nlp_dict b
+        ON a.state = b.dictCode
+        WHERE a.state = '010001'
+        <if test="id != null">
+            AND typeId = #{id}
+        </if>
+
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <!--获取数据集合条数-->
+    <select id="getDataAttrListCounts" resultType="int" parameterType="map">
+        SELECT COUNT(id) FROM nlp_data_type
+        where attr = '0'
+        <if test="id != null">
+            and id = #{id}
+        </if>
+    </select>
+
+    <!--获取二级分类的条数-->
+    <select id="getDataTypeListCounts" resultType="int" parameterType="map">
+        SELECT COUNT(id) FROM nlp_data_type
+        WHERE 1=1
+        <if test="id != null">
+            and attr = #{id}
+        </if>
+    </select>
+
+    <!--获取三级数据条数-->
+    <select id="getDataListCounts" resultType="int" parameterType="map">
+        SELECT COUNT(id) FROM nlp_data
+        WHERE state = '010001'
+        <if test="id != null">
+            and typeId = #{id}
+        </if>
+    </select>
+
+
+    <!--修改一级菜单 属性-->
+    <update id="updateDataAttr">
+        update nlp_data_type
+        set name = #{name},icon = #{icon}
+        where id = #{id}
+    </update>
+
+    <!--修改二级 分类-->
+    <update id="updateDataType">
+        update nlp_data_type
+        set name = #{name},attr = #{attr}
+        where id = #{id}
+    </update>
+
+    <!--修改三级 数据-->
+    <update id="updateData" parameterType="com.ultra.nlp.manage.model.NlpData">
+        update nlp_data
+        set name=#{name},uploader=#{uploader},introduce=#{introduce},size=#{size},format=#{format},url=#{url},typeId=#{typeId}
+        ,image=#{image},attr=#{attr},state = #{state}
+        where id = #{id}
+    </update>
+
+
+    <!--添加数据集属性-->
+    <insert id="addDataAttr" useGeneratedKeys="true" parameterType="java.util.Map">
+        <!--<selectKey keyProperty="id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID() as id
+            WHERE attr = #{attr}
+        </selectKey>-->
+        insert into nlp_data_type (
+        id,`name`,icon,attr
+        )
+        values (#{id},#{name,jdbcType=VARCHAR},concat("dataSet_",#{id}),#{attr})
+    </insert>
+
+    <!--通过attr拿到当前attr下最大的id-->
+    <select id="getMaxIdByAttr" resultType="String">
+        SELECT MAX(typeId)
+        FROM
+        (SELECT CAST(id AS signed) typeId
+        FROM nlp_data_type b
+        WHERE attr = #{attr}) a
+    </select>
+
+    <!--删除数据集属性-->
+    <delete id="delDataAttr" parameterType="int">
+      DELETE FROM nlp_data_type
+      WHERE id = #{id}
+    </delete>
+
+    <!--添加数据集类别-->
+    <insert id="addDataType" useGeneratedKeys="true" parameterType="java.util.Map">
+        <selectKey keyProperty="id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+        insert into nlp_data_type (
+        `name`,attr
+        )
+        values (#{name,jdbcType=VARCHAR},#{attr})
+    </insert>
+
+    <!--删除数据集类别-->
+    <delete id="delDataTypeByIdOrAttr" parameterType="java.util.Map">
+        <if test="id != null">
+            DELETE FROM nlp_data_type
+            WHERE id = #{id}
+        </if>
+        <if test="attr != null">
+            DELETE FROM nlp_data_type
+            WHERE attr = #{attr}
+        </if>
+    </delete>
+
+    <!--添加数据集-->
+    <insert id="addData" useGeneratedKeys="true" parameterType="java.util.Map">
+        <selectKey keyProperty="id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+        insert into nlp_data (
+        `name`,uploader,introduce,`size`,`format`,url,`typeId`,image,attr,uploadTime
+        )
+        values
+        (#{name,jdbcType=VARCHAR},#{uploader,jdbcType=VARCHAR},#{introduce,jdbcType=VARCHAR},#{size,jdbcType=VARCHAR},
+        #{format,jdbcType=VARCHAR},#{url,jdbcType=VARCHAR},#{typeId,jdbcType=VARCHAR},
+        #{image,jdbcType=VARCHAR},#{attr,jdbcType=VARCHAR},#{uploadTime,jdbcType=VARCHAR})
+    </insert>
+
+    <!--删除数据集 ,于2018年5月17日17:23:46弃用
+    <delete id="delData" parameterType="int">
+      DELETE FROM nlp_data WHERE id = #{id}
+    </delete>
+    -->
+
+    <!--删除数据集，修改state为010003，于2018年5月17日17:26:53启用-->
+    <update id="delData" parameterType="int">
+        UPDATE nlp_data
+        SET state = '010003'
+        WHERE id = #{id}
+    </update>
+
+    <!--于2018年5月17日17:26:26弃用，改用
+    <delete id="delDataByTypeOrAttr" parameterType="java.util.Map">
+        <if test="type != null">
+            DELETE FROM nlp_data WHERE `typeId` = #{typeId}
+        </if>
+        <if test="attr != null">
+            DELETE FROM nlp_data WHERE attr = #{attr}
+        </if>
+    </delete>-->
+    <!--于2018年5月17日17:26:53启用-->
+    <update id="delDataByTypeOrAttr" parameterType="java.util.Map">
+        <if test="type != null">
+            UPDATE nlp_data
+            SET state = '010003'
+            WHERE `typeId` = #{typeId}
+        </if>
+        <if test="attr != null">
+            UPDATE nlp_data
+            SET state = '010003'
+            WHERE attr = #{attr}
+        </if>
+    </update>
+</mapper>

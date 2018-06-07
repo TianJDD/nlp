@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.mainsite.dao.DataSetDao" >
+    <!--查询dataset一级列表，测试数据、行业数据-->
+    <select id="getDataSetType1" resultType="map">
+        SELECT id,name,attr
+        FROM nlp_data_type
+        WHERE attr = '0'
+    </select>
+
+    <!--查询dataset二级列表，测试数据、行业数据-->
+    <select id="getDataSetType2" resultType="map">
+        SELECT id,name,attr
+        FROM nlp_data_type
+        WHERE attr = #{id}
+    </select>
+    <!--查询全部行业数据集  与  条件行业数据-->
+    <select id="wholelist" resultType="com.ultra.nlp.mainsite.model.Data" parameterType="map">
+        select id,name,uploader,introduce,type,type_name,image,attr,FROM_UNIXTIME(uploadTime/1000,'%Y-%m-%d %H:%i:%s') as uploadTime
+        from nlp_data
+        where 1=1
+        <if test="attr != null">
+            and attr=#{attr}
+        </if>
+        <if test="id != null">
+            and type=#{id}
+        </if>
+        <if test="keyword != null and keyword != ''">
+            AND (name LIKE CONCAT(CONCAT('%',#{keyword},'%')) or introduce LIKE CONCAT(CONCAT('%',#{keyword},'%')))
+        </if>
+        order by
+        <if test="useNum != null and useNum == 1">
+            useNum DESC,
+        </if>
+        <if test="relTime != null and relTime == 1">
+            uploadTime  DESC,
+        </if>
+        <if test="useNum != null and useNum == 2">
+            useNum ASC,
+        </if>
+        <if test="relTime != null and relTime == 2">
+            uploadTime  ASC,
+        </if>
+        id DESC
+
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+    <!--<select id="getwholelist" resultType="int" parameterType="map" >
+        SELECT COUNT(id) FROM nlp_data
+        <if test="id != null">
+            where type=#{id}
+        </if>
+    </select>-->
+
+    <select id="getwholelist" resultType="int" parameterType="map">
+    select count(id)
+    from nlp_data
+    where 1=1
+    <if test="attr != null">
+        and attr=#{attr}
+    </if>
+    <if test="id != null">
+        and type=#{id}
+    </if>
+    <if test="keyword != null and keyword != ''">
+        AND (name LIKE CONCAT(CONCAT('%',#{keyword},'%')) or introduce LIKE CONCAT(CONCAT('%',#{keyword},'%')))
+    </if>
+        ORDER BY
+        <if test="useNum != null and useNum == 1">
+            useNum DESC,
+        </if>
+        <if test="relTime != null and relTime ==1">
+            uploadTime DESC,
+        </if>
+        <if test="useNum != null and useNum == 2">
+            useNum ASC,
+        </if>
+        <if test="relTime != null and relTime == 2">
+            uploadTime  ASC,
+        </if>
+        id ASC
+
+    </select>
+</mapper>

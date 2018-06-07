@@ -1,0 +1,58 @@
+package com.ultra.nlp.manage.controller;
+
+import com.alibaba.fastjson.JSONObject;
+import com.ultra.nlp.manage.config.BaseTestConfig;
+import com.ultra.nlp.manage.model.NlpDict;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+public class TestDictController extends BaseTestConfig {
+
+    @Test
+    /**
+     * 字典表添加服务
+     */
+    public void Add () throws Exception{
+        NlpDict nlpDict = new NlpDict();
+        nlpDict.setDictCode("");
+        nlpDict.setDictName("asafasa");
+        nlpDict.setParentCode("");
+        nlpDict.setParentName("asdffdfd");
+        nlpDict.setDictState(1);
+        nlpDict.setCreateTime("");
+        nlpDict.setUpdateTime("");
+        nlpDict.setCreateUser("adime");
+        nlpDict.setUpdateUser("adime");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/dict/dictadd")
+                .content(JSONObject.toJSONString(nlpDict))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    /**
+     * 字典表修改服务
+     */
+    public void updateDict () throws Exception{
+        NlpDict nlpDict = new NlpDict();
+        nlpDict.setDictCode("0010");
+        nlpDict.setDictName("zhangyu");
+        nlpDict.setParentName("zhangyu");
+        nlpDict.setDictState(2);
+        nlpDict.setUpdateTime("");
+        nlpDict.setUpdateUser("zhangyu");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/dict/updatedict")
+                .content(JSONObject.toJSONString(nlpDict))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+}

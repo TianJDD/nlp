@@ -1,0 +1,117 @@
+package com.ultra.nlp.manage.controller;
+import com.ultra.nlp.manage.model.JsonModel;
+import com.ultra.nlp.manage.model.NlpDict;
+import com.ultra.nlp.manage.model.ReturnCode;
+import com.ultra.nlp.manage.service.DictService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+@RestController
+@RequestMapping("/dict")
+public class DictController {
+    private final static Logger logger = LoggerFactory.getLogger(DictController.class);
+
+    @Autowired
+    DictService dictService;
+
+    /**
+     * 数据字典查询接口
+     * @param dictCode
+     * @return
+     */
+    @ApiOperation(value="数据字典查询接口", notes="用于后台管理系统中查询字典列表\n" )
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "parentCode", value = "父级code", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "dictCode", value = "字典code", required = false, dataType = "String"),
+    })
+    @ApiResponse(code = 0000,message = "成功",response = JsonModel.class)
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},value = "/list")
+    @ResponseBody
+    public Object selectDictList(HttpServletRequest request, HttpServletResponse response,
+                                @RequestParam(value="parentCode",required =false) String parentCode,
+                                 @RequestParam(value="dictCode",required =false) String dictCode){
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        Map<String,String> map = new HashMap<>(2);
+        if(parentCode != null && ! parentCode.equals("")){
+            map.put("parentCode",parentCode);
+        }
+        if(dictCode != null && ! dictCode.equals("")){
+            map.put("dictCode",dictCode);
+        }
+        JsonModel json = new JsonModel(true,ReturnCode.SUCESS_CODE_0000.getValue(),ReturnCode.SUCESS_CODE_0000.getKey(),dictService.getDictList(map));
+        return json;
+    }
+
+    /**
+     * 字典表添加服务
+     * @param request
+     * @param response
+     * @param nlpDict
+     * 应用场景：用于添加服务
+     * 逻辑：前端将需要添加的参数请求发送给后台，控制器在后台用对象nlpDict 接收，
+     * 将请求发送到业务层处理业务，业务执行成功后将生成的子id：dictCode  返回前台
+     * 结果：添加字典表成功。
+     * @return
+     */
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = "/dictadd")
+    @ResponseBody
+    public Object dictToAdd(HttpServletRequest request, HttpServletResponse response,
+                            @RequestBody NlpDict nlpDict){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        nlpDict.setCreateTime(sdf.format(date));
+        nlpDict.setUpdateTime(sdf.format(date));
+        try{
+            JsonModel json = new JsonModel(true,ReturnCode.SUCESS_CODE_0000.getValue(),ReturnCode.SUCESS_CODE_0000.getKey(),dictService.getDictToAdd(nlpDict));
+            return json;
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+    /**
+     * 字典表修改服务
+     * @param request
+     * @param response
+     * @param nlpDict
+     * 应用场景：用于修改字典表服务
+     * 逻辑：前端将要修改的参数请求发送到控制器，控制器在后台用对象nlpDict 接收，
+     * 将请求发送到业务层处理业务，业务执行成功不需要向前台返回json。
+     * 结果：修改字典表成功。
+     * @return
+     */
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = "/updatedict")
+    @ResponseBody
+    public Object updateDict(HttpServletRequest request,HttpServletResponse response,
+                             @RequestBody NlpDict nlpDict){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+        nlpDict.setUpdateTime(sdf.format(date));
+        try{
+            dictService.updateDict(nlpDict);
+            JsonModel json = new JsonModel(true,ReturnCode.SUCESS_CODE_0000.getValue(),ReturnCode.SUCESS_CODE_0000.getKey(),null);
+            return json;
+        }catch (Exception e){
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+}

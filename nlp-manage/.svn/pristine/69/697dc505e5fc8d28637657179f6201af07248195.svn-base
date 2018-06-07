@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.manage.dao.SolutionDao" >
+    <!--分页查解决方案列表-->
+    <select id="findSolutionList" parameterType="map" resultType="map">
+        SELECT
+        s.id AS solutionId,s.solutionName,s.solutionDesc,s.solutionIcon,s.solutionUrl,
+        s.forwardType,s.solutionField,s.academyId,s.solutionLog, a.`academyName`,s.`acceptTime`
+        FROM nlp_solution s
+        LEFT JOIN nlp_access_academy a ON s.`academyId` = a.`id`
+        WHERE
+        serviceState ='003002'
+        <if test="keyword != null and keyword !=''" >
+          AND (s.solutionName LIKE CONCAT('%',#{keyword},'%')
+            OR s.solutionDesc LIKE CONCAT('%',#{keyword},'%')
+            OR a.academyName LIKE CONCAT('%',#{keyword},'%')
+            )
+        </if>
+            ORDER BY s.`acceptTime` DESC
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <select id="findSolutionListCounts" resultType="int" parameterType="map" >
+        SELECT  COUNT(s.`id`)
+        FROM nlp_solution s
+        LEFT JOIN nlp_access_academy a ON s.`academyId` = a.`id`
+        WHERE
+        serviceState ='003002'
+        <if test="keyword != null and keyword !=''" >
+            AND (s.solutionName LIKE CONCAT('%',#{keyword},'%')
+            OR s.solutionDesc LIKE CONCAT('%',#{keyword},'%')
+            OR a.academyName LIKE CONCAT('%',#{keyword},'%')
+            )
+        </if>
+    </select>
+
+    <!--根据主键id获取记录-->
+   <!--<select id="selectByPrimaryKey" resultMap="com.ultra.nlp.manage.model.NlpSolution" parameterType="java.lang.Integer" >
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM
+          nlp_solution
+        WHERE id = #{id,jdbcType=INT}
+    </select>
+-->
+   <!-- 选择性插入一条记录-->
+   <insert id="addSolution" useGeneratedKeys="true"  parameterType="com.ultra.nlp.manage.model.NlpSolution" >
+       <selectKey keyProperty="id" order="AFTER" resultType="int">
+           SELECT LAST_INSERT_ID() as  id
+       </selectKey>
+        INSERT INTO nlp_solution
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="solutionName != null">
+                solutionName,
+            </if>
+            <if test="solutionDesc != null">
+                solutionDesc,
+            </if>
+            <if test="solutionIcon != null">
+                solutionIcon,
+            </if>
+            <if test="solutionUrl != null">
+                solutionUrl,
+            </if>
+            <if test="forwardType != null">
+                forwardType,
+            </if>
+            <if test="solutionField != null">
+                solutionField,
+            </if>
+            <if test="academyId != null">
+                academyId,
+            </if>
+            <if test="acceptTime != null">
+                acceptTime,
+            </if>
+            <if test="serviceState != null">
+                serviceState,
+            </if>
+            <if test="solutionLog != null">
+                solutionLog,
+            </if>
+            <if test="updateTime != null">
+                updateTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+             <if test="solutionName != null">
+                #{solutionName},
+             </if>
+             <if test="solutionDesc != null">
+                #{solutionDesc},
+             </if>
+             <if test="solutionIcon != null">
+                #{solutionIcon},
+             </if>
+             <if test="solutionUrl != null">
+                #{solutionUrl},
+             </if>
+             <if test="forwardType != null">
+                #{forwardType},
+             </if>
+             <if test="solutionField != null">
+                #{solutionField},
+             </if>
+             <if test="academyId != null">
+                #{academyId},
+             </if>
+             <if test="acceptTime != null">
+                #{acceptTime},
+             </if>
+             <if test="serviceState != null">
+                #{serviceState},
+             </if>
+             <if test="solutionLog != null">
+                #{solutionLog},
+             </if>
+             <if test="updateTime != null">
+                #{updateTime},
+             </if>
+        </trim>
+    </insert>
+    <!--更新非空字段-->
+   <update id="updateSolution" parameterType="com.ultra.nlp.manage.model.NlpSolution" >
+        UPDATE nlp_solution
+        <set >
+            <if test="solutionName != null">
+                solutionName = #{solutionName},
+            </if>
+            <if test="solutionDesc != null">
+                solutionDesc = #{solutionDesc},
+            </if>
+            <if test="solutionIcon != null">
+                solutionIcon = #{solutionIcon},
+            </if>
+            <if test="solutionUrl != null">
+                solutionUrl = #{solutionUrl},
+            </if>
+            <if test="forwardType != null">
+                forwardType =  #{forwardType},
+            </if>
+            <if test="solutionField != null">
+                solutionField = #{solutionField},
+            </if>
+            <if test="academyId != null">
+                academyId =  #{academyId},
+            </if>
+            <if test="acceptTime != null">
+                acceptTime = #{acceptTime},
+            </if>
+            <if test="serviceState != null">
+                serviceState = #{serviceState},
+            </if>
+            <if test="solutionLog != null">
+                solutionLog = #{solutionLog},
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime},
+            </if>
+        </set>
+        WHERE id = #{solutionId}
+    </update>
+
+</mapper>

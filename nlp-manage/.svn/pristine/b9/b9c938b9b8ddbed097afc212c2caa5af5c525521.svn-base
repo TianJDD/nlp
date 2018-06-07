@@ -1,0 +1,239 @@
+package com.ultra.nlp.manage.controller;
+
+import com.alibaba.fastjson.JSONObject;
+import com.ultra.nlp.manage.config.BaseTestConfig;
+import com.ultra.nlp.manage.model.*;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class TestServiceController extends BaseTestConfig {
+
+    @Test
+    public void ServiceList () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/service/list")
+                .param("id","1")
+                .param("keyword","ME")
+                .param("pageNow","1")
+                .param("pageSize","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void getClassifyList () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/classify/typeList")
+                .param("id","002")
+                .param("pageNow","1")
+                .param("pageSize","5")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void addClassify () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/classify/typeAdd")
+                .param("name","联想")
+                .param("descr","添加大类")
+                .param("rec_num","1")
+               /* .param("icon","1")
+                .param("img","1")*/
+                .param("leaf","1")
+                .param("p_id","001")
+                .param("ser_type","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void ServiceAdd () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/service/add")
+                .param("name","1")
+                .param("descr","1")
+                .param("icon","1")
+                .param("rec_num","1")
+                .param("img","1")
+                .param("leaf","1")
+                .param("p_id","1")
+                .param("ser_type","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void addService () throws Exception{
+        /**
+         * 用例
+         * 1、输入条件：NlpServiceManage类包含NlpServiceRelate列表数据，NlpServiceRelate列表以Map格式组装
+         *    响应结果：返回保存结果
+         */
+        NlpServiceManage nlpServiceManage = new NlpServiceManage();
+        nlpServiceManage.setServiceType("001");
+        nlpServiceManage.setMethodType("1");
+        nlpServiceManage.setClass_id("001002001");
+        nlpServiceManage.setClassName("12345");
+        nlpServiceManage.setFromType("0101001");
+        nlpServiceManage.setServiceName("用户评价");
+        nlpServiceManage.setServiceDescr("asdfghjklrtyqwerty");
+        nlpServiceManage.setServiceIcon("qwertbgfdsaxsadcfvf");
+        nlpServiceManage.setRel_time("1524639719238");
+        nlpServiceManage.setUse_num(666);
+        nlpServiceManage.setAccessTime("2018-05-04");
+        nlpServiceManage.setServiceState("003002");
+        nlpServiceManage.setCreateUserId(1);
+        nlpServiceManage.setProfessorId("1");
+        nlpServiceManage.setAcceptUserName("1");
+        nlpServiceManage.setProfessorName("1");
+        nlpServiceManage.setAcademyId("1");
+        nlpServiceManage.setAcademyName("哈工大");
+        nlpServiceManage.setGroupId("1");
+        nlpServiceManage.setGroupName("1");
+        nlpServiceManage.setAccessWay("1");
+        nlpServiceManage.setAccessLog("1");
+        nlpServiceManage.setUrl("1");
+        nlpServiceManage.setIn_arg("1");
+        nlpServiceManage.setBanner("1");
+        nlpServiceManage.setApikey("1");
+        nlpServiceManage.setSecretkey("1");
+        nlpServiceManage.setCreateTime("1");
+        nlpServiceManage.setUpdateTime("1");
+
+        List<Map<String,Object>> relates = new ArrayList<>();
+        Map<String,Object> map = new HashMap<>();
+        map.put("serviceId",50);
+        map.put("title","aaaaaa");
+        map.put("content","bbbbbb");
+        relates.add(map);
+        nlpServiceManage.setRelates(relates);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/classify/addService")
+                .content(JSONObject.toJSONString(nlpServiceManage))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void serviceDetail () throws Exception{
+        /**
+         *
+         * 功能描述:
+         * 根据服务id查询服务详情，包括服务主表信息和相关表信息
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/classify/serviceDetail")
+                .param("serviceId","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void downloadServiceTemplet () throws Exception{
+        /**
+         *
+         * 功能描述:
+         * 生成服务信息导入模板下载
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/classify/service/download/templet")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+    @Test
+    public void typeUpdate () throws Exception{
+        /**
+         *
+         * 功能描述: 修改分类信息
+         * 用于分类信息维护，修改分类信息
+         * @param:
+         * @return:
+         * @auther: guyuefei
+         * @date:
+         */
+        Classify classify= new Classify();
+        classify.setId("001007");
+        classify.setP_id("001006");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/classify/typeUpdate")
+                .content(JSONObject.toJSONString(classify))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+
+    @Test
+    public void ExpotDown () throws Exception{
+        /**
+         *
+         * 功能描述:
+         * 生成服务信息模板下载
+         * @auther:
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/classify/export/load/down")
+                .param("url","D:/nlp-projects/nlp-manage/src/main/java/com/ultra/nlp/manage/Wookbook.xlsx")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void getServiceEntry () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/classify/service/serviceEntry/add")
+                .param("serverId","")
+                .param("accessId","1")
+                //.param("accessType","007001")
+                .param("accessModel","001001")
+                .param("deployPath","/usr/local/tomcat/aaa")
+                .param("visitURL","www.baidu.com")
+                .param("academyId","1")
+                .param("professorId","1")
+                .param("accessWay","002002")
+                //.param("accessState","003002")
+                //.param("contactPerson","宋江")
+                //param("contactTel","18888888888")
+                .param("accessPerson","admin")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+}

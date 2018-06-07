@@ -1,0 +1,41 @@
+package com.ultra.nlp.mainsite.service;
+
+
+import com.ultra.nlp.mainsite.model.Data;
+import com.ultra.nlp.mainsite.model.NlpService;
+import com.ultra.nlp.mainsite.model.Page;
+import com.ultra.nlp.mainsite.model.ServiceDetail;
+
+import java.util.List;
+
+import java.util.Map;
+
+public interface IServiceService {
+
+    public Page getServiceTypeList(Page page);
+
+
+    Page getRecServiceList2(Page page);
+
+
+    Page getRecClsList(Page page);
+
+    Page getRecServiceList1(Page page);
+
+    Page getServiceListByType3Id(Page page);
+    //服务列表页模糊查询
+    Page searchServiceByCondition(Page page);
+    //查询服务详情相关信息
+    ServiceDetail detailslist(Map<String,Object> map);
+
+    //根据服务类别查询服务查询服务所在服务器信息
+    Map<String,Object> getServiceIpAndPort(Map<String,Object> map);
+
+    //跟新用户使用服务次数
+    int updateServiceUseCount(Map<String,Object> map);
+
+    //根据服务分类id查询分类名称
+    Map<String,Object> getServiceTypeNameById(Map<String,Object> map);
+
+    List getSolutionList();
+}

@@ -1,0 +1,15 @@
+package com.ultra.nlp.manage.service;
+
+import com.ultra.nlp.manage.model.NlpDict;
+
+import java.util.List;
+import java.util.Map;
+
+public interface DictService {
+
+    List<Map<String,String>> getDictList(Map<String,String> map);
+
+    String getDictToAdd(NlpDict nlpDict)throws Exception;
+
+    int updateDict(NlpDict nlpDict);
+}

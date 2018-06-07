@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../nlp-manage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../shiroTest" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/MP+freemarker/freemarker+MP" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/shiro" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/shiro/shiro-admin" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/shiro/shiro-core" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/ssm+shiro/SpringMVC-Mybatis-Shiro-redis-0.2-master" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-api" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-common" charset="UTF-8" />
+    <file url="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-generator" charset="UTF-8" />
+    <file url="file://F:/Code-DB/秒杀系统/spring-boot-seckill" charset="UTF-8" />
+  </component>
+</project>

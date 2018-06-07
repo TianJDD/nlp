@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.mainsite.dao.userDao" >
+    <select id="selectUser" resultType="com.ultra.nlp.mainsite.model.User">
+      SELECT userName,userPhone,userMail,userImg,updateTime
+      FROM nlp_user
+      WHERE userName = #{name}
+    </select>
+
+    <update id="updatePassword">
+        UPDATE nlp_user
+        SET userPwd=#{NewPassword}
+        WHERE userName = #{name} AND userPwd=#{OldPassword}
+    </update>
+
+</mapper>

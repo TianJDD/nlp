@@ -1,0 +1,33 @@
+package com.ultra.nlp.mainsite.service.impl;
+
+import com.ultra.nlp.mainsite.dao.indexDao;
+import com.ultra.nlp.mainsite.service.indexService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * created by JIT on 2018/5/23
+ */
+@Service
+public class indexServiceImpl implements indexService {
+
+    @Resource
+    private indexDao indexDao;
+
+    @Override
+    public Map getCountBytype() {
+        Map map = new HashMap<>();
+        //首页展示教授、学校、服务、解决方案的数量
+        map.put("professorCount",indexDao.getProfessorCount());
+        map.put("academyCount",indexDao.getAcademyCount());
+        map.put("serviceCount",indexDao.getServiceCount());
+        map.put("solutionCount",indexDao.getSolutionCount());
+        return map;
+    }
+}

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.manage.dao.ServerDao" >
+    <insert id="getServiceEntry"  useGeneratedKeys="true"  parameterType="map">
+        <selectKey keyProperty="id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID() as  id
+        </selectKey>
+        INSERT INTO
+        nlp_access_info
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test='serverId != null and serverId != "" '>
+                serverId,
+            </if>
+            <if test='accessId != null and accessId != "" '>
+                accessId,
+            </if>
+            <if test='accessType != null and accessType != "" '>
+                accessType,
+            </if>
+            <if test='accessModel != null and accessModel != "" '>
+                accessModel,
+            </if>
+            <if test='deployPath != null and deployPath != "" '>
+                deployPath,
+            </if>
+            <if test='visitURL != null and visitURL != "" '>
+                visitURL,
+            </if>
+            <if test='academyId != null and academyId != "" '>
+                academyId,
+            </if>
+            <if test='professorId != null and professorId != "" '>
+                professorId,
+            </if>
+            <if test='accessWay != null and accessWay != "" '>
+                accessWay,
+            </if>
+            <if test='accessState != null and accessState != "" '>
+                accessState,
+            </if>
+            <if test='contactPerson != null and contactPerson != "" '>
+                contactPerson,
+            </if>
+            <if test='contactTel != null and contactTel != "" '>
+                contactTel,
+            </if>
+            <if test='accessPerson != null and accessPerson != "" '>
+                accessPerson,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test='serverId != null and serverId != "" '>
+                #{serverId},
+            </if>
+            <if test='accessId != null and accessId != "" '>
+                #{accessId},
+            </if>
+            <if test='accessType != null and accessType != "" '>
+                #{accessType},
+            </if>
+            <if test='accessModel != null and accessModel != "" '>
+                #{accessModel},
+            </if>
+            <if test='deployPath != null and deployPath != "" '>
+                #{deployPath},
+            </if>
+            <if test='visitURL != null and visitURL != "" '>
+                #{visitURL},
+            </if>
+            <if test='academyId != null and academyId != "" '>
+                #{academyId},
+            </if>
+            <if test='professorId != null and professorId != "" '>
+                #{professorId},
+            </if>
+            <if test='accessWay != null and accessWay != "" '>
+                #{accessWay},
+            </if>
+            <if test='accessState != null and accessState != "" '>
+                #{accessState},
+            </if>
+            <if test='contactPerson != null and contactPerson != "" '>
+                #{contactPerson},
+            </if>
+            <if test='contactTel != null and contactTel != "" '>
+                #{contactTel},
+            </if>
+            <if test='accessPerson != null and accessPerson != "" '>
+                #{accessPerson},
+            </if>
+        </trim>
+    </insert>
+    <insert id="addServerport"  useGeneratedKeys="true"  parameterType="map">
+        <selectKey keyProperty="id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID() as  id
+        </selectKey>
+        insert into nlp_server_manage set innerIP=#{innerIP},innerPort=#{innerPort},
+        outerIP=#{outerIP},outerPort=#{outerPort},reverse=#{reverse},strategyNo=#{strategyNo},
+        natAccount=#{natAccount},limitTime=#{limitTime},serverState = #{serverState}
+    </insert>
+
+    <update id="updateServiceEntry" parameterType="map">
+        UPDATE
+            nlp_access_info
+        <trim prefix="set" suffixOverrides=",">
+            <if test="serverId != null"> serverId=#{serverId},</if>
+            <if test="accessId != null"> accessId=#{accessId},</if>
+            <if test="accessType != null">accessType=#{accessType},</if>
+            <if test="accessModel != null"> accessModel=#{accessModel},</if>
+            <if test="deployPath != null">deployPath=#{deployPath}, </if>
+            <if test="visitURL != null">visitURL=#{visitURL},</if>
+            <if test="academyId != null">academyId=#{academyId},</if>
+            <if test="professorId != null">professorId=#{professorId},</if>
+            <if test="accessWay != null">accessWay=#{accessWay},</if>
+            <if test="accessState != null">accessState=#{accessState}, </if>
+            <if test="contactPerson != null">contactPerson=#{contactPerson},</if>
+            <if test="contactTel != null">contactTel=#{contactTel},</if>
+            <if test="accessPerson != null">accessPerson=#{accessPerson},</if>
+        </trim>
+        WHERE id = #{accessInfoId}
+    </update>
+
+
+    <select id="getServerList" resultType="map" parameterType="map" >
+        SELECT id,innerIP,innerPort,outerIP,outerPort,reverse,strategyNo,natAccount,limitTime
+        FROM nlp_server_manage
+        where 1=1
+        AND serverState = 010001
+        <if test="serverState != null">
+            AND serverState = #{serverState}
+        </if>
+        <if test="keyword != null">
+            AND (innerIP LIKE concat(concat('%',#{keyword}),'%')
+                  OR innerPort LIKE concat(concat('%',#{keyword}),'%')
+                  OR outerIP LIKE concat(concat('%',#{keyword}),'%')
+                  OR outerPort LIKE concat(concat('%',#{keyword}),'%')
+                  OR strategyNo LIKE concat(concat('%',#{keyword}),'%')
+                  OR natAccount LIKE concat(concat('%',#{keyword}),'%')
+            )
+        </if>
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <select id="getServerListCount" resultType="int" parameterType="map" >
+        SELECT COUNT(id) FROM nlp_server_manage
+        where 1=1
+        AND serverState = 010001
+        <if test="keyword != null">
+            AND (innerIP LIKE concat(concat('%',#{keyword}),'%')
+            OR innerPort LIKE concat(concat('%',#{keyword}),'%')
+            OR outerIP LIKE concat(concat('%',#{keyword}),'%')
+            OR outerPort LIKE concat(concat('%',#{keyword}),'%')
+            OR strategyNo LIKE concat(concat('%',#{keyword}),'%')
+            OR natAccount LIKE concat(concat('%',#{keyword}),'%')
+            )
+        </if>
+    </select>
+
+
+    <update id="updateServerInfo" parameterType="map">
+        UPDATE
+        nlp_server_manage
+        <trim prefix="set" suffixOverrides=",">
+            <if test="innerIP != null"> innerIP=#{innerIP},</if>
+            <if test="innerPort != null"> innerPort=#{innerPort},</if>
+            <if test="outerIP != null">outerIP=#{outerIP},</if>
+            <if test="outerPort != null"> outerPort=#{outerPort},</if>
+            <if test="reverse != null">reverse=#{reverse}, </if>
+            <if test="strategyNo != null">strategyNo=#{strategyNo},</if>
+            <if test="natAccount != null">natAccount=#{natAccount},</if>
+            <if test="limitTime != null">limitTime=#{limitTime},</if>
+        </trim>
+        WHERE id = #{id}
+    </update>
+    <select id="serviceEntryInfo" resultType="map" parameterType="map" >
+        SELECT
+          `id` AS accessInfoId,accessId,accessType,accessModel,deployPath,visitURL,
+          academyId,professorId,accessWay,accessState,contactPerson,contactTel,accessPerson
+         FROM nlp_access_info
+        <if test="serviceId != null and id != null">
+            where accessId = #{serviceId} and `id` = #{id}
+        </if>
+        <if test="serviceId != null and  id == null  and  methodType != null">
+            where methodType = #{methodType} and accessId = #{serviceId}
+        </if>
+        <if test="id != null and serviceId == null">
+            where `id` = #{id}
+        </if>
+    </select>
+    <update id="deleteServerPort" parameterType="map">
+        UPDATE
+        nlp_server_manage
+        set
+        serverState=#{serverState}
+        WHERE id = #{id}
+    </update>
+</mapper>

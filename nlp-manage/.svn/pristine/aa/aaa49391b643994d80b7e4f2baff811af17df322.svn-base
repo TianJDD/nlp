@@ -1,0 +1,106 @@
+package com.ultra.nlp.manage.model;
+
+/**
+ * created by JIT on 2018/4/11
+ */
+public class NlpData {
+    private  int id;
+    private String name;
+    private String uploader;
+    private String introduce;
+    private int size;
+    private String format;
+    private String url;
+    private int typeId;
+    private String image;
+    private int attr;
+    private int useNum;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUploader() {
+        return uploader;
+    }
+
+    public void setUploader(String uploader) {
+        this.uploader = uploader;
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getAttr() {
+        return attr;
+    }
+
+    public void setAttr(int attr) {
+        this.attr = attr;
+    }
+
+    public int getUseNum() {
+        return useNum;
+    }
+
+    public void setUseNum(int useNum) {
+        this.useNum = useNum;
+    }
+}

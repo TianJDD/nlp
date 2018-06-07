@@ -1,0 +1,126 @@
+package com.ultra.nlp.manage.controller;
+
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
+import com.ultra.nlp.manage.config.BaseTestConfig;
+import com.ultra.nlp.manage.model.NlpServerManage;
+import com.ultra.nlp.manage.model.NlpServiceManage;
+import com.ultra.nlp.manage.model.NlpServiceRelate;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class TestServiceController extends BaseTestConfig {
+
+    @Test
+    public void ServiceList () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/service/list")
+                .param("id","1")
+                .param("pageNow","1")
+                .param("pageSize","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+    @Test
+    public void ServiceAdd () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/service/add")
+                .param("name","1")
+                .param("descr","1")
+                .param("icon","1")
+                .param("rec_num","1")
+                .param("img","1")
+                .param("leaf","1")
+                .param("p_id","1")
+                .param("ser_type","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void addService () throws Exception{
+        /**
+         * 用例
+         * 1、输入条件：NlpServiceManage类包含NlpServiceRelate列表数据，NlpServiceRelate列表以Map格式组装
+         *    响应结果：返回保存结果
+         */
+        NlpServiceManage nlpServiceManage = new NlpServiceManage();
+        nlpServiceManage.setServiceType("001");
+        nlpServiceManage.setMethodType("1");
+        nlpServiceManage.setClass_id("12");
+        nlpServiceManage.setClassName("12345");
+        nlpServiceManage.setFromType("0101001");
+        nlpServiceManage.setServiceName("用户评价");
+        nlpServiceManage.setServiceDescr("asdfghjklrtyqwerty");
+        nlpServiceManage.setServiceIcon("qwertbgfdsaxsadcfvf");
+        nlpServiceManage.setRel_time("1524639719238");
+        nlpServiceManage.setUse_num(666);
+        nlpServiceManage.setAccessTime("2018-05-04");
+        nlpServiceManage.setServiceState("003002");
+        nlpServiceManage.setCreateUserId(1);
+        nlpServiceManage.setProfessorId(1);
+        nlpServiceManage.setAcceptUserName("1");
+        nlpServiceManage.setProfessorName("1");
+        nlpServiceManage.setAcademyId(1);
+        nlpServiceManage.setAcademyName("哈工大");
+        nlpServiceManage.setGroupId(1);
+        nlpServiceManage.setGroupName("1");
+        nlpServiceManage.setAccessWay("1");
+        nlpServiceManage.setAccessLog("1");
+        nlpServiceManage.setUrl("1");
+        nlpServiceManage.setIn_arg("1");
+        nlpServiceManage.setBanner("1");
+        nlpServiceManage.setApikey("1");
+        nlpServiceManage.setSecretkey("1");
+        nlpServiceManage.setCreateTime("1");
+        nlpServiceManage.setUpdateTime("1");
+
+        List<Map<String,Object>> relates = new ArrayList<>();
+        Map<String,Object> map = new HashMap<>();
+        map.put("serviceId",50);
+        map.put("title","aaaaaa");
+        map.put("content","bbbbbb");
+        relates.add(map);
+        nlpServiceManage.setRelates(relates);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/classify/addService")
+                .content(JSONObject.toJSONString(nlpServiceManage))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void serviceDetail () throws Exception{
+        /**
+         *
+         * 功能描述:
+         * 根据服务id查询服务详情，包括服务主表信息和相关表信息
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/classify/serviceDetail")
+                .param("serviceId","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+}

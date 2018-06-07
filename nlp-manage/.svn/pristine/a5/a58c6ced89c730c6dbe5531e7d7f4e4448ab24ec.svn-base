@@ -1,0 +1,282 @@
+package com.ultra.nlp.manage.controller;
+
+import com.ultra.nlp.manage.model.*;
+import com.ultra.nlp.manage.service.SolutionService;
+import com.ultra.nlp.manage.util.FormatUtil;
+import io.swagger.annotations.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+* 解决方案相关接口 controller 控制层
+* @author guyuefei
+* @date 2018-05-14 14:07:52
+*/
+@Api("解决方案相关接口")
+@Controller
+@RestController
+@RequestMapping("/solution")
+public class SolutionController {
+
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private SolutionService solutionService;
+
+    /**
+     * 查询解决方案列表
+     * 用于后台管理系统中对解决方案信息维护前的列表查询
+     * 提供可模糊查询功能，可模糊查询解决方案名称或者介绍。返回的列表按照创建时间倒序排序
+     * @param keyword 关键词
+     * @param pageNow 分页当前页
+     * @param pageSize 页码大小
+     * @return
+     * @author guyuefei
+     * @date 2018-05-14 14:07:52
+     */
+    @ApiOperation(value="查询解决方案列表", notes="用于后台管理系统中对解决方案信息维护前的列表查询\n" +
+            "提供可模糊查询功能，可模糊查询解决方案名称或者介绍。返回的列表按照创建时间倒序排序")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "keyword", value = "关键词", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "pageNow", value = "分页当前页", required = true, dataType = "Integer"),
+            @ApiImplicitParam(name = "pageSize", value = "页码大小", required = true, dataType = "Integer")
+    })
+    @ApiResponse(code = 0000,message = "成功",response = JsonModel.class)
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST},
+            value = "/list")
+    @ResponseBody
+    public Object findSolutionList(HttpServletRequest request, HttpServletResponse response,
+                                   @RequestParam(value = "keyword", required = false) String keyword,
+                                   @RequestParam(value = "pageNow", required = false) Integer pageNow,
+                                   @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+        Map map = new HashMap<String, Object>();
+        Page page = new Page(pageNow, pageSize);
+        if (null != keyword) {
+            map.put("keyword", keyword);
+        }
+        if (pageNow != null && pageSize != null) {
+            map.put("queryStart", page.getQueryStart());
+            map.put("pageSize", page.getPageSize());
+        }
+        page.setParam(map);
+        try {
+            logger.info("传入参数keyword为：" + keyword + ",pageNow为：" + pageNow + ",pageSize为：" + pageSize);
+            page = solutionService.findSolutionList(page);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), page.getResultList());
+            json.setPageSize(pageSize);
+            json.setPageCount(page.getPageCount());
+            json.setTotal(page.getRowCount());
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(true, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+    /**
+     * 功能描述:
+     * 用于后台管理系统中对解决方案信息维护添加解决方案
+     * @param: nlpSolution 解决方案对象信息
+     * @return: solutionId 添加成功返回主键id
+     * @auther: guyuefei
+     * @date:
+     */
+    @ApiOperation(value="添加解决方案", notes="用于后台管理系统中对解决方案信息维护添加解决方案")
+    @ApiImplicitParam(name = "nlpSolution", value = "解决方案对象信息", required = true, dataType = "NlpSolution")
+    @ApiResponse(code = 0000,message = "成功",response = JsonModel.class,responseContainer = "solutionId")
+
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST},
+            value = "/addSolution")
+    @ResponseBody
+    public Object addSolution(HttpServletRequest request, HttpServletResponse response,
+                              @RequestBody NlpSolution nlpSolution){
+        try{
+            logger.info("传入参数为："+ nlpSolution.toString());
+            nlpSolution.setAcceptTime(FormatUtil.DateFormat());
+            nlpSolution.setUpdateTime(FormatUtil.DateFormat());
+            nlpSolution.setSolutionState("003002");//状态为已完成
+            nlpSolution  =solutionService.addSolution(nlpSolution);
+            Map<String,Object> map = new HashMap<>();
+            map.put("solutionId",nlpSolution.getId());
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), map);
+            return json;
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+    /**
+     * 功能描述:
+     * 用于后台管理系统中对解决方案信息维护编辑修改解决方案信息
+     * @param: 解决方案各字段信息
+     * @return: 编辑成功/失败信息
+     * @auther: guyuefei
+     * @date:
+     */
+    @ApiOperation(value="修改解决方案", notes="用于后台管理系统中对解决方案信息维护编辑修改解决方案信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "solutionId", value = "解决方案id", required = true, dataType = "Integer"),
+            @ApiImplicitParam(name = "solutionName", value = "解决方案名称/标题", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "solutionDesc", value = "解决方案描述", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "solutionIcon", value = "解决方案图标", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "solutionUrl", value = "解决方案链接地址", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "forwardType", value = "解决方案跳转方式", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "solutionField", value = "解决方案所属领域", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "academyId", value = "提供解决方案大学/机构", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "solutionState", value = "解决方案状态", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "solutionLog", value = "解决方案备注、接入日志", required = false, dataType = "String")
+    })
+    @ApiResponse(code = 0000,message = "成功",response = JsonModel.class)
+
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST},
+            value = "/updateSolution")
+    @ResponseBody
+    public Object updateSolution(HttpServletRequest request, HttpServletResponse response,
+                                 @RequestParam(value = "solutionId", required = false) Integer solutionId,
+                                 @RequestParam(value = "solutionName", required = false) String solutionName,
+                                 @RequestParam(value = "solutionDesc", required = false) String solutionDesc,
+                                 @RequestParam(value = "solutionIcon", required = false) String solutionIcon,
+                                 @RequestParam(value = "solutionUrl", required = false) String solutionUrl,
+                                 @RequestParam(value = "forwardType", required = false) String forwardType,
+                                 @RequestParam(value = "solutionField", required = false) String solutionField,
+                                 @RequestParam(value = "academyId", required = false) String academyId,
+                                 @RequestParam(value = "solutionState", required = false) String solutionState,
+                                 @RequestParam(value = "solutionLog", required = false) String solutionLog){
+        try{
+            logger.info("传入参数为：solutionName="+solutionName+",solutionDesc="+solutionDesc+",solutionIcon="+solutionIcon+",solutionUrl="+solutionUrl+",forwardType="+forwardType
+                    +",solutionField="+solutionField+",academyId="+academyId+",serviceState="+solutionState+",solutionLog="+solutionLog);
+            Map<String,Object> map = new HashMap<>();
+            if(solutionName != null && !"".equals(solutionName))
+                map.put("solutionName",solutionName);
+            if(solutionDesc != null && !"".equals(solutionDesc))
+                map.put("solutionDesc",solutionDesc);
+            if(solutionIcon != null && !"".equals(solutionIcon))
+                map.put("solutionIcon",solutionIcon);
+            if(solutionUrl != null && !"".equals(solutionUrl))
+                map.put("solutionUrl",solutionUrl);
+            if(forwardType != null && !"".equals(forwardType))
+                map.put("forwardType",forwardType);
+            if(solutionField != null && !"".equals(solutionField))
+                map.put("solutionField",solutionField);
+            if(academyId != null && !"".equals(academyId))
+                map.put("academyId",academyId);
+            if(solutionState != null && !"".equals(solutionState))
+                map.put("solutionState",solutionState);
+            if(solutionName != null && !"".equals(solutionName))
+                map.put("solutionLog",solutionName);
+            if(solutionId != null && !"".equals(solutionId + ""))
+                map.put("solutionId",solutionId);
+            map.put("updateTime",FormatUtil.DateFormat());
+            int n  =solutionService.updateSolution(map);
+            if(n > 0) {
+                JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), null);
+                return json;
+            }else {
+                JsonModel json = new JsonModel(true, "修改解决方案信息失败！", ReturnCode.ERROR_CODE_11001.getKey(), null);
+                return json;
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+
+    /**
+     * 功能描述:
+     * 用于后台管理系统中对解决方案信息维护删除解决方案信息（逻辑删除）
+     * @param: 解决方案id
+     * @return: 编辑成功/失败信息
+     * @auther: guyuefei
+     * @date:
+     */
+    @ApiOperation(value="删除解决方案", notes="用于后台管理系统中对解决方案信息维护删除解决方案信息（逻辑删除）")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "solutionId", value = "解决方案id", required = true, dataType = "Integer"),
+            @ApiImplicitParam(name = "serviceState", value = "解决方案状态", required = false, dataType = "String")
+    })
+    @ApiResponse(code = 0000,message = "成功",response = JsonModel.class)
+
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST},
+            value = "/delSolution")
+    @ResponseBody
+    public Object delSolution(HttpServletRequest request, HttpServletResponse response,
+                                 @RequestParam(value = "solutionId", required = false) Integer solutionId,
+                                 @RequestParam(value = "solutionState", required = false) String solutionState){
+        try{
+            logger.info("传入参数为：solutionId="+solutionId+",serviceState="+solutionState);
+            Map<String,Object> map = new HashMap<>();
+            map.put("solutionId",solutionId);
+            if(null != solutionState && !"".equals(solutionState)){
+                map.put("solutionState",solutionState);
+            }else{
+                map.put("solutionState","003000");
+            }
+            int n  =solutionService.delSolution(map);
+            if(n > 0) {
+                JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), null);
+                return json;
+            }else {
+                JsonModel json = new JsonModel(true, "没有找到要删除的解决方案信息！", ReturnCode.ERROR_CODE_11001.getKey(), null);
+                return json;
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+    /**
+     * 功能描述:
+     * 管理系统解决方案信息维护查看解决方案详情
+    * @param: 根据解决方案详情id查询详情
+     * @return: a
+     * @auther guyuefei
+     * @date: a a
+     */
+    @ApiOperation(value="解决方案详情", notes="管理系统解决方案信息维护查看解决方案详情")
+    @ApiImplicitParam(name = "solutionId", value = "解决方案id", required = true, dataType = "Integer")
+    @ApiResponse(code = 0000,message = "成功",response = JsonModel.class)
+
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET},
+            value = "/detail")
+    @ResponseBody
+    public Object detail(HttpServletRequest request, HttpServletResponse response,
+                                   @RequestParam(value = "solutionId", required = false) Integer solutionId) {
+        Map map = new HashMap<String, Object>();
+        try {
+            logger.info("传入参数solutionId为：" + solutionId );
+            map.put("solutionId",solutionId);
+            map = solutionService.solutionDetail(map);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(),map);
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(true, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+}
+

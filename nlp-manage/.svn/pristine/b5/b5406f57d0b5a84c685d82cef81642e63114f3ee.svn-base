@@ -1,0 +1,131 @@
+package com.ultra.nlp.manage.controller;
+
+import com.ultra.nlp.manage.config.BaseTestConfig;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+public class TestServerController extends BaseTestConfig {
+
+    @Test
+    public void getServiceEntry () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/entry/ServiceEntry/add")
+                .param("serverId","")
+                .param("accessId","1")
+                .param("accessType","007001")
+                .param("accessModel","001001")
+                .param("deployPath","/usr/local/tomcat/aaa")
+                .param("visitURL","www.baidu.com")
+                .param("academyId","1")
+                .param("professorId","1")
+                .param("accessWay","002002")
+                //.param("accessState","003002")
+                //.param("contactPerson","宋江")
+                //param("contactTel","18888888888")
+                .param("accessPerson","admin")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void getPort () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/entry/serverport/toadd")
+                .param("innerIP","192.168.1.0")
+                .param("innerPort","8009")
+                .param("outerIP","60.54.63.23")
+                .param("outerPort","8010")
+                .param("reverse","接入服务信息")
+                .param("strategyNo","3004")
+                .param("natAccount","admin")
+                .param("limitTime","2018-05-03 18:20:10")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void updateServiceEntry () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/entry/update/ServiceEntry")
+                .param("accessInfoId","9")
+                .param("accessType","007001")
+                .param("accessModel","001001")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void serverList () throws Exception{
+        /**
+         * 查询服务器信息列表
+         * 用例
+         * 1、输入条件：输入keyword查询条件， 更改pageNow或者pageSize大小
+         *    响应结果：返回查询根据keyword模糊匹配的服务器信息列表，条数为pageSize大小，页码为当前页
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/entry/server/list")
+                .param("keyword","60")
+                .param("pageNow","1")
+                .param("pageSize","2")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void updateServerInfo () throws Exception{
+        /**
+         * 查询服务器信息列表
+         * 用例
+         * 1、输入条件：id为必传，其他参数为非必传，改变不同参数，查看相应字段更新情况
+         *    响应结果：返回查询当前页的服务器信息列表，条数为pageSize大小
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/entry/serverport/update")
+                .param("id","2")
+                .param("innerIP","192.168.1.0")
+                .param("innerPort","8008")
+                .param("outerIP","60.54.63.23")
+                .param("outerPort","8009")
+                .param("reverse","接入服务信息")
+                .param("strategyNo","3004")
+                .param("natAccount","admin")
+                .param("limiteTime","2018-05-03 18:20:00")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void serviceEntryInfo () throws Exception{
+        /**
+         *
+         * 功能描述: 查询接入服务信息详情
+         * 根据服务id查询接入服务详情，或者根据接入服务详情id查询详情
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/entry/serviceEntryInfo")
+                .param("serviceId","1")
+                .param("id","14")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+}

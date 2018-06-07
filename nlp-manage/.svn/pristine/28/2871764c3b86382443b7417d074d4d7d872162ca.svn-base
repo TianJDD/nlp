@@ -1,0 +1,426 @@
+package com.ultra.nlp.manage.controller;
+
+import com.ultra.nlp.manage.model.JsonModel;
+import com.ultra.nlp.manage.model.Page;
+import com.ultra.nlp.manage.model.ReturnCode;
+import com.ultra.nlp.manage.service.IServerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 接入服务相关接口
+ * created by guyuefei on 2018-05-08
+ */
+@Controller
+@RequestMapping(value = "/entry")
+public class ServerController {
+
+    @Autowired
+    IServerService entryService;
+
+    private final static Logger logger = LoggerFactory.getLogger(ServiceController.class);
+
+    /**
+     * 用户下载详情
+     *
+     * @param url
+     * @param
+     */
+
+    @RequestMapping(value = "/download/down")
+    public ResponseEntity<byte[]> getDownload(HttpServletResponse response,
+                                              String url) {
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("multipart/form-data");
+        response.setHeader("Content-Disposition", "attachment;fileName=" + url);
+        try {
+            File file = new File(url);
+            System.out.println(file.getAbsolutePath());
+            InputStream inputStream = new FileInputStream("file" + file);
+            OutputStream os = response.getOutputStream();
+            byte[] b = new byte[1024];
+            int length;
+            while ((length = inputStream.read(b)) > 0) {
+                os.write(b, 0, length);
+            }
+            inputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 服务录入信息
+     * @param
+     * @param
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = "/serviceEntry/add")
+    @ResponseBody
+    public Object addServiceEntry(HttpServletRequest request, HttpServletResponse response,
+                                  @RequestParam(value = "serverId",required = false)String serverId,
+                                  @RequestParam(value = "accessId",required = false)String accessId,
+                                  @RequestParam(value = "accessType",required = false)String accessType,
+                                  @RequestParam(value = "accessModel",required = false)String accessModel,
+                                  @RequestParam(value = "deployPath",required = false)String deployPath,
+                                  @RequestParam(value = "visitURL",required = false)String visitURL,
+                                  @RequestParam(value = "academyId",required = false)String academyId,
+                                  @RequestParam(value = "professorId",required = false)String professorId,
+                                  @RequestParam(value = "accessWay",required = false)String accessWay,
+                                  @RequestParam(value = "accessState",required = false)String accessState,
+                                  @RequestParam(value = "contactPerson",required = false)String contactPerson,
+                                  @RequestParam(value = "contactTel",required = false)String contactTel,
+                                  @RequestParam(value = "accessPerson",required = false)String accessPerson){
+        Map<String,Object> map = new HashMap<>(14);
+
+        try{
+            if(null != serverId && !"".equals(serverId) && !"null".equals(serverId)){
+                map.put("serverId",serverId);
+            }
+            if(null != accessId && !"".equals(accessId) && !"null".equals(accessId)){
+                map.put("accessId",accessId);
+            }
+            map.put("accessType",accessType);
+            map.put("accessModel",accessModel);
+            map.put("deployPath",deployPath);
+            map.put("visitURL",visitURL);
+            if(null != academyId && !"".equals(academyId) && !"null".equals(academyId)){
+                map.put("academyId",academyId);
+            }
+            map.put("academyId",academyId);
+            map.put("professorId",professorId);
+            map.put("accessWay",accessWay);
+            map.put("accessState",accessState);
+            map.put("contactPerson",contactPerson);
+            map.put("contactTel",contactTel);
+            map.put("accessPerson",accessPerson);
+            logger.info("传入参数为："+ map.toString());
+            map =entryService.getServiceEntry(map);
+            JsonModel json = new JsonModel(true,ReturnCode.SUCESS_CODE_0000.getValue(),ReturnCode.SUCESS_CODE_0000.getKey(),map);
+            return json;
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+    /*
+     *录入ip以及端口
+     */
+    @CrossOrigin (methods = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET})
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = ("/serverport/toadd"))
+    @ResponseBody
+    public Object addServerport(HttpServletRequest request,HttpServletResponse response,
+                          @RequestParam(value = "innerIP",required = false)String innerIP,
+                          @RequestParam(value = "innerPort",required = false)String innerPort,
+                          @RequestParam(value = "outerIP",required = false)String outerIP,
+                          @RequestParam(value = "outerPort",required = false)String outerPort,
+                          @RequestParam(value = "reverse",required = false)String reverse,
+                          @RequestParam(value = "strategyNo",required = false)String strategyNo,
+                          @RequestParam(value = "natAccount",required = false)String natAccount,
+                          @RequestParam(value = "limitTime",required = false)String limitTime){
+        Map<String,Object> map = new HashMap<>(9);
+        try{
+            map.put("innerIP",innerIP);
+            map.put("innerPort",innerPort);
+            map.put("outerIP",outerIP);
+            map.put("outerPort",outerPort);
+            map.put("reverse",reverse);
+            map.put("strategyNo",strategyNo);
+            map.put("natAccount",natAccount);
+            map.put("limitTime",limitTime);
+            map.put("serverState","010001");//默认开启，对应字典表中字段
+            logger.info("传入参数为"+map.toString());
+            map = entryService.addServerport(map);
+            JsonModel json = new JsonModel(true,ReturnCode.SUCESS_CODE_0000.getValue(),ReturnCode.SUCESS_CODE_0000.getKey(),map);
+            return json;
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+    /**
+     * 更新服务器信息接口
+     * 1、场景：用于管理平台维护服务器信息
+     * 2、输入条件：
+     * @param id
+     * @param request
+     * @param response
+     * @param innerIP 内网ip
+     * @param innerPort 内网端口号
+     * @param outerIP 外网ip
+     * @param outerPort 外网端口号
+     * @param reverse 备注信息
+     * @param strategyNo 策略编号
+     * @param natAccount  nat申请账号
+     * @param limiteTime 失效日期
+     * 3、逻辑：id为必传，其他参数为非必传，只有传入参数的字段才会被更新
+     * 4、结果：返回更新成功/失败信息
+     * @return
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = ("/serverport/update"))
+    @ResponseBody
+    public Object updateServerInfo(HttpServletRequest request,HttpServletResponse response,
+                                   @RequestParam(value = "id",required = false)String id,
+                          @RequestParam(value = "innerIP",required = false)String innerIP,
+                          @RequestParam(value = "innerPort",required = false)String innerPort,
+                          @RequestParam(value = "outerIP",required = false)String outerIP,
+                          @RequestParam(value = "outerPort",required = false)String outerPort,
+                          @RequestParam(value = "reverse",required = false)String reverse,
+                          @RequestParam(value = "strategyNo",required = false)String strategyNo,
+                          @RequestParam(value = "natAccount",required = false)String natAccount,
+                          @RequestParam(value = "limiteTime",required = false)String limiteTime){
+        Map<String,Object> map = new HashMap<>(9);
+        try{
+            //id不能为空
+            if(null == id || "".equals(id) || "null".equals(id)){
+                JsonModel json = new JsonModel(false,"id 不能为空",ReturnCode.ERROR_CODE_11001.getKey(),null);
+                return json;
+            }
+            map.put("id",id);
+            if(null != innerIP && !"".equals(innerIP) && !"null".equals(innerIP))
+                map.put("innerIP",innerIP);
+            if(null != innerPort && !"".equals(innerPort) && !"null".equals(innerPort))
+                map.put("innerPort",innerPort);
+            if(null != outerIP && !"".equals(outerIP) && !"null".equals(outerIP))
+                map.put("outerIP",outerIP);
+            if(null != outerPort && !"".equals(outerPort) && !"null".equals(outerPort))
+                map.put("outerPort",outerPort);
+            if(null != reverse  && !"null".equals(reverse))
+                map.put("reverse",reverse);
+            if(null != strategyNo && !"".equals(strategyNo) && !"null".equals(strategyNo))
+                map.put("strategyNo",strategyNo);
+            if(null != natAccount && !"".equals(natAccount) && !"null".equals(natAccount))
+                map.put("natAccount",natAccount);
+            if(null != limiteTime && !"".equals(limiteTime) && !"null".equals(limiteTime))
+                map.put("limiteTime",limiteTime);
+            logger.info("传入参数为"+map.toString());
+            entryService.updateServerInfo(map);
+            JsonModel json = new JsonModel(true,ReturnCode.SUCESS_CODE_0000.getValue(),ReturnCode.SUCESS_CODE_0000.getKey(),map);
+            return json;
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+    /**
+     * 更新接入信息表
+     * @param request
+     * @param response
+     * @param accessInfoId 信息表id
+     * @param serverId
+     * @param accessId
+     * @param accessType
+     * @param accessModel
+     * @param deployPath
+     * @param visitURL
+     * @param academyId
+     * @param professorId
+     * @param accessWay
+     * @param accessState
+     * @param contactPerson
+     * @param contactTel
+     * @param accessPerson
+     * @return
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = ("/update/serviceEntry"))
+    @ResponseBody
+    public Object updateServiceEntry(HttpServletRequest request, HttpServletResponse response,
+                                     @RequestParam(value = "accessInfoId",required = false)String accessInfoId,
+                                     @RequestParam(value = "serverId",required = false)String serverId,
+                                     @RequestParam(value = "accessId",required = false)String accessId,
+                                     @RequestParam(value = "accessType",required = false)String accessType,
+                                     @RequestParam(value = "accessModel",required = false)String accessModel,
+                                     @RequestParam(value = "deployPath",required = false)String deployPath,
+                                     @RequestParam(value = "visitURL",required = false)String visitURL,
+                                     @RequestParam(value = "academyId",required = false)String academyId,
+                                     @RequestParam(value = "professorId",required = false)String professorId,
+                                     @RequestParam(value = "accessWay",required = false)String accessWay,
+                                     @RequestParam(value = "accessState",required = false)String accessState,
+                                     @RequestParam(value = "contactPerson",required = false)String contactPerson,
+                                     @RequestParam(value = "contactTel",required = false)String contactTel,
+                                     @RequestParam(value = "accessPerson",required = false)String accessPerson) {
+        Map<String, Object> map = new HashMap<>(14);
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Allow","OPTIONS,GET,POST");
+        try {
+            map.put("accessInfoId", accessInfoId);
+            map.put("serverId", serverId);
+            map.put("accessId", accessId);
+            map.put("accessType", accessType);
+            map.put("accessModel", accessModel);
+            map.put("deployPath", deployPath);
+            map.put("visitURL", visitURL);
+            map.put("academyId", academyId);
+            map.put("professorId", professorId);
+            map.put("accessWay", accessWay);
+            map.put("accessState", accessState);
+            map.put("contactPerson", contactPerson);
+            map.put("contactTel", contactTel);
+            map.put("accessPerson", accessPerson);
+            logger.info("传入参数为：" + map.toString());
+            int n  = entryService.updateServiceEntry(map);
+            if(n > 0){
+                JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), null);
+                return json;
+            }else{
+                JsonModel json = new JsonModel(false, "没有找到更新的数据", ReturnCode.ERROR_CODE_11001.getKey(), null);
+                return json;
+            }
+
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(false, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+    /**
+     * 查询服务器信息列表
+     *1、场景：用于管理平台维护服务器信息信息时的列表展示、维护大学服务接入信息时列表展示
+     * 2、查询条件：当前页、页大小
+     * 3、逻辑：查询服务器信息列表，返回页大小条数
+     * 4、结果：带有分页功能的服务器信息列表
+     * @param request
+     * @param
+     * @param keyword 查询条件
+     * @param pageNow
+     * @param pageSize
+     * @return
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},value = "/serverport/list")
+    @ResponseBody
+    public Object serverList(HttpServletRequest request, HttpServletResponse response,
+                             @RequestParam(value = "keyword",required=false) String keyword,
+                              @RequestParam(value = "pageNow",required=false) Integer pageNow,
+                              @RequestParam(value = "pageSize",required=false) Integer pageSize){
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        Map<String, Object> map = new HashMap<>(3);
+        Page page = new Page(pageNow,pageSize);
+        if(keyword != null){
+            map.put("keyword",keyword);
+        }
+        if(pageNow != null && pageSize != null){
+            map.put("queryStart",page.getQueryStart());
+            map.put("pageSize",page.getPageSize());
+        }
+        map.put("serverState","010001");
+        page.setParam(map);
+        try{
+            //关键代码：根据传入参数，查询数据库,返回结果
+            page = entryService.getServerList(page);
+            JsonModel json = new JsonModel(true,ReturnCode.SUCESS_CODE_0000.getValue(),ReturnCode.SUCESS_CODE_0000.getKey(),page.getResultList());
+            json.setPageSize(pageSize);
+            json.setPageCount(page.getPageCount());
+            json.setTotal(page.getRowCount());
+            return json;
+        }catch(Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(true,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+
+    }
+
+    /**
+     * 功能描述: 查询接入服务信息详情接口
+     * 用于管理平台维护服务详情页维护接入信息前信息展示
+     *根据服务id或者接入服务信息详情id查询接入服务信息
+     * @param: serviceId 服务id 或者解决方案id
+     * @param ：id 服务接入信息表id
+     * @return: 接入服务信息详情
+     * @auther: guyuefei
+     * @date:
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = "/serviceEntryInfo")
+    @ResponseBody
+    public Object serviceEntryInfo(HttpServletRequest request, HttpServletResponse response,
+                                @RequestParam (value = "serviceId",required=false) String serviceId,
+                                @RequestParam (value = "methodType",required=false) String methodType,
+                                @RequestParam (value = "id",required=false) String id){
+        try{
+            logger.info("传入的服务id为："+ serviceId + "接入信息表id为：" + id);
+            Map<String,Object> map = new HashMap<>(10);
+            if((null == serviceId || "".equals(serviceId)) && (null == id || "".equals(id))){
+                JsonModel json = new JsonModel(true, "serviceId 或者 id 不能为空", ReturnCode.ERROR_CODE_11001.getKey(), null);
+                return json;
+            }
+            if(null != serviceId && !"" .equals(serviceId) && !"null" .equals(serviceId) && null != methodType && !"" .equals(methodType) && !"null" .equals(methodType)){
+                map.put("serviceId",serviceId);
+                map.put("methodType",methodType);
+            }
+            if(null != id && !"".equals(id)  && !"null".equals(id)){
+                map.put("id",id);
+            }
+            map  = entryService.serviceEntryInfo(map);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), map);
+            return json;
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+
+    /**
+     * 功能描述:
+     *  删除服务器信息
+     *  用于服务器信息管理删除服务器信息，做物理删除
+     * @param: id
+     * @return: 操作结果
+     * @auther: guyuefei
+     * @date:
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.GET},
+            value = "/serverport/delete")
+    @ResponseBody
+    public Object deleteServerPort(HttpServletRequest request, HttpServletResponse response,
+                                   @RequestParam (value = "id",required=false) String id){
+        try{
+            logger.info("服务器信息表id为：" + id);
+            Map<String,Object> map = new HashMap<>(1);
+            if(null == id || "".equals(id)  || "null".equals(id)){
+                JsonModel json = new JsonModel(true,"缺少服务器信息id", ReturnCode.ERROR_CODE_11001.getKey(), null);
+                return json;
+            }
+            map.put("id",id);
+            map.put("serverState","010002");//停用状态，对应字典表中的dictCode
+            entryService.deleteServerPort(map);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), null);
+            return json;
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            JsonModel json = new JsonModel(false,ReturnCode.ERROR_CODE_11001.getValue(),ReturnCode.ERROR_CODE_11001.getKey(),null);
+            return json;
+        }
+    }
+}
+

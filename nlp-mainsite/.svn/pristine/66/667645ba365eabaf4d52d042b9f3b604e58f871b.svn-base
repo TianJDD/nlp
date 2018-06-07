@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.mainsite.dao.indexDao" >
+
+    <select id="getProfessorCount" resultType="int">
+        SELECT COUNT(professor.id) AS professorCount
+        FROM nlp_access_academy_professor AS professor
+        WHERE professor.professorState = 010001
+    </select>
+
+    <select id="getAcademyCount" resultType="int">
+        SELECT COUNT(service.id) AS serviceCount
+        FROM nlp_service_manage AS service
+        WHERE service.serviceState = 003002
+    </select>
+
+    <select id="getServiceCount" resultType="int">
+        SELECT COUNT(academy.id) AS academyCount
+        FROM nlp_access_academy AS academy
+        WHERE academy.academyState = 010001
+    </select>
+</mapper>

@@ -1,0 +1,7 @@
+package com.ultra.nlp.mainsite.config;
+
+import org.springframework.context.annotation.ComponentScan;
+
+@ComponentScan("com.cips.*")
+public class config {
+}

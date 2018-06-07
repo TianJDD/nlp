@@ -1,0 +1,20 @@
+package com.ultra.nlp.mainsite.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * created by JIT on 2018/5/23
+ */
+@Mapper
+public interface indexDao {
+    List getCountBytype();
+    int getProfessorCount();
+    int getAcademyCount();
+    int getServiceCount();
+    int getSolutionCount();
+}

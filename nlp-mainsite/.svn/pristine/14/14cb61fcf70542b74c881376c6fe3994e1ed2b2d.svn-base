@@ -1,0 +1,59 @@
+package com.ultra.nlp.mainsite.dao;
+
+import com.ultra.nlp.mainsite.model.NlpService;
+import com.ultra.nlp.mainsite.model.ServiceDetail;
+import com.ultra.nlp.mainsite.model.ServiceRelate;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
+
+@Mapper
+public interface IServiceDao {
+    List<Map<String, Object>> getServiceTypeList(Map<String, Object> map);
+    int getServiceTypeListCounts(Map<String,Object> map);
+
+    //查询基础热门服务第二级
+    List<Map<String,Object>> getRecServiceList2(Map<String, Object> param);
+    int getServiceTypeListCounts2(Map<String,Object> map);
+
+    List<Map<String,Object>> getService(String id);
+
+    List<Map<String,Object>> getRecClsList(Map<String, Object> param);
+
+    int getRecClsListCounts(Map<String, Object> param);
+
+    //查询热门服务下的第一级
+    List<Map<String,Object>> getRecServiceList1(Map<String, Object> param);
+
+    //根据第三级typeId查询service列表
+    List<Map<String,Object>> getServiceListByType3Id(Map<String, Object> param);
+
+    int getServiceListByType3IdCounts(Map<String, Object> param);
+
+    //服务列表页模糊查询
+    List<Map<String,Object>> searchServiceByCondition(Map<String, Object> param);
+
+    //服务列表页模糊查询
+    int searchServiceCountByKeyword(Map<String, Object> param);
+
+    //查看服务详情
+    List<Map<String,Object>> detailsdao(Integer id);
+    //根据服务id查询服务详情
+    ServiceDetail getServiceInfo(Map<String, Object> map);
+    //获取服务关联属性
+    List<ServiceRelate> getServiceRelates(@Param(value ="serviceId") String id);
+    //根据服务类别查询服务查询服务所在服务器信息
+    Map<String,Object> getServiceIpAndPort(Map<String,Object> map);
+
+    //跟新用户使用服务次数
+    int updateServiceUseCount(Map<String,Object> map);
+
+    //根据服务分类id查询分类名称
+    Map<String,Object> getServiceTypeNameById(Map<String,Object> map);
+
+    List getSolutionList();
+
+    Map<String,Object> checkServiceDetailForward(Map<String,Object> map);
+}

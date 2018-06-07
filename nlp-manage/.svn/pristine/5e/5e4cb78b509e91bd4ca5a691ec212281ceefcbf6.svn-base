@@ -1,0 +1,341 @@
+package com.ultra.nlp.manage.controller;
+
+import com.alibaba.fastjson.JSONObject;
+import com.ultra.nlp.manage.config.BaseTestConfig;
+import com.ultra.nlp.manage.model.*;
+import com.ultra.nlp.manage.util.StringUtil;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.UUID;
+
+public class TestAcademyController extends BaseTestConfig {
+
+    @Test
+    public void academyList () throws Exception{
+        /**
+         * 用例
+         * 1、输入条件：更改pageNow或者pageSize大小
+         *    响应结果：返回查询当前页的大学/机构列表，条数为pageSize大小
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/list")
+                .param("pageNow","1")
+                .param("pageSize","10")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void addAcademy () throws Exception{
+        /**
+         * 添加学校/机构信息接口
+         * 1、场景：用于管理平台维护大学/机构信息的添加
+         * 2、参数：academyName,academyDesc,academyURL
+         * 3、逻辑：添加大学/机构信息的名称，描述，网址
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/addAcademy")
+                .param("academyName","苏州大学")
+                .param("academyDesc","美")
+                .param("academyPhone","18888888888")
+                .param("academyURL","www.baidu.com")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void delAcademy () throws Exception{
+        /**
+         * 删除学校/机构信息接口
+         * 1、场景：用于管理平台维护大学/机构信息的删除
+         * 2、参数：academyId
+         * 3、逻辑：根据academyId删除数据库中对应的数据
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/delAcademy")
+                .param("id","15")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+    @Test
+
+    public void addGroup () throws Exception{
+        /**
+         * 功能描述: 添加部门接口
+         *  维护教授信息添加学院/研究方向
+         * @param: academyId 大学id
+         * @param: groupDesc 学院/研究方向介绍
+         * @param: groupName 学院/研究方向名称
+         * @return: 操作成功或者失败信息
+         * @param:
+         * @return:
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/addGroup")
+                .param("academyId","15")
+                .param("groupName","人工智能学院")
+                .param("groupDesc","主要进行中文文字处理研究")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void delGroup () throws Exception{
+        /**
+         * 功能描述:删除部门/机构信息
+         * 用于机构/部门信息维护中删除操作
+         * @param: id 部门id
+         * @return: 删除是否成功信息
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/delGroup")
+                .param("id","4")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+    @Test
+    public void updateGroup () throws Exception{
+        /**
+         * 修改课题组/部门信息接口
+         * 1、场景：用于管理平台维护课题组/部门信息时的修改
+         * 2、修改条件：Id：课题组/部门
+         * 3、逻辑：根据课题组/部门id修改该课题组/部门信息，修改成功后不需要向前台返回json
+         * 4、结果：修改成功课题组/部门信息/修改失败
+         * @auther: guyuefei
+         * @date:
+         */
+        NlpGroup nlpGroup = new NlpGroup();
+        nlpGroup.setId(3+"");
+        //nlpGroup.setAcademyId(15);
+        nlpGroup.setGroupDesc("主要进行电子通信领域研究");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/updateGroup")
+                .content(JSONObject.toJSONString(nlpGroup))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void grouplist () throws Exception{
+        /**
+         * 查询大学课题组/机构部门信息列表接口
+         * 1、场景：用于管理平台维护大学课题组/机构部门信息时的列表展示
+         * 2、查询条件：academyId：大学/机构id  pageNow：当前页  pageSize：页大小
+         * 3、逻辑：根据大学/机构id，查询该机构下的部门列表信息，返回页大小条数
+         * 4、结果：带有分页功能的大学课题组/机构部门信息列表
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/grouplist")
+                .param("pageNow","1")
+                .param("pageSize","10")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    /**
+     * 大学/机构 信息修改
+     */
+    public void updateAcademy () throws Exception{
+        NlpAcademy nlpAcademy = new NlpAcademy();
+        nlpAcademy.setId(7+"");
+        nlpAcademy.setAcademyName("中北大学");
+        nlpAcademy.setAcademyDesc("人民兵工第一校");
+        nlpAcademy.setAcademyPhone("1777777777777");
+        nlpAcademy.setAcademyURL("www.baidu.com");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/updateAcademy")
+                .content(JSONObject.toJSONString(nlpAcademy))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    /**
+     * 大学/机构 信息修改
+     */
+    public void updateProfessor () throws Exception{
+        NlpProfessor nlpProfessor = new NlpProfessor();
+        nlpProfessor.setId(8+"");
+       /* nlpProfessor.setAcademyId(1);
+        nlpProfessor.setGroupId(1);*/
+        nlpProfessor.setProfessorSex("009001");
+        nlpProfessor.setProfessorDesc("主要进行中文文字处理研究");
+        nlpProfessor.setProfessorPhone("1777777777");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/updateProfessor")
+                .content(JSONObject.toJSONString(nlpProfessor))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void addPofessor () throws Exception{
+        /**
+         * 功能描述: 添加教授信息接口
+         * 用于维护教授信息
+         * @param: academyId 大学id
+         * @param: groupId 学院id
+         * @param: professorName 教授姓名
+         * @param: professorDesc 教授描述
+         * @param: professorPhone 教授电话
+         * @param: professorImg 教授头像
+         * @param: professorTitle 教授职位
+         * @param: professorSex 教授性别
+         * @return: 操作成功或者失败信息
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/addProfessor")
+                .param("academyId","15")
+                .param("professorName","李逵")
+                .param("professorDesc","主要进行中文文字处理研究")
+                .param("professorPhone","18732468765")
+                .param("professorTitle","副教授")
+                .param("professorSex","009001")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void delProfessor () throws Exception{
+        /**
+         * 功能描述:删除教授信息
+         *  用于教授信息维护中的删除
+         * @param: id 教授信息表id
+         * @return: 删除是否成功信息
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/delProfessor")
+                .param("id","8")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void professorlist () throws Exception{
+        /**
+         * 功能描述:删除教授信息
+         *  用于教授信息维护中的删除
+         * @param: id 教授信息表id
+         * @return: 删除是否成功信息
+         * @auther: guyuefei
+         * @date:
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/professorlist")
+                .param("pageNow","1")
+                .param("pageSize","10")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    /**
+     * 获取教授relate列表
+     * @throws Exception
+     */
+    @Test
+    public void getProfessoRelateListTest () throws Exception {
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/getProfessorRelateList")
+                .param("professorId","5be5a6c3c2094db9ac3e279e17e39132")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("结果" + result.getResponse().getContentAsString());
+    }
+
+    /**
+     * 添加教授relate
+     * @throws Exception
+     */
+    @Test
+    public void addProfessorRelate () throws Exception{
+        NlpAccessProfessorRelate na = new NlpAccessProfessorRelate();
+        na.setId(StringUtil.getUUID());
+        na.setProfessorId("5be5a6c3c2094db9ac3e279e17e39132");
+        na.setRelateDesc("qweasdasd");
+        na.setRelateType("015003");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/addProfessorRelate")
+                .content(JSONObject.toJSONString(na))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    /**
+     * 修改教授relate
+     * @throws Exception
+     */
+    @Test
+    public void updateProfessorRelate () throws Exception{
+        NlpAccessProfessorRelate na = new NlpAccessProfessorRelate();
+        na.setId("bd9357a971354490a92409e348eec953");
+        na.setRelateDesc("qweqweqwe刚修改的+1");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/updateProfessorRelate")
+                .content(JSONObject.toJSONString(na))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    /**
+     * 删除教授relate
+     * @throws Exception
+     */
+    @Test
+    public void delProfessorRelate () throws Exception{
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/delProfessorRelate")
+                .param("id","bd9357a971354490a92409e348eec953")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("结果" + result.getResponse().getContentAsString());
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+
+}

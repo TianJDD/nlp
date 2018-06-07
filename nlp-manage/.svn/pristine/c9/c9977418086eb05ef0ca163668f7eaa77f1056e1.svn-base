@@ -1,0 +1,28 @@
+package com.ultra.nlp.manage.service;
+
+import com.ultra.nlp.manage.model.NlpAcademy;
+import com.ultra.nlp.manage.model.NlpGroup;
+import com.ultra.nlp.manage.model.NlpProfessor;
+import com.ultra.nlp.manage.model.Page;
+
+import java.util.List;
+import java.util.Map;
+
+public interface IAcademyService {
+
+    Page getAcademyList(Page page);
+
+    Page getGroupList(Page page);
+
+    Page getProfessorList(Page page);
+
+    int updateAcademy(NlpAcademy nlpAcademy);
+
+    int updateProfessor(NlpProfessor nlpProfessor);
+
+    int addAcademy(Map<String, Object> map);
+
+    int delAcademy(Integer id);
+
+    int updateGroup(NlpGroup nlpGroup);
+}

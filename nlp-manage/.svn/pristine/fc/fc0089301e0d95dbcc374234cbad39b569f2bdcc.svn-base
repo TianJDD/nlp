@@ -1,0 +1,70 @@
+package com.ultra.nlp.manage.model;
+
+public class NlpGroup {
+    private int id;
+    private Integer academyId;
+    private String academyName;
+    private String groupName;
+    private String groupDesc;
+    private String groupState;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Integer getAcademyId() {
+        return academyId;
+    }
+
+    public void setAcademyId(Integer academyId) {
+        this.academyId = academyId;
+    }
+
+    public String getAcademyName() {
+        return academyName;
+    }
+
+    public void setAcademyName(String academyName) {
+        this.academyName = academyName;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public String getGroupDesc() {
+        return groupDesc;
+    }
+
+    public void setGroupDesc(String groupDesc) {
+        this.groupDesc = groupDesc;
+    }
+
+    public String getGroupState() {
+        return groupState;
+    }
+
+    public void setGroupState(String groupState) {
+        this.groupState = groupState;
+    }
+
+    @Override
+    public String toString() {
+        return "NlpGroup{" +
+                "id=" + id +
+                ", academyId=" + academyId +
+                ", academyName='" + academyName + '\'' +
+                ", groupName='" + groupName + '\'' +
+                ", groupDesc='" + groupDesc + '\'' +
+                ", groupState='" + groupState + '\'' +
+                '}';
+    }
+}

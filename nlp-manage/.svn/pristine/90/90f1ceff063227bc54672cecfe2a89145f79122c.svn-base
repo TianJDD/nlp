@@ -1,0 +1,140 @@
+package com.ultra.nlp.manage.service.impl;
+
+import com.ultra.nlp.manage.dao.DictDao;
+import com.ultra.nlp.manage.model.NlpDict;
+import com.ultra.nlp.manage.model.Page;
+import com.ultra.nlp.manage.service.DictService;
+import com.ultra.nlp.manage.util.GenerateCode;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Service
+@Transactional
+public class DictServiceImp implements DictService {
+
+    @Resource
+    private DictDao dictDao;
+
+    @Override
+    public Page getDictList(Page page) {
+        List<Map<String, Object>> list = dictDao.getDictList(page.getParam());
+        page.setResultList(list);
+        int count = dictDao.getDictListCounts(page.getParam());
+        if (page.getPageSize() == 0)
+            page.setPageCount(1);
+        else
+            page.setPageCount(count % page.getPageSize() == 0 ? count % page.getPageSize() : count % page.getPageSize() + 1);
+        page.setRowCount(count);
+
+        return page;
+    }
+
+    @Override
+    public int getDictToAdd(NlpDict nlpDict) throws Exception {
+        //sql生成dictCode
+        String dictCode = "";
+        if (null != dictDao.getDictUUid(nlpDict)){
+            dictCode = dictDao.getDictUUid(nlpDict);
+        } else {
+            dictCode = "001";
+        }
+        if (dictCode.length()<3) {
+            dictCode = GenerateCode.generateCode(Integer.parseInt(dictCode == null ? 1 + "" : dictCode));
+        }else if (dictCode.length() == 4){
+            dictCode.substring(1,4);
+        }
+        if (!nlpDict.getParentCode().equals("0")){
+            dictCode = nlpDict.getParentCode() + dictCode;
+        }
+        nlpDict.setDictCode(dictCode);
+        return dictDao.getDictToAdd(nlpDict);
+    }
+
+    @Override
+    public int updateDict(NlpDict nlpDict) {
+        return dictDao.updateDict(nlpDict);
+    }
+
+    @Override
+    public Page getDictTreeList(Page page) {
+        List<Map> dictTreeList = dictDao.getDictTreeList(page.getParam());
+
+        page.setResultList(dictTreeList);
+        int count = dictDao.getDictTreeListCount(page.getParam());
+        if (page.getPageSize() == 0) {
+            page.setPageCount(1);
+        } else {
+            page.setPageCount(count % page.getPageSize() == 0 ? count % page.getPageSize() : count % page.getPageSize() + 1);
+        }
+        page.setRowCount(count);
+
+        return page;
+        /*List<Map> list = new ArrayList<>();
+        for (Map map1 : dictTreeList) {
+            //取出所有entry。根据条件进行分类
+            if (((String) map1.get("parentCode")).equals("0")) {
+                //拿出entry中的第一级节点，放到新的list中
+                //map2.put("dictCode", map1.get("dictCode"));
+                //map2.put("dictName", map1.get("dictName"));
+                list.add(map1);
+            } else {
+                //map1不是一级节点了
+                list = (List<Map>) this.getSubList(list, map1);
+            }
+        }
+        page.setResultList(list);
+        */
+
+    }
+
+    @Override
+    public int delDict(String dictCode) {
+        Map map = new HashMap<>();
+        map.put("dictCode", dictCode);
+        int childCount = dictDao.getDictListCounts(map);
+        int i = 0;
+        if (childCount <= 0) {
+            i = dictDao.delDict(dictCode);
+        }
+        return i;
+    }
+
+    //递归树，有需要可以用。
+    Object getSubList(List<Map> list, Map child) {
+        for (Map map : list) {
+            //寻找自己的父级
+            List<Map> cList = (List<Map>) map.get("children");
+            if (null != cList && cList.size() > 0) {
+                if (child.get("parentCode").equals(map.get("dictCode"))) {
+                    //children.put("dictCode",child.get("dictCode"));
+                    //children.put("dictName",child.get("dictName"));
+                    cList.add(child);
+                }
+                getSubList(cList, child);
+
+            } else {
+                if (child.get("parentCode").equals(map.get("dictCode"))) {
+                    List childList = new ArrayList(1);
+                    //children.put("dictCode",child.get("dictCode"));
+                    //children.put("dictName",child.get("dictName"));
+                    childList.add(child);
+                    map.put("children", childList);
+                }
+            }
+        }
+
+
+        return list;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("0016".substring(1,4));
+    }
+
+}

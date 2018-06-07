@@ -1,0 +1,40 @@
+package com.ultra.nlp.manage.service.impl;
+
+import com.ultra.nlp.manage.dao.DictDao;
+import com.ultra.nlp.manage.model.NlpDict;
+import com.ultra.nlp.manage.service.DictService;
+import com.ultra.nlp.manage.util.GenerateCode;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
+
+@Service
+@Transactional
+public class DictServiceImp implements DictService {
+
+    @Resource
+    private DictDao dictDao;
+
+    @Override
+    public List<Map<String,String>> getDictList(Map<String,String> map){
+        return dictDao.getDictList(map);
+    }
+
+    @Override
+    public String getDictToAdd(NlpDict nlpDict) throws Exception{
+        //sql生成dictCode
+        String dictCode = dictDao.getDictUUid(nlpDict);
+        dictCode = nlpDict.getParentCode() + GenerateCode.generateCode(Integer.parseInt(dictCode == null ? 1 + "" : dictCode));
+        nlpDict.setDictCode(dictCode);
+        dictDao.getDictToAdd(nlpDict);
+        return dictCode;
+    }
+
+    @Override
+    public int updateDict(NlpDict nlpDict){
+        return dictDao.updateDict(nlpDict);
+    }
+}

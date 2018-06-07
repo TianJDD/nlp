@@ -1,0 +1,57 @@
+spring.application.name=NLP-MAINSITE
+server.port=8090
+
+# \u591A\u73AF\u5883\u914D\u7F6E\u6587\u4EF6\u6FC0\u6D3B\u5C5E\u6027
+spring.profiles.active=dev
+
+pring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+
+spring.http.encoding.enabled=true
+spring.http.encoding.force=true
+spring.http.encoding.charset=UTF-8
+server.tomcat.uri-encoding=UTF-8
+#\u5728\u4F7F\u7528springboot\u7684\u8FC7\u7A0B\u4E2D\uFF0C\u5982\u679C\u4F7F\u7528thymeleaf\u4F5C\u4E3A\u6A21\u677F\u6587\u4EF6\uFF0C
+# \u5219\u8981\u6C42HTML\u683C\u5F0F\u5FC5\u987B\u4E3A\u4E25\u683C\u7684html5\u683C\u5F0F\uFF0C\u5FC5\u987B\u6709\u7ED3\u675F\u6807\u7B7E\uFF0C\u5426\u5219\u4F1A\u62A5\u9519\uFF0C\u89E3\u51B3\u65B9\u6CD5\u5982\u4E0B
+spring.thymeleaf.content-type=text/html
+spring.thymeleaf.cache=false
+spring.thymeleaf.mode=LEGACYHTML5
+
+#\u63A7\u5236dao\u5C42sql\u6253\u5370\u65E5\u5FD7\u7EA7\u522B
+logging.level.com.ultra.nlp.mainsite.dao=TRACE
+logging.level.com.ultra.nlp.mainsite.interceptor=INFO
+logging.level.com.ultra.nlp.mainsite.controller=DEBUG
+logging.file=logs/nlp-mainsite.log
+logging.pattern.console=%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n
+logging.pattern.file=%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n
+
+#################redis\u57FA\u7840\u914D\u7F6E#################
+spring.redis.database=1
+spring.redis.host=192.168.95.57
+#spring.redis.password=nlp_Redis
+spring.redis.port=6379
+# \u8FDE\u63A5\u8D85\u65F6\u65F6\u95F4 \u5355\u4F4D ms\uFF08\u6BEB\u79D2\uFF09
+spring.redis.timeout=3000
+
+#################redis\u7EBF\u7A0B\u6C60\u8BBE\u7F6E#################
+# \u8FDE\u63A5\u6C60\u4E2D\u7684\u6700\u5927\u7A7A\u95F2\u8FDE\u63A5\uFF0C\u9ED8\u8BA4\u503C\u4E5F\u662F8\u3002
+spring.redis.pool.max-idle=500
+#\u8FDE\u63A5\u6C60\u4E2D\u7684\u6700\u5C0F\u7A7A\u95F2\u8FDE\u63A5\uFF0C\u9ED8\u8BA4\u503C\u4E5F\u662F0\u3002
+spring.redis.pool.min-idle=50
+# \u5982\u679C\u8D4B\u503C\u4E3A-1\uFF0C\u5219\u8868\u793A\u4E0D\u9650\u5236\uFF1B\u5982\u679Cpool\u5DF2\u7ECF\u5206\u914D\u4E86maxActive\u4E2Ajedis\u5B9E\u4F8B\uFF0C\u5219\u6B64\u65F6pool\u7684\u72B6\u6001\u4E3Aexhausted(\u8017\u5C3D)\u3002
+spring.redis.pool.max-active=2000
+# \u7B49\u5F85\u53EF\u7528\u8FDE\u63A5\u7684\u6700\u5927\u65F6\u95F4\uFF0C\u5355\u4F4D\u6BEB\u79D2\uFF0C\u9ED8\u8BA4\u503C\u4E3A-1\uFF0C\u8868\u793A\u6C38\u4E0D\u8D85\u65F6\u3002\u5982\u679C\u8D85\u8FC7\u7B49\u5F85\u65F6\u95F4\uFF0C\u5219\u76F4\u63A5\u629B\u51FAJedisConnectionException
+spring.redis.pool.max-wait=1000
+
+#################redis\u54E8\u5175\u8BBE\u7F6E#################
+# Redis\u670D\u52A1\u5668master\u7684\u540D\u5B57
+#spring.redis.sentinel.master=master8026
+# redis-sentinel\u7684\u914D\u7F6E\u5730\u5740\u548C\u7AEF\u53E3
+#spring.redis.sentinel.nodes=10.189.80.25:26379,10.189.80.26:26379,10.189.80.27:26378
+#spring.mvc.static-path-pattern=/**
+#spring.resources.static-locations=/WEB-INF/
+
+#spring.mvc.view.prefix=/WEB-INF/jsp/
+#spring.mvc.view.suffix=.jsp
+
+#eureka.client=eureka-client

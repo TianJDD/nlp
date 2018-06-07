@@ -1,0 +1,244 @@
+package com.ultra.nlp.manage.model;
+import io.swagger.annotations.ApiModel;
+
+import java.util.Date;
+
+/**
+* 解决方案相关接口 实体类
+* @author guyuefei
+* @date 2018-05-14 14:07:52
+*/
+@ApiModel(value = "",description = "解决方案相关接口 实体类")
+public class NlpSolution {
+
+    /**
+    * 
+    * jdbcType: INT
+    * javaType: Integer
+    */
+    private String id;
+
+    /**
+    * 
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+    private String solutionName;
+
+    /**
+    * 
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+    private String solutionDesc;
+
+    /**
+    * 
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+    private String solutionIcon;
+
+    /**
+    * 
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+    private String solutionUrl;
+
+    /**
+    * 1:详情，2：链接
+    * jdbcType: INT
+    * javaType: Integer
+    */
+    private String forwardType;
+
+    /**
+    * 
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+    private String solutionField;
+
+    /**
+    * 
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+    private String academyId;
+
+    /**
+    * 
+    * jdbcType: DATE
+    * javaType: Date
+    */
+    private String acceptTime;
+
+    /**
+    * 1：进行中
+            2：已完成
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+    private String solutionState;
+
+    /**
+    * 
+    * jdbcType: TEXT
+    * javaType: String
+    */
+    private String solutionLog;
+
+    private String updateTime;
+
+    //2018年5月21日11:20:48，添加属性isCharge   by jit
+    private String isCharge;
+
+    //2018年5月30日14:54:03，添加属性groupId和professorId    by jit
+    private String groupId;
+    private String professorId;
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getProfessorId() {
+        return professorId;
+    }
+
+    public void setProfessorId(String professorId) {
+        this.professorId = professorId;
+    }
+
+    public String getIsCharge() {
+        return isCharge;
+    }
+
+    public void setIsCharge(String isCharge) {
+        this.isCharge = isCharge;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSolutionName() {
+        return solutionName;
+    }
+
+    public void setSolutionName(String solutionName) {
+        this.solutionName = solutionName;
+    }
+
+    public String getSolutionDesc() {
+        return solutionDesc;
+    }
+
+    public void setSolutionDesc(String solutionDesc) {
+        this.solutionDesc = solutionDesc;
+    }
+
+    public String getSolutionIcon() {
+        return solutionIcon;
+    }
+
+    public void setSolutionIcon(String solutionIcon) {
+        this.solutionIcon = solutionIcon;
+    }
+
+    public String getSolutionUrl() {
+        return solutionUrl;
+    }
+
+    public void setSolutionUrl(String solutionUrl) {
+        this.solutionUrl = solutionUrl;
+    }
+
+    public String getForwardType() {
+        return forwardType;
+    }
+
+    public void setForwardType(String forwardType) {
+        this.forwardType = forwardType;
+    }
+
+    public String getSolutionField() {
+        return solutionField;
+    }
+
+    public void setSolutionField(String solutionField) {
+        this.solutionField = solutionField;
+    }
+
+    public String getAcademyId() {
+        return academyId;
+    }
+
+    public void setAcademyId(String academyId) {
+        this.academyId = academyId;
+    }
+
+    public String getAcceptTime() {
+        return acceptTime;
+    }
+
+    public void setAcceptTime(String acceptTime) {
+        this.acceptTime = acceptTime;
+    }
+
+    public String getSolutionState() {
+        return solutionState;
+    }
+
+    public void setSolutionState(String solutionState) {
+        this.solutionState = solutionState;
+    }
+
+    public String getSolutionLog() {
+        return solutionLog;
+    }
+
+    public void setSolutionLog(String solutionLog) {
+        this.solutionLog = solutionLog;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    /**
+    * 
+    * jdbcType: VARCHAR
+    * javaType: String
+    */
+
+    @Override
+    public String toString() {
+        return "NlpSolution{" +
+                "id=" + id +
+                ", solutionName='" + solutionName + '\'' +
+                ", solutionDesc='" + solutionDesc + '\'' +
+                ", solutionIcon='" + solutionIcon + '\'' +
+                ", solutionUrl='" + solutionUrl + '\'' +
+                ", forwardType='" + forwardType + '\'' +
+                ", solutionField='" + solutionField + '\'' +
+                ", academyId=" + academyId +
+                ", acceptTime='" + acceptTime + '\'' +
+                ", solutionState='" + solutionState + '\'' +
+                ", solutionLog='" + solutionLog + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
+    }
+}

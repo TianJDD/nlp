@@ -1,0 +1,54 @@
+package com.ultra.nlp.manage.controller;
+
+import com.ultra.nlp.manage.util.FileUploadUtil;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPReply;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+
+/**
+ * 功能描述:
+ *  上传文件
+ * @param:
+ * @return:
+ * @auther: guyuefei
+ * @date:
+ */
+@CrossOrigin
+@RestController
+@RequestMapping("/manage/fileupload")
+public class FileUploadController {
+
+    /**
+     * 功能描述:
+     *
+     * @param:
+     * @return:
+     * @auther: guyuefei
+     * @date:
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS,RequestMethod.POST, RequestMethod.GET},value = "/typeAdd")
+    @ResponseBody
+    public Object uploadFile(HttpServletRequest request, HttpServletResponse response,
+                                     @RequestParam(value = "url",required=false) String url,//FTP服务器hostname
+                                     @RequestParam(value = "port",required=false) int port,//FTP服务器端口
+                                     @RequestParam(value = "username",required=false) String username, // FTP登录账号
+                                     @RequestParam(value = "password",required=false) String password, //FTP登录密码
+                                     @RequestParam(value = "path",required=false)String path, //FTP服务器保存目录
+                                     @RequestParam(value = "filename",required=false)String filename//上传到FTP服务器上的文件名
+    ) {
+        try {
+            InputStream input = request.getInputStream();
+            boolean flag = FileUploadUtil.uploadFile(url,port,username,password,path,filename,input);
+            input.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}

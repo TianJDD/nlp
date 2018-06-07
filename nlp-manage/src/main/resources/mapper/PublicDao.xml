@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.manage.dao.PublicDao" >
+    <!--查询某种数据是否存在-->
+  <select id="checkIfExist" resultType="map" parameterType="map" >
+      <if test="type == 'academy'">
+          SELECT * FROM nlp_access_academy WHERE academyName = #{name}
+      </if>
+      <if test="type == 'group'">
+          SELECT * FROM nlp_access_academy_group WHERE groupName =#{name}
+      </if>
+      <if test="type == 'professor'">
+          SELECT * FROM nlp_access_academy_professor WHERE professorName = #{name}
+      </if>
+      <if test="type == 'service'">
+          SELECT * FROM nlp_service_manage WHERE serviceName = #{name}
+      </if>
+      <if test="type == 'classify'">
+          SELECT * FROM nlp_classify WHERE `name` = #{name}
+      </if>
+      <if test="type == 'user'">
+          SELECT * FROM nlp_user WHERE userName = #{name}
+      </if>
+
+   </select>
+
+</mapper>

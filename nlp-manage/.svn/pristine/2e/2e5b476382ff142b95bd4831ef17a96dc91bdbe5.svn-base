@@ -1,0 +1,314 @@
+package com.ultra.nlp.manage.controller;
+
+import com.ultra.nlp.manage.model.*;
+import com.ultra.nlp.manage.service.IAcademyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/academy")
+public class AcademyController {
+
+    private final static Logger logger = LoggerFactory.getLogger(AcademyController.class);
+
+    @Autowired
+    IAcademyService academyService;
+
+    /**
+     * 查询大学/机构信息列表接口、通过检索框模糊检索
+     * 1、场景：用于管理平台维护大学/机构信息时的列表展示
+     * 2、查询条件：当前页、页大小，keyword，academyState不为0（用来控制机构 可用/删除的逻辑字段）
+     * 3、逻辑：查询当前页大学/机构信息列表，返回页大小条数
+     * 4、结果：带有分页功能的大学/机构信息列表
+     *
+     * @param
+     * @return created by GYF
+     * last modified by JIT on 2018年5月8日14:27:24
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET}, value = "/list")
+    @ResponseBody
+    public Object academyList(HttpServletRequest request, HttpServletResponse response,
+                              @RequestParam(value = "keyword", required = false) String keyword,
+                              @RequestParam(value = "pageNow", required = false) Integer pageNow,
+                              @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        Map<String, Object> map = new HashMap<>(3);
+        map.put("keyword", keyword);
+        Page page = new Page(pageNow, pageSize);
+        if (pageNow != null && pageSize != null) {
+            map.put("queryStart", page.getQueryStart());
+            map.put("pageSize", page.getPageSize());
+        }
+        page.setParam(map);
+        try {
+            //关键代码：根据传入参数，查询数据库,返回结果
+            page = academyService.getAcademyList(page);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), page.getResultList());
+            json.setPageSize(pageSize);
+            json.setPageCount(page.getPageCount());
+            json.setTotal(page.getRowCount());
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(true, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+
+    }
+
+    /**
+     * 查询大学课题组/机构部门信息列表接口
+     * 1、场景：用于管理平台维护大学课题组/机构部门信息时的列表展示
+     * 2、查询条件：academyId：大学/机构id  pageNow：当前页  pageSize：页大小
+     * 3、逻辑：根据大学/机构id，查询该机构下的部门列表信息，返回页大小条数
+     * 4、结果：带有分页功能的大学课题组/机构部门信息列表
+     *
+     * @param
+     * @return
+     */
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET}, value = "/grouplist")
+    @ResponseBody
+    public Object getGroutList(HttpServletRequest request, HttpServletResponse response,
+                               @RequestParam(value = "id", required = false) Integer academyId,
+                               @RequestParam(value = "pageNow", required = false) Integer pageNow,
+                               @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        Map<String, Object> map = new HashMap<>(4);
+        Page page = new Page(pageNow, pageSize);
+        if (pageNow != null && pageSize != null) {
+            map.put("queryStart", page.getQueryStart());
+            map.put("pageSize", page.getPageSize());
+        }
+        map.put("academyId", academyId);
+        page.setParam(map);
+        try {
+            page = academyService.getGroupList(page);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), page.getResultList());
+            json.setPageSize(pageSize);
+            json.setPageCount(page.getPageCount());
+            json.setTotal(page.getRowCount());
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(true, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+    /**
+     * 查询大学课题组教授/机构部门人员信息列表接口
+     * 1、场景：用于管理平台维护大学课题组教授/机构部门人员信息时的列表展示
+     * 2、查询条件：academyId：大学/机构id groupId 机构部门id  pageNow：当前页  pageSize：页大小
+     * 3、逻辑：根据大学/机构id和机构部门id查询该机构下人员列表信息，返回页大小条数
+     * 4、结果：带有分页功能的人员信息列表
+     *
+     * @param request
+     * @param response
+     * @param academyId 大学/机构id
+     * @param groupId   机构部门id
+     * @param pageNow   当前页
+     * @param pageSize  页大小
+     * @return
+     */
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET}, value = "/professorlist")
+    @ResponseBody
+    public Object getProfessorList(HttpServletRequest request, HttpServletResponse response,
+                                   @RequestParam(value = "academyId", required = false) Integer academyId,
+                                   @RequestParam(value = "id", required = false) Integer groupId,
+                                   @RequestParam(value = "pageNow", required = false) Integer pageNow,
+                                   @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        Map<String, Object> map = new HashMap<>(4);
+        Page page = new Page(pageNow, pageSize);
+        if (pageNow != null && pageSize != null) {
+            map.put("queryStart", page.getQueryStart());
+            map.put("pageSize", page.getPageSize());
+        }
+        map.put("academyId", academyId);
+        map.put("groupId", groupId);
+        page.setParam(map);
+        try {
+            page = academyService.getProfessorList(page);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), page.getResultList());
+            json.setPageSize(pageSize);
+            json.setPageCount(page.getPageCount());
+            json.setTotal(page.getRowCount());
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(true, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+    /**
+     * 修改大学/机构信息接口
+     * 1、场景：用于管理平台维护大学/机构信息时的修改
+     * 2、修改条件：Id：大学/机构id
+     * 3、逻辑：根据大学/机构id修改该大学/机构信息，返回页大小条数
+     * 4、结果：修改成功大学/机构信息信息
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET},
+            value = "/updateAcademy")
+    @ResponseBody
+    public Object updateAcademy(HttpServletRequest request, HttpServletResponse response,
+                                @RequestBody NlpAcademy nlpAcademy) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        try {
+            academyService.updateAcademy(nlpAcademy);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(),null);
+            return json;
+        } catch (Exception e) {
+            JsonModel json = new JsonModel(false, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+    /**
+     * 修改专家/教授信息接口
+     * 1、场景：用于管理平台维护专家/教授信息时的修改
+     * 2、修改条件：Id：专家/教授
+     * 3、逻辑：根据专家/教授id修改该专家/教授信息，返回页大小条数
+     * 4、结果：修改成功专家/教授信息信息
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET},
+            value = "/updateProfessor")
+    @ResponseBody
+    public Object updateProfessor(HttpServletRequest request, HttpServletResponse response,
+                                  @RequestBody NlpProfessor nlpProfessor) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        try {
+            academyService.updateProfessor(nlpProfessor);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(),null);
+            return json;
+        } catch (Exception e) {
+            JsonModel json = new JsonModel(false, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+    /**
+     * 添加学校/机构信息接口
+     * 1、场景：用于管理平台维护大学/机构信息的添加
+     * 2、参数：academyName,academyDesc,academyURL
+     * 3、逻辑：添加大学/机构信息的名称，描述，网址
+     *
+     * @param request
+     * @param response
+     * @param
+     * @return
+     * @author JIT
+     * @date 2018年5月8日14:53:54
+     */
+
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET}, value = "/addAcademy")
+    @ResponseBody
+    public Object addAcademy(HttpServletRequest request, HttpServletResponse response,
+                             @RequestParam(value = "academyName", required = false) String academyName,
+                             @RequestParam(value = "academyDesc", required = false) String academyDesc,
+                             @RequestParam(value = "academyURL", required = false) String academyURL) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        Map<String, Object> map = new HashMap<>(4);
+        map.put("academyName", academyName);
+        map.put("academyDesc", academyDesc);
+        map.put("academyURL", academyURL);
+        try {
+            int i = academyService.addAcademy(map);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), "添加机构信息成功");
+            if (i == 0) {
+                json.setData("添加机构信息失败");
+            }
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(true, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+
+    /**
+     * 删除学校/机构信息接口
+     * 1、场景：用于管理平台维护大学/机构信息的删除
+     * 2、参数：academyId
+     * 3、逻辑：根据academyId删除数据库中对应的数据
+     *
+     * @param request
+     * @param response
+     * @param
+     * @return
+     * @author JIT
+     * @date 2018年5月8日15:28:11
+     */
+
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET}, value = "/delAcademy")
+    @ResponseBody
+    public Object delAcademy(HttpServletRequest request, HttpServletResponse response,
+                             @RequestParam(value = "id") Integer id) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        try {
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(), "删除机构信息成功");
+            if (id <= 0) {
+                json.setData("删除失败，请检查入参");
+            } else {
+                int i = academyService.delAcademy(id);
+                if (i == 0) {
+                    json.setData("删除机构信息失败");
+                }
+            }
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JsonModel json = new JsonModel(true, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+
+    /**
+     * 修改课题组/部门信息接口
+     * 1、场景：用于管理平台维护课题组/部门信息时的修改
+     * 2、修改条件：Id：课题组/部门
+     * 3、逻辑：根据课题组/部门id修改该课题组/部门信息，修改成功后不需要向前台返回json
+     * 4、结果：修改成功课题组/部门信息/修改失败，并打印失败日志
+     * @author zy
+     * @param request
+     * @param response
+     * @return
+     */
+
+    @CrossOrigin
+    @RequestMapping(method = {RequestMethod.OPTIONS, RequestMethod.POST, RequestMethod.GET},
+            value = "/updateGroup")
+    @ResponseBody
+    public Object updateGroup(HttpServletRequest request, HttpServletResponse response,
+                                  @RequestBody NlpGroup nlpGroup) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        try {
+            academyService.updateGroup(nlpGroup);
+            JsonModel json = new JsonModel(true, ReturnCode.SUCESS_CODE_0000.getValue(), ReturnCode.SUCESS_CODE_0000.getKey(),null);
+            return json;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);//打印失败日志
+            JsonModel json = new JsonModel(false, ReturnCode.ERROR_CODE_11001.getValue(), ReturnCode.ERROR_CODE_11001.getKey(), null);
+            return json;
+        }
+    }
+}

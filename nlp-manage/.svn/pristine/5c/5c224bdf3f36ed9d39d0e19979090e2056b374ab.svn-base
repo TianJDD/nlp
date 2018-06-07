@@ -1,0 +1,32 @@
+spring.application.name=NLP-MANAGE
+server.port=8089
+
+# \u591A\u73AF\u5883\u914D\u7F6E\u6587\u4EF6\u6FC0\u6D3B\u5C5E\u6027
+spring.profiles.active=dev
+
+pring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+
+mybatis.mapper-locations=classpath:/com/ultra/nlp/manage/mapper/*.xml
+
+#mybatis.config-location=classpath:mybatis-config.xml
+#\u5728\u4F7F\u7528springboot\u7684\u8FC7\u7A0B\u4E2D\uFF0C\u5982\u679C\u4F7F\u7528thymeleaf\u4F5C\u4E3A\u6A21\u677F\u6587\u4EF6\uFF0C
+# \u5219\u8981\u6C42HTML\u683C\u5F0F\u5FC5\u987B\u4E3A\u4E25\u683C\u7684html5\u683C\u5F0F\uFF0C\u5FC5\u987B\u6709\u7ED3\u675F\u6807\u7B7E\uFF0C\u5426\u5219\u4F1A\u62A5\u9519\uFF0C\u89E3\u51B3\u65B9\u6CD5\u5982\u4E0B
+spring.thymeleaf.content-type=text/html
+spring.thymeleaf.cache=false
+spring.thymeleaf.mode=LEGACYHTML5
+
+
+#\u63A7\u5236dao\u5C42sql\u6253\u5370\u65E5\u5FD7\u7EA7\u522B
+logging.level.com.ultra.nlp.manage.dao=TRACE
+logging.level.com.ultra.nlp.manage.controller=DEBUG
+logging.file=logs/nlp-mainsite.log
+logging.pattern.console=%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n
+logging.pattern.file=%d{yyyy/MM/dd-HH:mm} [%thread] %-5level %logger- %msg%n
+#spring.mvc.static-path-pattern=/**
+#spring.resources.static-locations=/WEB-INF/
+
+#spring.mvc.view.prefix=/WEB-INF/jsp/
+#spring.mvc.view.suffix=.jsp
+
+#eureka.client=eureka-client

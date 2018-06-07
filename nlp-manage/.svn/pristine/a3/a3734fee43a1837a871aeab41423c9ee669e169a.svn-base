@@ -1,0 +1,120 @@
+package com.ultra.nlp.manage.model;
+
+public class NlpProfessor {
+    private int id;
+    private int academyId;
+    private String academyName;
+    private int groupId;
+    private String groupName;
+    private String professorName;
+    private String professorDesc;
+    private int professorPhone;
+    private String professorImg;
+    private String professorTitle;
+    private int professorSex;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAcademyId() {
+        return academyId;
+    }
+
+    public void setAcademyId(int academyId) {
+        this.academyId = academyId;
+    }
+
+    public String getAcademyName() {
+        return academyName;
+    }
+
+    public void setAcademyName(String academyName) {
+        this.academyName = academyName;
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public String getProfessorName() {
+        return professorName;
+    }
+
+    public void setProfessorName(String professorName) {
+        this.professorName = professorName;
+    }
+
+    public String getProfessorDesc() {
+        return professorDesc;
+    }
+
+    public void setProfessorDesc(String professorDesc) {
+        this.professorDesc = professorDesc;
+    }
+
+    public int getProfessorPhone() {
+        return professorPhone;
+    }
+
+    public void setProfessorPhone(int professorPhone) {
+        this.professorPhone = professorPhone;
+    }
+
+    public String getProfessorImg() {
+        return professorImg;
+    }
+
+    public void setProfessorImg(String professorImg) {
+        this.professorImg = professorImg;
+    }
+
+    public String getProfessorTitle() {
+        return professorTitle;
+    }
+
+    public void setProfessorTitle(String professorTitle) {
+        this.professorTitle = professorTitle;
+    }
+
+    public int getProfessorSex() {
+        return professorSex;
+    }
+
+    public void setProfessorSex(int professorSex) {
+        this.professorSex = professorSex;
+    }
+
+    @Override
+    public String toString() {
+        return "NlpProfessor{" +
+                "id=" + id +
+                ", academyId=" + academyId +
+                ", academyName='" + academyName + '\'' +
+                ", groupId=" + groupId +
+                ", groupName='" + groupName + '\'' +
+                ", professorName='" + professorName + '\'' +
+                ", professorDesc='" + professorDesc + '\'' +
+                ", professorPhone=" + professorPhone +
+                ", professorImg='" + professorImg + '\'' +
+                ", professorTitle='" + professorTitle + '\'' +
+                ", professorSex=" + professorSex +
+                '}';
+    }
+}

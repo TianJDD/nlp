@@ -1,0 +1,2328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="nlp-mainsite:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="a78a2871-2486-4c2a-9c7a-3e0f247a8d1b" name="Default" comment="添加是否收费">
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ultra/nlp/mainsite/controller/TestDataSetController.java" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/../middleware/target/" />
+    <ignored path="$PROJECT_DIR$/../nlp-sso/target/" />
+    <ignored path="$PROJECT_DIR$/../nlp-manage/target/" />
+    <ignored path="F:/Code-DB/登录/shiro/shiro-admin/target/" />
+    <ignored path="F:/Code-DB/登录/shiro/target/" />
+    <ignored path="F:/Code-DB/登录/shiro/shiro-core/target/" />
+    <ignored path="$PROJECT_DIR$/../shiroTest/target/" />
+    <ignored path="F:/Code-DB/登录/ssm+shiro/SpringMVC-Mybatis-Shiro-redis-0.2-master/target/" />
+    <ignored path="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-api/target/" />
+    <ignored path="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-common/target/" />
+    <ignored path="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/target/" />
+    <ignored path="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/target/" />
+    <ignored path="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-generator/target/" />
+    <ignored path="$PROJECT_DIR$/../mybatisplustest/target/" />
+    <ignored path="F:/Code-DB/登录/MP+freemarker/freemarker+MP/target/" />
+    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
+    <ignored path="F:/Code-DB/秒杀系统/spring-boot-seckill/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/nlp$ManageApplication.coverage" NAME="ManageApplication Coverage Results" MODIFIED="1528172407345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="192.168.95.57" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="192.168.95.57" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="192.168.95.57" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="nlp_paas_dev: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="E:\idea_work\nlp_project\nlp-mainsite\exportToHTML" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="nlp-mainsite" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>/add</find>
+      <find>/attr/add</find>
+      <find>profess</find>
+      <find>getProfessorList</find>
+      <find>addDataTy</find>
+      <find>addData</find>
+      <find>updateDataAttr</find>
+      <find>getDataAttrList</find>
+      <find>添加数据</find>
+      <find>updateProfessor</find>
+      <find>updateServiceManage</find>
+      <find>concat</find>
+      <find>delete</find>
+      <find>updateServiceRelate</find>
+      <find>service_manage</find>
+      <find>type</find>
+      <find>state</find>
+      <find>type_name</find>
+      <find>getServiceEntry</find>
+      <find>getService</find>
+      <find>getSolutionList</find>
+      <find>nlp_service_manage</find>
+      <find>GetAuthenticationInfo</find>
+      <find>doGetAuthenticationInfo</find>
+      <find>format</find>
+      <find>mybatis</find>
+      <find>io.renren</find>
+      <find>nlp_solu</find>
+      <find>like</find>
+      <find>getDictUUid</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Classify</replace>
+      <replace>limitTime</replace>
+      <replace>com.jit</replace>
+    </replaceStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="GroovyConsoleState">
+    <option name="list">
+      <list>
+        <Entry>
+          <option name="url" value="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy" />
+          <option name="moduleName" value="mybatisplustest" />
+          <option name="title" value="mybatisplustest (Bundled Groovy 2.4.12)" />
+        </Entry>
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/sys/dao/SysDictDao.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/sys/service/impl/SysRoleMenuServiceImpl.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/service/impl/SysOssServiceImpl.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/service/SysOssService.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/cloud/AliyunCloudStorageService.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/cloud/CloudStorageConfig.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/cloud/CloudStorageService.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/cloud/OSSFactory.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/cloud/QcloudCloudStorageService.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/oss/cloud/QiniuCloudStorageService.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/job/utils/ScheduleRunnable.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/datasources/aspect/DataSourceAspect.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/job/controller/ScheduleJobController.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/job/dao/ScheduleJobDao.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/job/service/ScheduleJobService.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/job/service/impl/ScheduleJobServiceImpl.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/modules/job/task/TestTask.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/common/config/FilterConfig.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/common/config/FreemarkerConfig.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/common/config/ShiroConfig.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/common/aspect/DataFilterAspect.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/main/java/com/jit/common/aspect/SysLogAspect.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/test/java/com/jit/service/DataSourceTestService.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/test/java/com/jit/DynamicDataSourceTest.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-admin/src/test/java/com/jit/RedisTest.java" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-generator/pom.xml" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-generator/src/main/resources/mapper/SysGeneratorDao.xml" />
+        <option value="F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/renren-generator/src/main/resources/generator.properties" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpSolution.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/ServiceController.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/SolutionDao.xml" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/SolutionController.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpAccessProfessorRelate.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/IAcademyService.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/impl/AcademyServiceImp.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/dao/IAcademyDao.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/util/FormatUtil.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/DictService.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/impl/DictServiceImp.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/dao/DictDao.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/DictDao.xml" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/DictController.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpGroup.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpAcademy.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/test/java/com/ultra/nlp/manage/controller/TestAcademyController.java" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/AcademyController.java" />
+        <option value="F:/Code-DB/秒杀系统/spring-boot-seckill/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/IAcademyDao.xml" />
+        <option value="$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/IServiceDao.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\develop\Maven3.5.3\work\mavenReportity" />
+        <option name="userSettingsFile" value="C:\develop\Maven3.5.3\work\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="renren-generator" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="renren-generator" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="renren-generator" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="shiro-admin" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="18" />
+    <option name="y" value="21" />
+    <option name="width" value="1022" />
+    <option name="height" value="448" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Security</id>
+          </State>
+          <State>
+            <id>Android Lint for Kotlin</id>
+          </State>
+          <State>
+            <id>CDI(Contexts and Dependency Injection) issues</id>
+          </State>
+          <State>
+            <id>CodeSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>Guice Inspections</id>
+          </State>
+          <State>
+            <id>ImportsJava</id>
+          </State>
+          <State>
+            <id>JBoss Seam issues</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java EE issues</id>
+          </State>
+          <State>
+            <id>Language Injection</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>UNUSED_IMPORT</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Checkout" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages ProjectPane="false" />
+      <showMembers ProjectPane="true" />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType ProjectPane="false" />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="nlp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nlp-manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.31425092" />
+    <property name="last_opened_file_path" value="F:/Code-DB/秒杀系统/spring-boot-seckill/pom.xml" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="SearchEverywhereHistoryKey" value="AuthorizingRealm&#9;FILE&#9;jar://C:/develop/Maven3.5.3/work/mavenReportity/org/apache/shiro/shiro-core/1.2.2/shiro-core-1.2.2-sources.jar!/org/apache/shiro/realm/AuthorizingRealm.java&#10;DefaultWebSecurityManager&#9;PSI&#9;JAVA://org.apache.shiro.web.mgt.DefaultWebSecurityManager&#10;hashmap&#9;PSI&#9;JAVA://java.util.HashMap&#10;HttpServlet&#9;PSI&#9;JAVA://javax.servlet.http.HttpServletRequest&#10;Servlet&#9;PSI&#9;JAVA://javax.servlet.Servlet&#10;StringBu&#9;PSI&#9;JAVA://java.lang.StringBuffer&#10;stringbuffer&#9;null&#9;null" />
+    <property name="settings.editor.splitter.proportion" value="0.225" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\idea_work\nlp_project\nlp-mainsite\src\main\java\com\ultra\nlp\mainsite\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ultra.nlp.mainsite.service.impl" />
+      <recent name="com.ultra.nlp.mainsite.service" />
+      <recent name="com.ultra.nlp.mainsite.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\idea_work\nlp_project\nlp-mainsite\src\main\java\com\ultra\nlp\mainsite\dao" />
+      <recent name="E:\idea_work\nlp_project\nlp-sso\src\main\resources" />
+      <recent name="E:\idea_work\nlp_project\nlp-sso\src\main\java\com\ultra\nlp\sso" />
+      <recent name="E:\idea_work\nlp_project\nlp-mainsite\src\main\java\com\ultra\nlp\mainsite\model" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8089" />
+          <option name="urlPath" value="/academy/getProfessoRelateList" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="professorId" />
+                <option name="value" value="5be5a6c3c2094db9ac3e279e17e39132" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8089" />
+          <option name="urlPath" value="/academy/getProfessoRelateList" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="professorId" />
+                <option name="value" value="5be5a6c3c2094db9ac3e279e17e39132" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.16.117:8089" />
+          <option name="urlPath" value="/dictTree/getDictListByPage" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="pageNow" />
+                <option name="value" value="3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pageSize" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="dictCode" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://192.168.16.117:8089" />
+          <option name="urlPath" value="/dictTree/getDictListByPage" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="pageNow" />
+                <option name="value" value="3" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="pageSize" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="dictCode" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://192.168.16.117:8089" />
+          <option name="urlPath" value="/dict/list" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.16.117:8089" />
+          <option name="urlPath" value="/dict/list" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.16.117:8089" />
+          <option name="urlPath" value="/dict/list" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="keyword" />
+                <option name="value" value="&quot;详情&quot;" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://192.168.16.117:8089" />
+          <option name="urlPath" value="/dict/list" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="keyword" />
+                <option name="value" value="&quot;详情&quot;" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.181.90:9111" />
+          <option name="urlPath" value="/nlpapp/v2/case_analysis" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="text/plain" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&quot;case_content&quot;:&quot;呼和浩特2222市新城区人民法院\n民事判决书\n（2016）内0102民初2344号\n原告武彩霞，女，蒙古族，住内蒙古呼和浩特市回民区。\n委托代理人王洁，呼和浩特市新城区法律援助中心法律援助律师。\n被告闫慧珍，女，蒙古族，住内蒙古呼和浩特市新城区。\n被告赵昱，男，汉族，住内蒙古呼和浩特市新城区老。\n原告武彩霞诉被告闫慧珍、赵昱买卖合同纠纷一案，本案受理后，依法由审判员朱雪巍适用简易程序，公开开庭进行了审理。原告武彩霞及其委托代理人王洁到庭参加诉讼，被告闫慧珍、赵昱经法院合法传唤无正当理由拒不到庭，本案现已缺席审理终结。\n原告武彩霞诉称，被告于2013年7月至2015年5月，多次从原告处购买婴派和韩滋品牌的婴幼儿食品，双方约定付款方式为：供货后每月月底对账结款，被告开始尚能按时付款结账，后称资金周转困难，每月均有拖欠。2015年6月19日，经双方对账，被告共欠原告货款33701元，被告闫慧珍向原告出具了欠条对债务予以明确。但被告至今未向原告支付剩余货款，为此诉诸法院，请求判令：一、被告向原告偿还33701元；二、被告承担本案诉讼费用。\n二被告未到庭也未提供书面答辩意见。\n经审理查明，2013年7月至2015年5月期间，被告多次从原告经营的婴幼儿用品店购买婴派和韩滋品牌的婴幼儿食品，双方约定了供货后每月月底对账结算的付款方式。合同履行伊始被告按时付款结算，后期每月均有拖欠。至2015年6月，经原、被告双方对账，被告共计拖欠原告货款33701元。被告闫慧珍就该笔款项向原告出具内容为“今欠婴甲天下生活馆供应商武彩霞货款33701元…”的欠条。二被告系夫妻关系，其中“婴甲天下生活馆”为二被告实际经营。\n以上事实有个体工商户营业执照、食品流通许可证、欠条、对账单、结婚证复印件予以佐证。\n本院认为，原、被告双方买卖合同关系实际存在并且已履行，真实合法有效。原告已经完全履行完毕合同义务，被告应按时向原告支付货款。由于被告并未按时支付货款，因此被告应承担相应的法律责任。原告的诉讼请求本院予以支持。依照《中华人民共和国合同法》第六十条、第一百零七条、第一百五十九条，判决如下：\n被告闫慧珍、赵昱于判决生效后十日内支付原告武彩霞货款33701元。\n如果未按本判决指定的期间履行给付金钱义务，应当依照《中华人民共和国民事诉讼法》第二百五十三条之规定，加倍支付迟延履行期间的债务利息。\n诉讼费：案件受理费321元（原告已预交），已减半收取，由被告闫慧珍、赵昱承担。\n如不服本判决，可在判决书送达之曰起十五日内向本院递交上诉状，并按对方当事人人数提出副本，上诉于呼和浩特巿中级人民法院。\n审判员 朱雪巍\n二〇一六年七月十一日\n书记员 王丽娟&quot;} " />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.181.90:9111" />
+          <option name="urlPath" value="/nlpapp/v2/case_analysis" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&quot;case_content&quot;:&quot;呼和浩特2222市新城区人民法院\n民事判决书\n（2016）内0102民初2344号\n原告武彩霞，女，蒙古族，住内蒙古呼和浩特市回民区。\n委托代理人王洁，呼和浩特市新城区法律援助中心法律援助律师。\n被告闫慧珍，女，蒙古族，住内蒙古呼和浩特市新城区。\n被告赵昱，男，汉族，住内蒙古呼和浩特市新城区老。\n原告武彩霞诉被告闫慧珍、赵昱买卖合同纠纷一案，本案受理后，依法由审判员朱雪巍适用简易程序，公开开庭进行了审理。原告武彩霞及其委托代理人王洁到庭参加诉讼，被告闫慧珍、赵昱经法院合法传唤无正当理由拒不到庭，本案现已缺席审理终结。\n原告武彩霞诉称，被告于2013年7月至2015年5月，多次从原告处购买婴派和韩滋品牌的婴幼儿食品，双方约定付款方式为：供货后每月月底对账结款，被告开始尚能按时付款结账，后称资金周转困难，每月均有拖欠。2015年6月19日，经双方对账，被告共欠原告货款33701元，被告闫慧珍向原告出具了欠条对债务予以明确。但被告至今未向原告支付剩余货款，为此诉诸法院，请求判令：一、被告向原告偿还33701元；二、被告承担本案诉讼费用。\n二被告未到庭也未提供书面答辩意见。\n经审理查明，2013年7月至2015年5月期间，被告多次从原告经营的婴幼儿用品店购买婴派和韩滋品牌的婴幼儿食品，双方约定了供货后每月月底对账结算的付款方式。合同履行伊始被告按时付款结算，后期每月均有拖欠。至2015年6月，经原、被告双方对账，被告共计拖欠原告货款33701元。被告闫慧珍就该笔款项向原告出具内容为“今欠婴甲天下生活馆供应商武彩霞货款33701元…”的欠条。二被告系夫妻关系，其中“婴甲天下生活馆”为二被告实际经营。\n以上事实有个体工商户营业执照、食品流通许可证、欠条、对账单、结婚证复印件予以佐证。\n本院认为，原、被告双方买卖合同关系实际存在并且已履行，真实合法有效。原告已经完全履行完毕合同义务，被告应按时向原告支付货款。由于被告并未按时支付货款，因此被告应承担相应的法律责任。原告的诉讼请求本院予以支持。依照《中华人民共和国合同法》第六十条、第一百零七条、第一百五十九条，判决如下：\n被告闫慧珍、赵昱于判决生效后十日内支付原告武彩霞货款33701元。\n如果未按本判决指定的期间履行给付金钱义务，应当依照《中华人民共和国民事诉讼法》第二百五十三条之规定，加倍支付迟延履行期间的债务利息。\n诉讼费：案件受理费321元（原告已预交），已减半收取，由被告闫慧珍、赵昱承担。\n如不服本判决，可在判决书送达之曰起十五日内向本院递交上诉状，并按对方当事人人数提出副本，上诉于呼和浩特巿中级人民法院。\n审判员 朱雪巍\n二〇一六年七月十一日\n书记员 王丽娟&quot;} " />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.181.90:9111" />
+          <option name="urlPath" value="/nlpapp/v2/case_analysis" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/xml" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&quot;case_content&quot;:&quot;呼和浩特2222市新城区人民法院\n民事判决书\n（2016）内0102民初2344号\n原告武彩霞，女，蒙古族，住内蒙古呼和浩特市回民区。\n委托代理人王洁，呼和浩特市新城区法律援助中心法律援助律师。\n被告闫慧珍，女，蒙古族，住内蒙古呼和浩特市新城区。\n被告赵昱，男，汉族，住内蒙古呼和浩特市新城区老。\n原告武彩霞诉被告闫慧珍、赵昱买卖合同纠纷一案，本案受理后，依法由审判员朱雪巍适用简易程序，公开开庭进行了审理。原告武彩霞及其委托代理人王洁到庭参加诉讼，被告闫慧珍、赵昱经法院合法传唤无正当理由拒不到庭，本案现已缺席审理终结。\n原告武彩霞诉称，被告于2013年7月至2015年5月，多次从原告处购买婴派和韩滋品牌的婴幼儿食品，双方约定付款方式为：供货后每月月底对账结款，被告开始尚能按时付款结账，后称资金周转困难，每月均有拖欠。2015年6月19日，经双方对账，被告共欠原告货款33701元，被告闫慧珍向原告出具了欠条对债务予以明确。但被告至今未向原告支付剩余货款，为此诉诸法院，请求判令：一、被告向原告偿还33701元；二、被告承担本案诉讼费用。\n二被告未到庭也未提供书面答辩意见。\n经审理查明，2013年7月至2015年5月期间，被告多次从原告经营的婴幼儿用品店购买婴派和韩滋品牌的婴幼儿食品，双方约定了供货后每月月底对账结算的付款方式。合同履行伊始被告按时付款结算，后期每月均有拖欠。至2015年6月，经原、被告双方对账，被告共计拖欠原告货款33701元。被告闫慧珍就该笔款项向原告出具内容为“今欠婴甲天下生活馆供应商武彩霞货款33701元…”的欠条。二被告系夫妻关系，其中“婴甲天下生活馆”为二被告实际经营。\n以上事实有个体工商户营业执照、食品流通许可证、欠条、对账单、结婚证复印件予以佐证。\n本院认为，原、被告双方买卖合同关系实际存在并且已履行，真实合法有效。原告已经完全履行完毕合同义务，被告应按时向原告支付货款。由于被告并未按时支付货款，因此被告应承担相应的法律责任。原告的诉讼请求本院予以支持。依照《中华人民共和国合同法》第六十条、第一百零七条、第一百五十九条，判决如下：\n被告闫慧珍、赵昱于判决生效后十日内支付原告武彩霞货款33701元。\n如果未按本判决指定的期间履行给付金钱义务，应当依照《中华人民共和国民事诉讼法》第二百五十三条之规定，加倍支付迟延履行期间的债务利息。\n诉讼费：案件受理费321元（原告已预交），已减半收取，由被告闫慧珍、赵昱承担。\n如不服本判决，可在判决书送达之曰起十五日内向本院递交上诉状，并按对方当事人人数提出副本，上诉于呼和浩特巿中级人民法院。\n审判员 朱雪巍\n二〇一六年七月十一日\n书记员 王丽娟&quot;} " />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://192.168.181.90:9111" />
+          <option name="urlPath" value="/nlpapp/v2/case_analysis" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&quot;case_content&quot;:&quot;呼和浩特2222市新城区人民法院\n民事判决书\n（2016）内0102民初2344号\n原告武彩霞，女，蒙古族，住内蒙古呼和浩特市回民区。\n委托代理人王洁，呼和浩特市新城区法律援助中心法律援助律师。\n被告闫慧珍，女，蒙古族，住内蒙古呼和浩特市新城区。\n被告赵昱，男，汉族，住内蒙古呼和浩特市新城区老。\n原告武彩霞诉被告闫慧珍、赵昱买卖合同纠纷一案，本案受理后，依法由审判员朱雪巍适用简易程序，公开开庭进行了审理。原告武彩霞及其委托代理人王洁到庭参加诉讼，被告闫慧珍、赵昱经法院合法传唤无正当理由拒不到庭，本案现已缺席审理终结。\n原告武彩霞诉称，被告于2013年7月至2015年5月，多次从原告处购买婴派和韩滋品牌的婴幼儿食品，双方约定付款方式为：供货后每月月底对账结款，被告开始尚能按时付款结账，后称资金周转困难，每月均有拖欠。2015年6月19日，经双方对账，被告共欠原告货款33701元，被告闫慧珍向原告出具了欠条对债务予以明确。但被告至今未向原告支付剩余货款，为此诉诸法院，请求判令：一、被告向原告偿还33701元；二、被告承担本案诉讼费用。\n二被告未到庭也未提供书面答辩意见。\n经审理查明，2013年7月至2015年5月期间，被告多次从原告经营的婴幼儿用品店购买婴派和韩滋品牌的婴幼儿食品，双方约定了供货后每月月底对账结算的付款方式。合同履行伊始被告按时付款结算，后期每月均有拖欠。至2015年6月，经原、被告双方对账，被告共计拖欠原告货款33701元。被告闫慧珍就该笔款项向原告出具内容为“今欠婴甲天下生活馆供应商武彩霞货款33701元…”的欠条。二被告系夫妻关系，其中“婴甲天下生活馆”为二被告实际经营。\n以上事实有个体工商户营业执照、食品流通许可证、欠条、对账单、结婚证复印件予以佐证。\n本院认为，原、被告双方买卖合同关系实际存在并且已履行，真实合法有效。原告已经完全履行完毕合同义务，被告应按时向原告支付货款。由于被告并未按时支付货款，因此被告应承担相应的法律责任。原告的诉讼请求本院予以支持。依照《中华人民共和国合同法》第六十条、第一百零七条、第一百五十九条，判决如下：\n被告闫慧珍、赵昱于判决生效后十日内支付原告武彩霞货款33701元。\n如果未按本判决指定的期间履行给付金钱义务，应当依照《中华人民共和国民事诉讼法》第二百五十三条之规定，加倍支付迟延履行期间的债务利息。\n诉讼费：案件受理费321元（原告已预交），已减半收取，由被告闫慧珍、赵昱承担。\n如不服本判决，可在判决书送达之曰起十五日内向本院递交上诉状，并按对方当事人人数提出副本，上诉于呼和浩特巿中级人民法院。\n审判员 朱雪巍\n二〇一六年七月十一日\n书记员 王丽娟&quot;} " />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="svn" revision="1173">E:\idea_work\nlp_project\nlp-manage\src\main\resources\application-prod.properties</PATH>
+          <PATH vcs="svn" revision="1173">E:\idea_work\nlp_project\nlp-manage\src\main\resources\application-pre.properties</PATH>
+          <PATH vcs="svn" revision="1173">E:\idea_work\nlp_project\nlp-manage\src\main\resources\application-dev.properties</PATH>
+          <PATH vcs="svn" revision="1173">E:\idea_work\nlp_project\nlp-manage\src\main\resources\application.properties</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+        <PATH vcs="svn" revision="1173">E:\idea_work\nlp_project\nlp-manage\src\main\java\com\ultra\nlp\manage\controller\AcademyController.java</PATH>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+    <option name="contentProportion" value="0.17556071" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.ManageApplication">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="DictServiceImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ultra.nlp.manage.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.ultra.nlp.manage.service.impl.DictServiceImp" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="nlp-manage" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration name="TestAcademyController.addProfessorRelate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ultra.nlp.manage.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="nlp-manage" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ultra.nlp.manage.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ultra.nlp.manage.controller.TestAcademyController" />
+      <option name="METHOD_NAME" value="addProfessorRelate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="TestAcademyController.delProfessorRelate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ultra.nlp.manage.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="nlp-manage" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ultra.nlp.manage.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ultra.nlp.manage.controller.TestAcademyController" />
+      <option name="METHOD_NAME" value="delProfessorRelate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="TestAcademyController.getProfessoRelateListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ultra.nlp.manage.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="nlp-manage" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ultra.nlp.manage.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ultra.nlp.manage.controller.TestAcademyController" />
+      <option name="METHOD_NAME" value="getProfessoRelateListTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="TestAcademyController.updateProfessorRelate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.ultra.nlp.manage.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="nlp-manage" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.ultra.nlp.manage.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ultra.nlp.manage.controller.TestAcademyController" />
+      <option name="METHOD_NAME" value="updateProfessorRelate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration name="AdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.renren.AdminApplication" />
+      <module name="renren-admin" />
+      <envs />
+    </configuration>
+    <configuration name="ApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.renren.ApiApplication" />
+      <module name="renren-api" />
+      <envs />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.itstyle.seckill.Application" />
+      <module name="spring-boot-seckill" />
+      <envs />
+    </configuration>
+    <configuration name="BingUpmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xiaobingby.BingUpmsApplication" />
+      <module name="bing-upms" />
+      <envs />
+    </configuration>
+    <configuration name="MainsiteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ultra.nlp.mainsite.MainsiteApplication" />
+      <module name="nlp-mainsite" />
+      <envs />
+    </configuration>
+    <configuration name="ManageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ultra.nlp.manage.ManageApplication" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../nlp-manage" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="nlp-manage" />
+      <envs />
+    </configuration>
+    <configuration name="NlpSsoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ultra.nlp.sso.NlpSsoApplication" />
+      <module name="nlp-sso" />
+      <envs />
+    </configuration>
+    <configuration name="ShiroAdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zyd.shiro.ShiroAdminApplication" />
+      <module name="shiro-admin" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list size="13">
+      <item index="0" class="java.lang.String" itemvalue="Spring Boot.MainsiteApplication" />
+      <item index="1" class="java.lang.String" itemvalue="Spring Boot.ManageApplication" />
+      <item index="2" class="java.lang.String" itemvalue="Spring Boot.NlpSsoApplication" />
+      <item index="3" class="java.lang.String" itemvalue="Spring Boot.ShiroAdminApplication" />
+      <item index="4" class="java.lang.String" itemvalue="Spring Boot.AdminApplication" />
+      <item index="5" class="java.lang.String" itemvalue="Spring Boot.ApiApplication" />
+      <item index="6" class="java.lang.String" itemvalue="Spring Boot.BingUpmsApplication" />
+      <item index="7" class="java.lang.String" itemvalue="Spring Boot.Application" />
+      <item index="8" class="java.lang.String" itemvalue="Application.DictServiceImp" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.TestAcademyController.getProfessoRelateListTest" />
+      <item index="10" class="java.lang.String" itemvalue="JUnit.TestAcademyController.updateProfessorRelate" />
+      <item index="11" class="java.lang.String" itemvalue="JUnit.TestAcademyController.addProfessorRelate" />
+      <item index="12" class="java.lang.String" itemvalue="JUnit.TestAcademyController.delProfessorRelate" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TestAcademyController.getProfessoRelateListTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TestAcademyController.delProfessorRelate" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TestAcademyController.updateProfessorRelate" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TestAcademyController.addProfessorRelate" />
+        <item index="4" class="java.lang.String" itemvalue="Application.DictServiceImp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SpringBootEndpointsTabSettings">
+    <option name="showLiveBeansGraph" value="false" />
+    <option name="showLibraryMappings" value="false" />
+  </component>
+  <component name="SpringRepositoriesView">
+    <option name="showAllRepositoryMethods" value="true" />
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR,SHOW_ANONYMOUS,SHOW_LAMBDA,SHOW_FIELDS" />
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\admin\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\idea_work\nlp_project\nlp-mainsite" />
+          <option name="myCopyRoot" value="E:\idea_work\nlp_project\nlp-mainsite" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\idea_work\nlp_project\nlp-manage" />
+          <option name="myCopyRoot" value="E:\idea_work\nlp_project\nlp-manage" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\idea_work\nlp_project\nlp-mainsite" />
+          <option name="myCopyRoot" value="E:\idea_work\nlp_project\nlp-mainsite" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\idea_work\nlp_project\nlp-manage" />
+          <option name="myCopyRoot" value="E:\idea_work\nlp_project\nlp-manage" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a78a2871-2486-4c2a-9c7a-3e0f247a8d1b" name="Default" comment="" />
+      <created>1524041681948</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1524041681948</updated>
+      <workItem from="1524041683729" duration="6788000" />
+      <workItem from="1524101091118" duration="29129000" />
+      <workItem from="1524187149143" duration="19858000" />
+      <workItem from="1524446555638" duration="15487000" />
+      <workItem from="1524532524297" duration="896000" />
+      <workItem from="1524534601574" duration="12110000" />
+      <workItem from="1524619074296" duration="912000" />
+      <workItem from="1524622792477" duration="19658000" />
+      <workItem from="1524706170023" duration="6615000" />
+      <workItem from="1524792274594" duration="24202000" />
+      <workItem from="1524878021360" duration="14612000" />
+      <workItem from="1524900352055" duration="10510000" />
+      <workItem from="1525223613459" duration="21256000" />
+      <workItem from="1525317107931" duration="122000" />
+      <workItem from="1525317268012" duration="18440000" />
+      <workItem from="1525397955920" duration="20989000" />
+      <workItem from="1525655980583" duration="13421000" />
+      <workItem from="1525742282128" duration="23287000" />
+      <workItem from="1525776205238" duration="54000" />
+      <workItem from="1525828718302" duration="13976000" />
+      <workItem from="1525853914302" duration="8339000" />
+      <workItem from="1525914937231" duration="25762000" />
+      <workItem from="1526001337045" duration="509000" />
+      <workItem from="1526001894290" duration="22724000" />
+      <workItem from="1526032917543" duration="6452000" />
+      <workItem from="1526260672998" duration="28671000" />
+      <workItem from="1526297983926" duration="152000" />
+      <workItem from="1526346993795" duration="28526000" />
+      <workItem from="1526433523420" duration="8698000" />
+      <workItem from="1526520401003" duration="818000" />
+      <workItem from="1526521860509" duration="14615000" />
+      <workItem from="1526605792231" duration="5986000" />
+      <workItem from="1526628879396" duration="9316000" />
+      <workItem from="1526866592834" duration="13527000" />
+      <workItem from="1526951521270" duration="3540000" />
+      <workItem from="1526960500940" duration="8052000" />
+      <workItem from="1527037972028" duration="12929000" />
+      <workItem from="1527066386208" duration="3563000" />
+      <workItem from="1527124801045" duration="9608000" />
+      <workItem from="1527153964194" duration="3631000" />
+      <workItem from="1527212017678" duration="14421000" />
+      <workItem from="1527470638767" duration="16773000" />
+      <workItem from="1527556770137" duration="11330000" />
+      <workItem from="1527643182548" duration="14029000" />
+      <workItem from="1527729783085" duration="25073000" />
+      <workItem from="1527816035491" duration="17891000" />
+      <workItem from="1528075724449" duration="21874000" />
+      <workItem from="1528161355323" duration="2032000" />
+      <workItem from="1528163436774" duration="20924000" />
+      <workItem from="1528247771576" duration="15657000" />
+      <workItem from="1528334187582" duration="3124000" />
+    </task>
+    <task id="LOCAL-00030" summary="添加跨域">
+      <created>1525771773768</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1525771773768</updated>
+    </task>
+    <task id="LOCAL-00031">
+      <created>1525772325169</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1525772325169</updated>
+    </task>
+    <task id="LOCAL-00032" summary="修改update/add Academy入参">
+      <created>1525773662705</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1525773662705</updated>
+    </task>
+    <task id="LOCAL-00033" summary="getAcademyList sql修改">
+      <created>1525774217944</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1525774217944</updated>
+    </task>
+    <task id="LOCAL-00034" summary="修改入参">
+      <created>1525775776478</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1525775776478</updated>
+    </task>
+    <task id="LOCAL-00035" summary="返回结果修改">
+      <created>1525829232780</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1525829232780</updated>
+    </task>
+    <task id="LOCAL-00036" summary="调试修改">
+      <created>1525860374456</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1525860374456</updated>
+    </task>
+    <task id="LOCAL-00037" summary="调试修改">
+      <created>1525860990213</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1525860990213</updated>
+    </task>
+    <task id="LOCAL-00038" summary="调试修改">
+      <created>1525861047639</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1525861047639</updated>
+    </task>
+    <task id="LOCAL-00039" summary="getServerList 修改返回字段名">
+      <created>1525862302920</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1525862302920</updated>
+    </task>
+    <task id="LOCAL-00040" summary="调试修改">
+      <created>1525862479965</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1525862479965</updated>
+    </task>
+    <task id="LOCAL-00041" summary="调试修改sql">
+      <created>1525940884788</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1525940884819</updated>
+    </task>
+    <task id="LOCAL-00042" summary="调试修改">
+      <created>1526002174065</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1526002174065</updated>
+    </task>
+    <task id="LOCAL-00043" summary="调试修改">
+      <created>1526002271028</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1526002271028</updated>
+    </task>
+    <task id="LOCAL-00044" summary="调试修改">
+      <created>1526002640666</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1526002640666</updated>
+    </task>
+    <task id="LOCAL-00045" summary="调大学机构，教授接口">
+      <created>1526298100060</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1526298100060</updated>
+    </task>
+    <task id="LOCAL-00046" summary="解决方案展示，添加限制条件">
+      <created>1526370027101</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1526370027101</updated>
+    </task>
+    <task id="LOCAL-00047" summary="修改字段">
+      <created>1526379483460</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1526379483460</updated>
+    </task>
+    <task id="LOCAL-00048" summary="数据集接口调试修改，改bug">
+      <created>1526379546894</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1526379546894</updated>
+    </task>
+    <task id="LOCAL-00049" summary="服务展示，添加限制条件">
+      <created>1526450825593</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1526450825593</updated>
+    </task>
+    <task id="LOCAL-00050" summary="修改前台展示服务状态为003002（只展示已完成的）">
+      <created>1526526691033</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1526526691035</updated>
+    </task>
+    <task id="LOCAL-00051" summary="数据集添加state状态">
+      <created>1526551240693</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1526551240693</updated>
+    </task>
+    <task id="LOCAL-00052" summary="数据集添加state状态">
+      <created>1526551404129</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1526551404129</updated>
+    </task>
+    <task id="LOCAL-00053" summary="解决方案展示，添加限制条件">
+      <created>1526613864027</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1526613864029</updated>
+    </task>
+    <task id="LOCAL-00054" summary="获取在线用户数">
+      <created>1526638169974</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1526638169975</updated>
+    </task>
+    <task id="LOCAL-00055" summary="添加属性">
+      <created>1526891666309</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1526891666310</updated>
+    </task>
+    <task id="LOCAL-00056" summary="sql字段条件限制，添加isCharge字段">
+      <created>1526898795242</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1526898795242</updated>
+    </task>
+    <task id="LOCAL-00057" summary="添加说明，无实际添加">
+      <created>1526898860334</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1526898860334</updated>
+    </task>
+    <task id="LOCAL-00058" summary="热门推荐展示5条，limit 5">
+      <created>1526899069479</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1526899069479</updated>
+    </task>
+    <task id="LOCAL-00059" summary="修改sql">
+      <created>1526961808608</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1526961808609</updated>
+    </task>
+    <task id="LOCAL-00060" summary="修改sql">
+      <created>1526963335608</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1526963335608</updated>
+    </task>
+    <task id="LOCAL-00061" summary="修改id类型">
+      <created>1527038321800</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1527038321800</updated>
+    </task>
+    <task id="LOCAL-00062" summary="新增indexController">
+      <created>1527070698881</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1527070698883</updated>
+    </task>
+    <task id="LOCAL-00063" summary="新增getSolutionCount">
+      <created>1527479860552</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1527479860553</updated>
+    </task>
+    <task id="LOCAL-00064" summary="新增getSolutionCount">
+      <created>1527480113949</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1527480113950</updated>
+    </task>
+    <task id="LOCAL-00065" summary="将原本的createTime = updateTime去掉。">
+      <created>1527480154520</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1527480154520</updated>
+    </task>
+    <task id="LOCAL-00066" summary="首页展示应用服务修改，rec_num作为评比参数">
+      <created>1527503050414</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1527503050414</updated>
+    </task>
+    <task id="LOCAL-00067">
+      <created>1527676121902</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1527676121903</updated>
+    </task>
+    <task id="LOCAL-00068">
+      <created>1527676134056</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1527676134056</updated>
+    </task>
+    <task id="LOCAL-00069" summary="添加是否收费">
+      <created>1527736327709</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1527736327710</updated>
+    </task>
+    <task id="LOCAL-00070" summary="字典表树接口开发">
+      <created>1527848373691</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1527848373692</updated>
+    </task>
+    <task id="LOCAL-00071" summary="新增professor_relate接口">
+      <created>1528108401290</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1528108401291</updated>
+    </task>
+    <task id="LOCAL-00072" summary="academy、group、professor字段的添加，字典表的修改。实体类字段的添加。">
+      <created>1528194276687</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1528194276688</updated>
+    </task>
+    <task id="LOCAL-00073" summary="教授relate model">
+      <created>1528247856464</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1528247856465</updated>
+    </task>
+    <task id="LOCAL-00074" summary="修改返回状态">
+      <created>1528251239809</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1528251239810</updated>
+    </task>
+    <task id="LOCAL-00075" summary="修改错误的sql">
+      <created>1528258853413</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1528258853413</updated>
+    </task>
+    <task id="LOCAL-00076" summary="添加教授relate的crud测试用例">
+      <created>1528258880356</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1528258880356</updated>
+    </task>
+    <task id="LOCAL-00077" summary="取消限制状态">
+      <created>1528279582414</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1528279582415</updated>
+    </task>
+    <task id="LOCAL-00078" summary="修改请求映射">
+      <created>1528334486887</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1528334486888</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestAcademyController_delProfessorRelate - 2018.06.06 at 11h 47m 37s.xml">
+      <configuration name="TestAcademyController.delProfessorRelate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_delProfessorRelate - 2018.06.06 at 11h 50m 41s.xml">
+      <configuration name="TestAcademyController.delProfessorRelate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_delProfessorRelate - 2018.06.06 at 11h 51m 51s.xml">
+      <configuration name="TestAcademyController.delProfessorRelate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_getProfessoRelateListTest - 2018.06.06 at 11h 52m 39s.xml">
+      <configuration name="TestAcademyController.getProfessoRelateListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_getProfessoRelateListTest - 2018.06.06 at 11h 54m 47s.xml">
+      <configuration name="TestAcademyController.getProfessoRelateListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_getProfessoRelateListTest - 2018.06.06 at 11h 57m 29s.xml">
+      <configuration name="TestAcademyController.getProfessoRelateListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_getProfessoRelateListTest - 2018.06.06 at 11h 58m 14s.xml">
+      <configuration name="TestAcademyController.getProfessoRelateListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_updateProfessorRelate - 2018.06.06 at 11h 38m 41s.xml">
+      <configuration name="TestAcademyController.updateProfessorRelate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_updateProfessorRelate - 2018.06.06 at 11h 42m 27s.xml">
+      <configuration name="TestAcademyController.updateProfessorRelate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestAcademyController_updateProfessorRelate - 2018.06.06 at 11h 43m 40s.xml">
+      <configuration name="TestAcademyController.updateProfessorRelate" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="650868000" />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5756579" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.55150557" sideWeight="0.5136157" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16868381" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30786687" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24054463" sideWeight="0.48902822" order="9" side_tool="false" content_ui="tabs" x="593" y="160" width="354" height="408" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.17700455" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5" sideWeight="0.4742814" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31996974" sideWeight="0.4969743" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25945538" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48638427" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.74013156" sideWeight="0.47881997" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.48411497" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6611842" sideWeight="0.48638427" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5180921" sideWeight="0.4969743" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32894737" sideWeight="0.48487142" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31694403" sideWeight="0.49342105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.49394855" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32894737" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.35854766" sideWeight="0.5109718" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30408472" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.22314675" sideWeight="0.5065789" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32894737" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6957237" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7006579" sideWeight="0.50680786" order="17" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29769737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.75328946" sideWeight="0.49319214" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52138156" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1785174" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
+    <MESSAGE value="修改前台展示服务状态为003002（只展示已完成的）" />
+    <MESSAGE value="数据集添加state状态" />
+    <MESSAGE value="解决方案展示，添加限制条件" />
+    <MESSAGE value="获取在线用户数" />
+    <MESSAGE value="添加属性" />
+    <MESSAGE value="sql字段条件限制，添加isCharge字段" />
+    <MESSAGE value="添加说明，无实际添加" />
+    <MESSAGE value="热门推荐展示5条，limit 5" />
+    <MESSAGE value="修改sql" />
+    <MESSAGE value="修改id类型" />
+    <MESSAGE value="新增indexController" />
+    <MESSAGE value="新增getSolutionCount" />
+    <MESSAGE value="将原本的createTime = updateTime去掉。" />
+    <MESSAGE value="首页展示应用服务修改，rec_num作为评比参数" />
+    <MESSAGE value="添加是否收费" />
+    <MESSAGE value="字典表树接口开发" />
+    <MESSAGE value="新增professor_relate接口" />
+    <MESSAGE value="academy、group、professor字段的添加，字典表的修改。实体类字段的添加。" />
+    <MESSAGE value="教授relate model" />
+    <MESSAGE value="修改返回状态" />
+    <MESSAGE value="修改请求映射地址" />
+    <MESSAGE value="修改错误的sql" />
+    <MESSAGE value="添加教授relate的crud测试用例" />
+    <MESSAGE value="取消限制状态" />
+    <MESSAGE value="修改请求映射" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改请求映射" />
+    <option name="CHANGE_BROWSER_SETTINGS">
+      <map>
+        <entry key="svn">
+          <value>
+            <ChangeBrowserSettings>
+              <option name="DATE_BEFORE" />
+              <option name="DATE_AFTER" />
+            </ChangeBrowserSettings>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../tianjie-test/src/Server.java</url>
+          <line>20</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ultra/nlp/mainsite/controller/ServiceController.java</url>
+          <line>296</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/ServiceController.java</url>
+          <line>437</line>
+          <properties />
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="159" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((Request)((RequestFacade)request).request).attributes" custom="org.apache.catalina.connector.Request,org.apache.catalina.connector.RequestFacade" />
+        <watch expression="json.total" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="dashboard.Configurable">
+    <option name="showingStartFixConfirmationMessage" value="true" />
+    <option name="showingPopUpsOnFixEvent" value="true" />
+    <option name="userName" value="admin" />
+    <option name="resultsURL" value="" />
+    <option name="browserPath" value="" />
+    <option name="multicastHost" value="236.1.2.3" />
+    <option name="multicastPort" value="3274" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/application-prod.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-103">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/util/ControllerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-277">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/SolutionDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="61" lean-forward="false" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/JsonModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/util/UnicodeUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/util/ExcelUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-277">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/util/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/util/FormatUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="36" column="48" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpDict.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/develop/JDKEnvironment/jdk_1.8/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="2866" column="18" lean-forward="false" selection-start-line="2866" selection-start-column="18" selection-end-line="2866" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://src:table:/adc5e0d5/8003eba7-e2ec-43a8-9a1b-d35235a69322/nlp_paas_dev.nlp_dict">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/adc5e0d5/8003eba7-e2ec-43a8-9a1b-d35235a69322/nlp_paas_dev.nlp_dict">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/util/GenerateCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/DictService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/impl/DictServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="102" column="40" lean-forward="false" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/dao/DictDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/DictDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+          <folding>
+            <marker date="1528181410725" expanded="true" signature="303:481" ph="SELECT * FRO... nlp_dict" />
+            <marker date="1528181410725" expanded="true" signature="810:1114" ph="SELECT COUNT... nlp_dict" />
+            <marker date="1528181410725" expanded="true" signature="1910:1930" ph="/*首先从右边截取3位，... " />
+            <marker date="1528181410725" expanded="true" signature="2339:3013" ph="UPDATE nlp_dict... " />
+            <marker date="1528181410725" expanded="true" signature="3203:3557" ph="SELECT dictC... nlp_dict" />
+            <marker date="1528181410725" expanded="true" signature="3663:3916" ph="SELECT count... nlp_dict" />
+            <marker date="1528181410725" expanded="true" signature="3663:3922" ph="SELECT count... nlp_dict" />
+            <marker date="1528181410725" expanded="true" signature="3994:4051" ph="DELETE FROM nlp_dict... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/ReturnCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/DictController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="207" column="50" lean-forward="false" selection-start-line="207" selection-start-column="50" selection-end-line="207" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpAcademy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpProfessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="137" column="15" lean-forward="false" selection-start-line="137" selection-start-column="15" selection-end-line="137" selection-end-column="15" />
+          <folding>
+            <element signature="e#2608#2609#0" expanded="false" />
+            <element signature="e#2630#2631#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/impl/AcademyServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="109" column="15" lean-forward="false" selection-start-line="109" selection-start-column="15" selection-end-line="109" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/dao/IAcademyDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/IAcademyService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/model/NlpAccessProfessorRelate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/秒杀系统/spring-boot-seckill/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/秒杀系统/spring-boot-seckill/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-5730">
+            <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/test/java/com/ultra/nlp/manage/config/BaseTestConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/test/java/com/ultra/nlp/manage/controller/TestAcademyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="296" column="30" lean-forward="false" selection-start-line="296" selection-start-column="30" selection-end-line="296" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/秒杀系统/spring-boot-seckill/src/main/resources/sql/seckill.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="48" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/秒杀系统/spring-boot-seckill/src/main/java/com/itstyle/seckill/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/秒杀系统/spring-boot-seckill/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="82" column="33" lean-forward="true" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/IServiceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="27" column="23" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/service/impl/ServiceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4356">
+          <caret line="217" column="33" lean-forward="false" selection-start-line="217" selection-start-column="33" selection-end-line="217" selection-end-column="33" />
+          <folding>
+            <marker date="1528161661354" expanded="true" signature="2131:2477" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/dao/IServiceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/IAcademyDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2508">
+          <caret line="114" column="43" lean-forward="false" selection-start-line="114" selection-start-column="43" selection-end-line="114" selection-end-column="43" />
+          <folding>
+            <marker date="1528268415442" expanded="true" signature="497:523" ph="/*academySta... " />
+            <marker date="1528268415442" expanded="true" signature="1080:1107" ph="/*academySta... " />
+            <marker date="1528268415442" expanded="true" signature="1640:1671" ph="/*WHERE grou... " />
+            <marker date="1528268415442" expanded="true" signature="2055:2278" ph="SELECT COUNT... nlp_access_academy_group" />
+            <marker date="1528268415442" expanded="true" signature="2136:2167" ph="/*WHERE grou... " />
+            <marker date="1528268415442" expanded="true" signature="2556:2591" ph="/*where prof... " />
+            <marker date="1528268415442" expanded="true" signature="3382:3417" ph="/*where prof... " />
+            <marker date="1528268415442" expanded="true" signature="3952:4701" ph="update nlp_access_academy... " />
+            <marker date="1528268415442" expanded="true" signature="4815:5898" ph="update nlp_access_academy_professor... " />
+            <marker date="1528268415442" expanded="true" signature="5972:6297" ph="INSERT INTO nlp_access_academy... " />
+            <marker date="1528268415442" expanded="true" signature="6370:6479" ph="UPDATE nlp_access_academy... " />
+            <marker date="1528268415442" expanded="true" signature="6585:7141" ph="UPDATE nlp_access_academy_group... " />
+            <marker date="1528268415442" expanded="true" signature="7234:7325" ph="UPDATE nlp_access_academy_group... " />
+            <marker date="1528268415442" expanded="true" signature="7422:7525" ph="UPDATE nlp_access_academy_professor... " />
+            <marker date="1528268415442" expanded="true" signature="7596:7872" ph="INSERT INTO nlp_access_academy_group... " />
+            <marker date="1528268415442" expanded="true" signature="7947:8423" ph="INSERT INTO nlp_access_academy_professor... " />
+            <marker date="1528268415442" expanded="true" signature="8721:8894" ph="SELECT d.dic... nlp_access_professor_relate" />
+            <marker date="1528268415442" expanded="true" signature="8721:8912" ph="SELECT d.dic... nlp_access_professor_relate" />
+            <marker date="1528268415442" expanded="true" signature="9162:9234" ph="UPDATE nlp_access_professor_relate... " />
+            <marker date="1528268415442" expanded="true" signature="9162:9258" ph="UPDATE nlp_access_professor_relate... " />
+            <marker date="1528268415442" expanded="true" signature="9387:9550" ph="INSERT INTO nlp_access_professor_relate... " />
+            <marker date="1528268415442" expanded="true" signature="9634:9706" ph="DELETE FROM nlp_access_professor_relate... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/ServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9086">
+          <caret line="433" column="0" lean-forward="false" selection-start-line="433" selection-start-column="0" selection-end-line="433" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/IServiceDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="68" column="56" lean-forward="false" selection-start-line="68" selection-start-column="56" selection-end-line="68" selection-end-column="56" />
+          <folding>
+            <marker date="1528273190205" expanded="true" signature="1115:1534" ph="Insert into nlp_classify... " />
+            <marker date="1528273190205" expanded="true" signature="1622:1680" ph="UPDATE nlp_classify... " />
+            <marker date="1528273190205" expanded="true" signature="1757:2404" ph="update nlp_classify... " />
+            <marker date="1528273190205" expanded="true" signature="2478:2559" ph="SELECT MAX(R... nlp_classify" />
+            <marker date="1528273190205" expanded="true" signature="4064:4888" ph="insert into nlp_service_manage... " />
+            <marker date="1528273190205" expanded="true" signature="7141:7318" ph="INSERT INTO nlp_service_relate... " />
+            <marker date="1528273190205" expanded="true" signature="7440:8560" ph="UPDATE nlp_service_manage... " />
+            <marker date="1528273190205" expanded="true" signature="8639:8708" ph="DELETE FROM nlp_service_relate... " />
+            <marker date="1528273190205" expanded="true" signature="9288:9370" ph="UPDATE nlp_service_manage... " />
+            <marker date="1528273190205" expanded="true" signature="9487:10248" ph="SELECT servi... nlp_service_manage" />
+            <marker date="1528273190205" expanded="true" signature="10375:10581" ph="SELECT `id` nlp_service_relate" />
+            <marker date="1528273190205" expanded="true" signature="10675:10746" ph="SELECT id,`n... nlp_classify" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/FileUploadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2860">
+          <caret line="160" column="18" lean-forward="false" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/resources/mapper/FileuploadDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="24" column="91" lean-forward="false" selection-start-line="24" selection-start-column="91" selection-end-line="24" selection-end-column="91" />
+          <folding>
+            <marker date="1527729993951" expanded="true" signature="268:410" ph="insert INTO nlp_image... " />
+            <marker date="1527729993951" expanded="true" signature="486:809" ph="UPDATE nlp_i... nlp_image" />
+            <marker date="1527729993951" expanded="true" signature="885:924" ph="delete from nlp_image... " />
+            <marker date="1527729993951" expanded="true" signature="1981:2078" ph="SELECT id as... nlp_image" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nlp-manage/src/main/java/com/ultra/nlp/manage/controller/AcademyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="44" column="63" lean-forward="false" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Code-DB/登录/权限+登录/shiro+vue/renren-security/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-264">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>nlp-mainsite:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.31425092" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.31425092" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Python 3.6 interpreter library</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.31425092" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.31425092" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>nlp-mainsite</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.31425092" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.31425092" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.22794117" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

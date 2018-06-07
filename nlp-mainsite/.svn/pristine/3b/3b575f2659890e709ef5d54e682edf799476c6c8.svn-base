@@ -1,0 +1,29 @@
+package com.ultra.nlp.mainsite.controller;
+
+import com.ultra.nlp.mainsite.config.BaseTestConfig;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+public class TestDataSetController extends BaseTestConfig {
+
+    @Test
+    public void getdatasetlist () throws Exception{
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/dataset/datasetlist/list")
+                .param("attr","002")
+                .param("typeId","002001")
+                .param("keyword","数据")
+                .param("pageNow","1")
+                .param("pageSize","0")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+}
+

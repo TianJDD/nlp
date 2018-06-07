@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.manage.dao.IServiceDao" >
+    <select id="getClassifyList" resultType="map" parameterType="map" >
+        SELECT id,`name`,ser_type,descr,icon,img,p_id,leaf,rec_num,ext1,ext2 FROM nlp_classify
+        WHERE ext1 = '01'
+        <if test="id != null">
+            and p_id = #{id}
+        </if>
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <select id="getClassifyListCounts" resultType="int" parameterType="map" >
+        SELECT COUNT(id) FROM nlp_classify
+        WHERE ext1 = '01'
+        <if test="id != null">
+            and p_id = #{id}
+        </if>
+    </select>
+
+    <insert id="addClassify" useGeneratedKeys="true" parameterType="com.ultra.nlp.manage.model.Classify">
+        <!--<selectKey keyProperty="id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID() as  id
+        </selectKey>-->
+        Insert into nlp_classify (
+        id,`name`,descr,icon,rec_num,leaf,p_id,ser_type,img,ext1,ext2
+        )
+        values (#{id},#{name,jdbcType=VARCHAR}, #{descr,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR},
+        #{rec_num,jdbcType=DECIMAL}, #{leaf,jdbcType=INTEGER}, #{p_id,jdbcType=INTEGER},
+        #{ser_type,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, #{ext1,jdbcType=VARCHAR},
+        #{ext2,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="delClassify"  parameterType="java.lang.Integer" >
+      UPDATE nlp_classify
+      SET ext1 = '00' WHERE id = #{id}
+    </update>
+
+    <update id="updateClassify" parameterType="map">
+        update nlp_classify
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">`name`=#{name},</if>
+            <if test="descr != null">descr=#{descr},</if>
+            <if test="icon != null">icon=#{icon},</if>
+            <if test="img != null">img=#{img},</if>
+            <if test="p_id != null">p_id = #{p_id},</if>
+            <if test="leaf != null">leaf = #{leaf}, </if>
+            <if test="rec_num != null">rec_num=#{rec_num},</if>
+            <if test="serviceState != null">serviceState = #{serviceState},</if>
+            <if test="new_id != null">id=#{new_id},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <select id="getMaxSubId" resultType="String">
+        SELECT MAX(RIGHT (id,3))+1
+        FROM nlp_classify
+        WHERE p_id = #{p_id}
+    </select>
+
+    <!--依据：nlp_service_manage 的professorId不为空-->
+    <select id="getServiceList" resultType="map">
+        SELECT s.id,class_id,methodType,serviceName,serviceDescr,url,in_arg,banner,a.academyName,
+        p.professorName,serviceState,rel_time,s.isCharge
+        FROM nlp_service_manage s
+        INNER JOIN nlp_access_academy_professor p    ON s.professorId = p.id
+        INNER JOIN nlp_access_academy   a  on a.`id` = p.`academyId`
+        WHERE class_id = #{id}
+        AND serviceState != '003000'
+        <if test="keyword != null and keyword != '' ">
+            AND (serviceName LIKE CONCAT(CONCAT('%',#{keyword},'%')) or serviceDescr LIKE CONCAT(CONCAT('%',#{keyword},'%')))
+        </if>
+        ORDER BY s.`rel_time` DESC
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <select id="getServiceListCounts" resultType="int" parameterType="map" >
+        SELECT COUNT(a.id)
+        FROM nlp_service_manage a
+        INNER JOIN nlp_access_academy_professor b
+        ON a.professorId = b.id
+        WHERE class_id = #{id}
+        AND serviceState != '003000'
+        <if test="keyword != null and keyword != '' ">
+            AND (serviceName LIKE CONCAT(CONCAT('%',#{keyword},'%')) or serviceDescr LIKE CONCAT(CONCAT('%',#{keyword},'%')))
+        </if>
+    </select>
+    
+    <insert id="addServiceManage"  parameterType="com.ultra.nlp.manage.model.NlpServiceManage">
+        insert into nlp_service_manage
+        SET
+        id = #{id},serviceType = #{serviceType}, methodType = #{methodType}, class_id = #{class_id},className = #{className},
+        serviceName = #{serviceName}, serviceDescr = #{serviceDescr},serviceIcon = #{serviceIcon},
+        rel_time = #{rel_time}, use_num = #{use_num}, accessTime = #{accessTime},serviceState = #{serviceState},
+        createUserId = #{createUserId}, professorId = #{professorId}, acceptUserName = #{acceptUserName},
+        academyId = #{academyId}, groupId = #{groupId},
+        accessWay = #{accessWay}, accessLog = #{accessLog}, url = #{url},in_arg = #{in_arg},
+        banner = #{banner}, apikey = #{apikey}, secretkey = #{secretkey},createTime = #{createTime},
+        updateTime = #{updateTime}, isCharge = #{isCharge},forwardType = #{forwardType}
+    </insert>
+
+    <insert id="addServiceManageRelate" parameterType="map">
+        insert into nlp_service_relate
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test='id != null and id != "" '>
+                id,
+            </if>
+            <if test='serviceId != null and serviceId != "" '>
+                serviceId,
+            </if>
+            <if test='relateType != null and relateType != "" '>
+                relateType,
+            </if>
+            <if test='title != null and title != "" '>
+                title,
+            </if>
+            <if test='content != null and content != "" '>
+                content,
+            </if>
+            <if test='banner != null and banner != "" '>
+                banner,
+            </if>
+            <if test='relateId != null and relateId != "" '>
+                relateId,
+            </if>
+            <if test='parentType != null and parentType != "" '>
+                parentType,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test='id != null and id != "" '>
+                #{id},
+            </if>
+            <if test='serviceId != null and serviceId != "" '>
+                #{serviceId},
+            </if>
+            <if test='relateType != null and relateType != "" '>
+                #{relateType},
+            </if>
+            <if test='title != null and title != "" '>
+                #{title},
+            </if>
+            <if test='content != null and content != "" '>
+                #{content},
+            </if>
+            <if test='banner != null and banner != "" '>
+                #{banner},
+            </if>
+            <if test='relateId != null and relateId != "" '>
+                #{relateId},
+            </if>
+            <if test='parentType != null and parentType != "" '>
+                #{parentType},
+            </if>
+        </trim>
+        <!--values
+        <foreach collection="serviceRelates" item="relate" separator=",">
+            (#{relate.serviceId},#{relate.relateType},#{relate.title},#{relate.content},#{relate.banner},#{relate.relateId},#{relate.parentType})
+        </foreach>-->
+    </insert>
+
+    <insert id="addServiceRelate">
+        INSERT INTO nlp_service_relate
+        (id,serviceId, relateType, title, content, banner)
+        VALUES
+        (#{id},#{serviceId},#{relateType},#{title},#{content},#{banner})
+    </insert>
+
+    <update id="updateServiceManage" parameterType="com.ultra.nlp.manage.model.NlpServiceManage">
+        UPDATE nlp_service_manage
+        <trim prefix="set" suffixOverrides=",">
+            <if test="methodType != null">methodType = #{methodType},</if>
+            <if test="serviceName != null">serviceName = #{serviceName},</if>
+            <if test="serviceDescr != null">serviceDescr = #{serviceDescr},</if>
+            <if test="serviceIcon != null">serviceIcon = #{serviceIcon},</if>
+            <if test="professorId != null">professorId = #{professorId},</if>
+            <if test="academyId != null">academyId = #{academyId},</if>
+            <if test="groupId != null">groupId = #{groupId},</if>
+            <if test="url != null">url = #{url},</if>
+            <if test="in_arg != null">in_arg = #{in_arg},</if>
+            <if test="banner != null">banner = #{banner},</if>
+            <if test="serviceState != null">serviceState = #{serviceState},</if>
+            <if test="accessTime != null">accessTime = #{accrssTime},</if>
+            <if test="updateTime != null">updateTime = #{updateTime},</if>
+            <if test="isCharge != null">isCharge = #{isCharge},</if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+
+    <delete id="delServiceRelate" parameterType="map">
+        DELETE FROM nlp_service_relate
+        WHERE serviceId = #{serviceId}
+    </delete>
+
+    <!--通过relate去nlp_service_relate表中修改   , 弃用
+    <update id="updateServiceRelate" >
+        UPDATE nlp_service_relate
+        <trim prefix="set" suffixOverrides=",">
+        <if test="relateType != null">relateType = #{relateType},</if>
+        <if test="relateType != null">title = #{title},</if>
+        <if test="relateType != null">banner = #{banner},</if>
+        <if test="relateType != null">content = #{content},</if>
+        </trim>
+        WHERE
+        serviceId = #{serviceId}
+    </update>-->
+
+    <!--逻辑删除服务-->
+    <update id="delService">
+        UPDATE nlp_service_manage
+        SET serviceState=003000
+        WHERE id = #{id}
+    </update>
+
+    <!--根据服务id查询服务详情-->
+    <select id="serviceDetail" parameterType="map" resultType="map">
+        SELECT
+            service.`id`, methodType,class_id,c.`name` AS className,
+            CONCAT ("007",service.`serviceType`) AS accessType,
+            serviceName,serviceDescr,serviceIcon,rel_time,service.academyId,
+            service.groupId,service.professorId,in_arg,url,banner,aa.academyName,g.groupName,
+            p.professorName,serviceState,service.isCharge
+        FROM
+            nlp_service_manage service
+        INNER JOIN nlp_classify c ON SUBSTRING(service.`class_id`,1,3) = c.`id`
+        INNER JOIN nlp_access_academy aa ON service.`academyId` = aa.id
+        LEFT JOIN nlp_access_academy_group g ON service.`groupId` = g.id
+        LEFT JOIN nlp_access_academy_professor p ON service.`professorId` = p.id
+        where service.`id` = #{id}
+    </select>
+
+    <!--根据服务id查询服务相关属性列表-->
+    <select id="serviceDetailRelate" parameterType="map" resultType="map">
+        SELECT `id` AS relateId, relateType,d.`dictName` AS relateName,title,content,banner
+        FROM nlp_service_relate
+        INNER JOIN nlp_dict d ON relateType = d.`dictCode`
+        where serviceId = #{id}
+    </select>
+
+    <select id="classifyDetail" parameterType="map" resultType="map">
+        SELECT id,`name`,descr,icon,img,p_id FROM nlp_classify WHERE id = #{id}
+    </select>
+</mapper>

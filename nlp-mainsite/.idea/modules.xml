@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../shiro-vue/bing-upms.iml" filepath="$PROJECT_DIR$/../shiro-vue/bing-upms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mybatisplustest/mybatisplustest.iml" filepath="$PROJECT_DIR$/../mybatisplustest/mybatisplustest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nlp-mainsite.iml" filepath="$PROJECT_DIR$/nlp-mainsite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../nlp-manage/nlp-manage.iml" filepath="$PROJECT_DIR$/../nlp-manage/nlp-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro-vue/renren-admin.iml" filepath="$PROJECT_DIR$/../shiro-vue/renren-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro-vue/renren-api.iml" filepath="$PROJECT_DIR$/../shiro-vue/renren-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro-vue/renren-common.iml" filepath="$PROJECT_DIR$/../shiro-vue/renren-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro-vue/renren-generator.iml" filepath="$PROJECT_DIR$/../shiro-vue/renren-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro-vue/renren-security.iml" filepath="$PROJECT_DIR$/../shiro-vue/renren-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro.iml" filepath="$PROJECT_DIR$/../shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro-admin.iml" filepath="$PROJECT_DIR$/../shiro-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro-core.iml" filepath="$PROJECT_DIR$/../shiro-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../shiro.demo.iml" filepath="$PROJECT_DIR$/../shiro.demo.iml" />
+      <module fileurl="file://F:/Code-DB/秒杀系统/spring-boot-seckill/spring-boot-seckill.iml" filepath="F:/Code-DB/秒杀系统/spring-boot-seckill/spring-boot-seckill.iml" />
+    </modules>
+  </component>
+</project>

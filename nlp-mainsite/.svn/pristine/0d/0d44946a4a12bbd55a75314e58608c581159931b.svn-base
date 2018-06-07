@@ -1,0 +1,67 @@
+package com.ultra.nlp.mainsite.config;
+
+import com.ultra.nlp.mainsite.interceptor.LoginInterceptor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.*;
+
+import javax.annotation.Resource;
+import java.nio.charset.Charset;
+import java.util.List;
+
+/**
+ * 对请求进行处理，目前是对请求中包含汉字进行utf-8编码设置
+ */
+@Configuration
+public class MvcConfigurer extends WebMvcConfigurerAdapter {
+//    @Resource
+//    LoginInterceptor loginInterceptor;
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/error").setViewName("error.html");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    }
+
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        super.configurePathMatch(configurer);
+        configurer.setUseSuffixPatternMatch(false);
+    }
+    @Bean
+    public HttpMessageConverter<String> responseBodyConverter() {
+        StringHttpMessageConverter converter = new StringHttpMessageConverter(
+                Charset.forName("UTF-8"));
+        return converter;
+    }
+
+    @Override
+    public void configureMessageConverters(
+            List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
+        converters.add(responseBodyConverter());
+    }
+
+    @Override
+    public void configureContentNegotiation(
+            ContentNegotiationConfigurer configurer) {
+        configurer.favorPathExtension(false);
+    }
+
+    /**
+     * 注册拦截器
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        InterceptorRegistration ir = registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**");
+        super.addInterceptors(registry);
+//        //配置拦截路径
+//        ir.addPathPatterns("");
+//        //配置不拦截路径
+//        ir.excludePathPatterns("");
+    }
+
+}

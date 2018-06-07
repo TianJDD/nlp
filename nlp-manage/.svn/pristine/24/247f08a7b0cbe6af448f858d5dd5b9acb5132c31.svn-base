@@ -1,0 +1,19 @@
+package com.ultra.nlp.manage.dao;
+
+import com.ultra.nlp.manage.model.NlpDict;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+import java.util.Map;
+
+@Mapper
+public interface DictDao {
+
+    List<Map<String,String>> getDictList(Map<String,String> map);
+
+    int getDictToAdd(NlpDict nlpDict);
+
+    String getDictUUid(NlpDict nlpDict) throws Exception;
+
+    int updateDict(NlpDict nlpDict);
+}

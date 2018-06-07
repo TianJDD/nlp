@@ -1,0 +1,62 @@
+package com.ultra.nlp.manage.service.impl;
+
+import com.ultra.nlp.manage.dao.SolutionDao;
+import com.ultra.nlp.manage.model.NlpSolution;
+import com.ultra.nlp.manage.model.Page;
+import com.ultra.nlp.manage.service.SolutionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+* 解决方案相关接口 service接口
+* @author guyuefei
+* @date 2018-05-14 14:07:52
+*/
+@Service("solutionService")
+public class SolutionServiceImpl implements SolutionService {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Resource
+    private SolutionDao solutionDao;
+
+    @Override
+    public Page findSolutionList(Page page) {
+        List<Map<String, Object>> returnList = solutionDao.findSolutionList(page.getParam());
+        int count = solutionDao.findSolutionListCounts(page.getParam());
+        page.setResultList(returnList);
+        if(page.getPageSize() == 0)
+            page.setPageCount(1);
+        else
+            page.setPageCount(count % page.getPageSize() == 0 ? count % page.getPageSize() : count % page.getPageSize() + 1);
+        page.setRowCount(count);
+        return page;
+    }
+
+    @Override
+    public NlpSolution addSolution(NlpSolution nlpSolution) throws Exception{
+        solutionDao.addSolution(nlpSolution);
+        return nlpSolution;
+    }
+
+    @Override
+    public int updateSolution(Map<String, Object> map) throws Exception {
+        return solutionDao.updateSolution(map);
+    }
+
+    @Override
+    public int delSolution(Map<String, Object> map) throws Exception {
+        return solutionDao.updateSolution(map);
+    }
+
+    @Override
+    public Map<String, Object> solutionDetail(Map<String, Object> map) throws Exception {
+        return solutionDao.solutionDetail(map);
+    }
+}

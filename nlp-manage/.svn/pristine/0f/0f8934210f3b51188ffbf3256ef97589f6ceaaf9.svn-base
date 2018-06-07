@@ -1,0 +1,138 @@
+package com.ultra.nlp.manage.service.impl;
+
+import com.ultra.nlp.manage.dao.IServiceDao;
+import com.ultra.nlp.manage.model.Classify;
+import com.ultra.nlp.manage.model.NlpServiceManage;
+import com.ultra.nlp.manage.model.Page;
+import com.ultra.nlp.manage.service.IServiceService;
+import com.ultra.nlp.manage.util.GenerateCode;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Service(value="serviceService")
+public class ServiceServiceImpl implements IServiceService {
+    @Resource
+    IServiceDao iServiceDao;
+
+    @Override
+    public Page getClassifyList(Page page) {
+        List<Map<String, Object>> returnlist = iServiceDao.getClassifyList(page.getParam());
+        page.setResultList(returnlist);
+        /*if (returnlist.size() > 0){
+            page.setResultList(returnlist);
+        } else {
+            Map<String, Object> map = new HashMap<>();
+            map.put("isService",true);
+            returnlist.add(map);
+            page.setResultList(returnlist);
+        }*/
+        int count = iServiceDao.getClassifyListCounts(page.getParam());
+        if(page.getPageSize() == 0)
+            page.setPageCount(1);
+        else
+            page.setPageCount(count % page.getPageSize() == 0 ? count % page.getPageSize() : count % page.getPageSize() + 1);
+        page.setRowCount(count);
+        return page;
+    }
+
+    @Override
+    public int addClassify(Classify classify) {
+        //getMaxSubId()通过p_id去数据库中查询它下边的最大的子级分类id,如果不存在，设置返回值是1，然后判断返回值位数，
+        //最后将p_id和生成的code拼接
+        String p_id = classify.getP_id();
+        String id = p_id + GenerateCode.generateCode(Integer.parseInt(iServiceDao.getMaxSubId(p_id) == null ? 1 + "" : iServiceDao.getMaxSubId(p_id)));
+        classify.setId(id);
+        classify.setIcon("serviceType_" + id);
+        return iServiceDao.addClassify(classify);
+    }
+
+    @Override
+    public int delClassify(int id) {
+        return iServiceDao.delClassify(id);
+    }
+
+    @Override
+    public int updateClassify(Classify classify) throws Exception{
+        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> returnMap = new HashMap<String,Object>(7);
+        //首先根据前端传过来的p_id跟需要更改的分类的p_id进行比较，如果相同则，分类的id和p_id均不需要修改，
+        //如果不相同，则分类的id需要重新生成，生成规则同添加分类
+        map.put("id",classify.getId());
+        returnMap = iServiceDao.classifyDetail(map);
+        String p_id = classify.getP_id();
+        if(! returnMap.get("p_id").equals(p_id)){
+            String new_id =p_id + GenerateCode.generateCode(Integer.parseInt(iServiceDao.getMaxSubId(p_id) == null ? 1 + "" : iServiceDao.getMaxSubId(p_id)));
+            map.put("new_id",new_id);
+            map.put("p_id",p_id);
+        }
+        map.put("name",classify.getName());
+        map.put("descr",classify.getDescr());
+        map.put("icon",classify.getIcon());
+        map.put("img",classify.getImg());
+        map.put("leaf",classify.getLeaf());
+        map.put("rec_num",classify.getLeaf());
+        return iServiceDao.updateClassify(map);
+    }
+
+    @Override
+    @Transactional
+    public int addServiceManage(NlpServiceManage nlpServiceManage) throws Exception{
+        iServiceDao.addServiceManage(nlpServiceManage);
+        List<Map<String,Object>> relates = nlpServiceManage.getRelates();
+        if(relates != null && relates.size() > 0){
+            for(Map<String,Object> relate : relates){
+                relate.put("serviceId",nlpServiceManage.getId());
+                iServiceDao.addServiceManageRelate(relate);
+            }
+        }
+        return 1;
+    }
+
+    @Override
+    public int updateServiceManage(NlpServiceManage nlpServiceManage) {
+        return iServiceDao.updateServiceManage(nlpServiceManage);
+    }
+
+    @Override
+    public int delService(int id) {
+        return iServiceDao.delService(id);
+    }
+
+    @Override
+    public Page getServiceList(Page page) {
+        //通过传过来的id去nlp_classify表查询它的子级
+        List<Map<String, Object>> returnlist = iServiceDao.getClassifyList(page.getParam());
+        //去nlp_service_manage表查询属于所传id分类的服务集合
+        List<Map<String, Object>> result = iServiceDao.getServiceList(page.getParam());
+        //page.setResultList(returnlist);
+        Map<String, Object> map = new HashMap<>();
+        if (returnlist.size() > 0){
+            map.put("isLastClassify",false);
+        } else {
+            map.put("isLastClassify",true);
+        }
+        map.put("result",result);
+        page.setResultMap(map);
+        int count = iServiceDao.getServiceListCounts(page.getParam());
+        if(page.getPageSize() == 0)
+            page.setPageCount(1);
+        else
+            page.setPageCount(count % page.getPageSize() == 0 ? count % page.getPageSize() : count % page.getPageSize() + 1);
+        page.setRowCount(count);
+        return page;
+    }
+
+    @Override
+    public Map<String, Object> serviceDetail(Map<String, Object> map) {
+        List<Map<String,Object>> relates = iServiceDao.serviceDetailRelate(map);
+        map = iServiceDao.serviceDetail(map);
+        map.put("relates",relates);
+        return map;
+    }
+}
+

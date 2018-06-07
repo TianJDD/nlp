@@ -1,0 +1,99 @@
+package com.ultra.nlp.manage.model;
+
+public class NlpAcademy {
+    private String id;
+    private String academyName;
+    private String academyDesc;
+    private String academyPhone;
+    private String academyURL;
+    private String academyState;
+    private String academyCreateTime;
+    private String academyUpdateTime;
+    private String academyImg;
+
+    public String getAcademyImg() {
+        return academyImg;
+    }
+
+    public void setAcademyImg(String academyImg) {
+        this.academyImg = academyImg;
+    }
+
+    public String getAcademyCreateTime() {
+        return academyCreateTime;
+    }
+
+    public void setAcademyCreateTime(String academyCreateTime) {
+        this.academyCreateTime = academyCreateTime;
+    }
+
+    public String getAcademyUpdateTime() {
+        return academyUpdateTime;
+    }
+
+    public void setAcademyUpdateTime(String academyUpdateTime) {
+        this.academyUpdateTime = academyUpdateTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAcademyName() {
+        return academyName;
+    }
+
+    public void setAcademyName(String academyName) {
+        this.academyName = academyName;
+    }
+
+    public String getAcademyDesc() {
+        return academyDesc;
+    }
+
+    public void setAcademyDesc(String academyDesc) {
+        this.academyDesc = academyDesc;
+    }
+
+    public String getAcademyPhone() {
+        return academyPhone;
+    }
+
+    public void setAcademyPhone(String academyPhone) {
+        this.academyPhone = academyPhone;
+    }
+
+    public String getAcademyURL() {
+        return academyURL;
+    }
+
+    public void setAcademyURL(String academyURL) {
+        this.academyURL = academyURL;
+    }
+
+    public String getAcademyState() {
+        return academyState;
+    }
+
+    public void setAcademyState(String academyState) {
+        this.academyState = academyState;
+    }
+
+    @Override
+    public String toString() {
+        return "NlpAcademy{" +
+                "id=" + id +
+                ", academyName='" + academyName + '\'' +
+                ", academyDesc='" + academyDesc + '\'' +
+                ", academyPhone='" + academyPhone + '\'' +
+                ", academyURL='" + academyURL + '\'' +
+                ", academyState='" + academyState + '\'' +
+                ", academyCreateTime='" + academyCreateTime + '\'' +
+                ", academyUpdateTime='" + academyUpdateTime + '\'' +
+                '}';
+    }
+}

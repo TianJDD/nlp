@@ -1,0 +1,115 @@
+package com.ultra.nlp.mainsite.model;
+
+import java.util.List;
+
+/**
+ * Created by sgy05 on 2018/5/4.
+ */
+public class ServiceDetail {
+    private String id;
+    private String serviceName;
+    private String serviceDescr;
+    private String url;
+    private String banner;
+    private String in_arg;
+    private String class_id;
+    private String className;
+    private String methodType;
+    private List<ServiceRelate> serviceRelates;
+
+    public List<ServiceRelate> getServiceRelates() {
+        return serviceRelates;
+    }
+
+    public void setServiceRelates(List<ServiceRelate> serviceRelates) {
+        this.serviceRelates = serviceRelates;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getServiceDescr() {
+        return serviceDescr;
+    }
+
+    public void setServiceDescr(String serviceDescr) {
+        this.serviceDescr = serviceDescr;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    public String getIn_arg() {
+        return in_arg;
+    }
+
+    public void setIn_arg(String in_arg) {
+        this.in_arg = in_arg;
+    }
+
+    public String getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(String class_id) {
+        this.class_id = class_id;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getMethodType() {
+        return methodType;
+    }
+
+    public void setMethodType(String methodType) {
+        this.methodType = methodType;
+    }
+
+    @Override
+    public String toString() {
+        return "ServiceDetail{" +
+                "id=" + id +
+                ", serviceName='" + serviceName + '\'' +
+                ", serviceDescr='" + serviceDescr + '\'' +
+                ", url='" + url + '\'' +
+                ", banner='" + banner + '\'' +
+                ", in_arg='" + in_arg + '\'' +
+                ", class_id='" + class_id + '\'' +
+                ", className='" + className + '\'' +
+                ", methodType='" + methodType + '\'' +
+                ", serviceRelates=" + serviceRelates +
+                '}';
+    }
+}

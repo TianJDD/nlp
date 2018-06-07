@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.manage.dao.IAcademyDao" >
+
+    <!--获取学校/公司列表,academyState是用来控制学校/机构正常使用的，010002代表不可使用，010001代表可以使用-->
+    <select id="getAcademyList" resultType="map" parameterType="map" >
+        SELECT id,academyName,academyDesc,academyPhone,academyURL
+        FROM nlp_access_academy
+        WHERE academyState ='010001'
+        <if test="null != keyword and '' != keyword">
+            AND academyName LIKE CONCAT(CONCAT('%',#{keyword},'%')) or academyDesc LIKE CONCAT(CONCAT('%',#{keyword},'%'))
+        </if>
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+    
+    <select id="getAcademyListCounts" resultType="int" parameterType="map" >
+        SELECT COUNT(id)
+        FROM nlp_access_academy
+        WHERE academyState = '010001'
+        <if test="null != keyword and '' != keyword">
+            AND academyName LIKE CONCAT(CONCAT('%',#{keyword},'%')) or academyDesc LIKE CONCAT(CONCAT('%',#{keyword},'%'))
+        </if>
+    </select>
+
+    <!--获取部门/机构列表 -->
+    <select id="getGroupList" resultType="map" parameterType="map">
+        select id AS groupId,academyId,groupName,groupDesc
+        FROM nlp_access_academy_group WHERE groupState = '010001' and academyId=#{academyId}
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+    <select id="getGroupListCounts" resultType="int" parameterType="map" >
+        SELECT COUNT(id) FROM nlp_access_academy_group WHERE groupState = '010001' and academyId=#{academyId}
+    </select>
+
+    <!--查询大学课题组教授/机构部门人员信息列表接口 -->
+    <select id="getProfessorList" resultType="map" parameterType="map">
+        select * from nlp_access_academy_professor
+        where professorState = '010001'
+        <if test="groupId != null">
+            and groupId = #{groupId}
+        </if>
+        <if test="academyId != null">
+            and academyId=#{academyId}
+        </if>
+        <if test="keyword != null and keyword != ''" >
+            and (professorName LIKE CONCAT(CONCAT('%',#{keyword},'%')) or professorDesc LIKE CONCAT(CONCAT('%',#{keyword},'%')))
+        </if>
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+    <select id="getprofessorListCounts" resultType="int" parameterType="map" >
+        SELECT COUNT(id) FROM nlp_access_academy_professor where professorState = '010001'
+        <if test="groupId != null">
+            and groupId = #{groupId}
+        </if>
+        <if test="academyId != null">
+            and academyId=#{academyId}
+        </if>
+        <if test="keyword != null and keyword != ''" >
+            and (professorName LIKE CONCAT(CONCAT('%',#{keyword},'%')) or professorDesc LIKE CONCAT(CONCAT('%',#{keyword},'%')))
+        </if>
+    </select>
+
+    <update id="updateAcademy" parameterType="com.ultra.nlp.manage.model.NlpAcademy">
+        update nlp_access_academy
+        <trim prefix="set" suffixOverrides=",">
+            <if test="academyName != null">academyName=#{academyName},</if>
+            <if test="academyDesc != null">academyDesc=#{academyDesc},</if>
+            <if test="academyPhone != null">academyPhone=#{academyPhone},</if>
+            <if test="academyURL != null">academyURL=#{academyURL},</if>
+            <if test="academyUpdateTime != null">academyUpdateTime = #{academyUpdateTime},</if>
+        </trim>
+        where id=#{id}
+    </update>
+
+    <update id="updateProfessor" parameterType="com.ultra.nlp.manage.model.NlpProfessor">
+        update nlp_access_academy_professor
+        <trim prefix="set" suffixOverrides=",">
+            <if test="academyId != null and academyId != 0">academyId=#{academyId},</if>
+            <if test="academyName != null">academyName=#{academyName},</if>
+            <if test="groupId != null">groupId=#{groupId},</if>
+            <if test="groupName != null">groupName=#{groupName},</if>
+            <if test="professorName != null">professorName=#{professorName},</if>
+            <if test="professorDesc != null">professorDesc=#{professorDesc},</if>
+            <if test="professorPhone != null">professorPhone=#{professorPhone},</if>
+            <if test="professorImg != null">professorImg=#{professorImg},</if>
+            <if test="professorTitle != null">professorTitle=#{professorTitle},</if>
+            <if test="professorSex != null ">professorSex=#{professorSex},</if>
+            <if test="professorState != null ">professorState=#{professorState},</if>
+            <if test="professorUpdateTime != null ">professorUpdateTime = #{professorUpdateTime},professorCreateTime = #{professorUpdateTime}</if>
+        </trim>
+        where id=#{id}
+    </update>
+
+
+    <insert id="addAcademy" parameterType="map">
+        INSERT INTO nlp_access_academy
+        (academyName, academyDesc, academyURL,academyState,academyCreateTime,academyUpdateTime)
+        VALUES
+        (#{academyName},#{academyDesc},#{academyURL},#{academyState},#{academyCreateTime},#{academyCreateTime})
+    </insert>
+
+    <update id="delAcademy"  parameterType="map">
+        UPDATE nlp_access_academy
+        set
+        academyState = #{academyState}
+        where
+        id = #{id}
+    </update>
+
+    <update id="updateGroup" parameterType="com.ultra.nlp.manage.model.NlpGroup">
+        UPDATE nlp_access_academy_group
+        <trim prefix="set" suffixOverrides=",">
+            <if test="academyId != null">academyId=#{academyId},</if>
+            <if test="academyName != null">academyName=#{academyName},</if>
+            <if test="groupName != null">groupName=#{groupName},</if>
+            <if test="groupDesc != null">groupDesc=#{groupDesc},</if>
+            <if test="groupState != null">groupState=#{groupState},</if>
+            <if test="groupUpdateTime != null">groupUpdateTime=#{groupUpdateTime},</if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+    <!--删除部门信息-逻辑删除-->
+    <update id="delGroup" parameterType="map">
+        UPDATE nlp_access_academy_group
+        set groupState=#{groupState}
+        WHERE id=#{id}
+    </update>
+    <!--删除教授信息-逻辑删除-->
+    <update id="delProfessor" parameterType="map">
+        UPDATE nlp_access_academy_professor
+        set professorState=#{professorState}
+        WHERE id=#{id}
+    </update>
+
+    <insert id="addGroup" parameterType="map">
+        INSERT INTO nlp_access_academy_group
+        (academyId, groupName, groupDesc,groupState,groupCreateTime,groupUpdateTime)
+        VALUES
+        (#{academyId},#{groupName},#{groupDesc},#{groupState},#{groupCreateTime},#{groupCreateTime})
+    </insert>
+
+    <insert id="addrPofessor" parameterType="map">
+        INSERT INTO nlp_access_academy_professor
+        (academyId, groupId, professorName,professorDesc, professorPhone, professorImg,professorTitle,
+          professorSex, professorState,professorCreateTime,professorUpdateTime
+        )
+        VALUES
+        (#{academyId},#{groupId},#{professorName},#{professorDesc},#{professorPhone},#{professorImg},
+          #{professorTitle},#{professorSex},#{professorState},#{professorCreateTime},#{professorCreateTime}
+        )
+    </insert>
+</mapper>

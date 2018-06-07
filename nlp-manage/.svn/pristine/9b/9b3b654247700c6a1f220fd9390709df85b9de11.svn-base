@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+                <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+        <mapper namespace="com.ultra.nlp.manage.dao.DictDao" >
+    <select id="getDictList" resultType="map" parameterType="map">
+        SELECT * FROM nlp_dict
+        where 1=1
+        <if test="parentCode != null"> and parentCode=#{parentCode} </if>
+        <if test="dictCode != null"> and parentCode=#{dictCode} </if>
+        <!--<if test="keyword != null and keyword != ''"> and dictName like CONCAT('%',#{keyword},'%')</if>
+        <if test="queryStart != null and pageSize != null and pageSize !=0"> limit #{queryStart}, #{pageSize} </if>-->
+    </select>
+    <select id="getDictListCounts" resultType="int" parameterType="map">
+        SELECT COUNT(dictCode)
+        FROM nlp_dict
+        WHERE  1=1
+        <if test="parentCode != null"> and parentCode=#{dictCode} </if>
+        <if test="dictCode != null"> and parentCode=#{dictCode} </if>
+        <if test="keyword != null and keyword != ''"> and dictName like CONCAT('%',#{keyword},'%')</if>
+    </select>
+    <!-- 字典表添加服务-->
+    <insert id="getDictToAdd" parameterType="com.ultra.nlp.manage.model.NlpDict">
+        INSERT into nlp_dict set dictCode=#{dictCode},dictName=#{dictName},dictValue=#{dictValue},
+        parentName=#{parentName},dictDesc=#{dictDesc},dictIcon=#{dictIcon},
+        dictState=#{dictState},createTime=#{createTime},updateTime=#{updateTime},
+        createUser=#{createUser},updateUser=#{updateUser}
+        <if test="parentCode ==null || parentCode ==''">
+            ,parentCode=0
+        </if>
+        <if test="parentCode != null and parentCode !=''">
+            ,parentCode=#{parentCode}
+        </if>
+    </insert>
+    <!-- 生成dictCode的sql-->
+    <select id="getDictUUid" resultType="String" parameterType="com.ultra.nlp.manage.model.NlpDict" >
+        /*首先从右边截取3位，然后取最大值*/
+        SELECT MAX(RIGHT (dictCode,3))+1 FROM nlp_dict
+        where 1=1
+        <if test="parentCode ==null || parentCode ==''">
+             and parentCode=0
+        </if>
+        <if test="parentCode != null and parentCode !=''">
+            and parentCode=#{parentCode}
+        </if>
+    </select>
+    <!-- 字典表修改-->
+    <update id="updateDict" parameterType="com.ultra.nlp.manage.model.NlpDict">
+        UPDATE nlp_dict
+        <trim prefix="set" suffixOverrides=",">
+            <if test="dictName != null">dictName=#{dictName},</if>
+            <if test="dictValue != null">dictValue=#{dictValue},</if>
+            <if test="parentName != null">parentName=#{parentName},</if>
+            <if test="dictDesc != null">dictDesc=#{dictDesc},</if>
+            <if test="dictIcon != null">dictIcon=#{dictIcon},</if>
+            <if test="dictState != null">dictState=#{dictState},</if>
+            <if test="updateTime != null">updateTime=#{updateTime},</if>
+            <if test="updateUser != null">updateUser=#{updateUser},</if>
+        </trim>
+        where dictCode=#{dictCode}
+    </update>
+    <!--************************************dictTree的操作************************************-->
+
+    <select id="getDictTreeList" resultType="map" parameterType="map">
+        SELECT *
+        FROM nlp_dict
+        WHERE  1=1
+        <if test="dictCode != null and dictCode != ''"> AND parentCode = #{dictCode} </if>
+        <if test="keyword != null and keyword != ''"> and dictName like CONCAT('%',#{keyword},'%')</if>
+        <if test="queryStart != null and pageSize != null and pageSize !=0"> limit #{queryStart}, #{pageSize} </if>
+    </select>
+
+    <select id="getDictTreeListCount" resultType="int" parameterType="map">
+        SELECT count(dictCode)
+        FROM nlp_dict
+        WHERE  1=1
+        <if test="dictCode != null and dictCode != ''"> AND parentCode = #{dictCode} </if>
+        <if test="keyword != null and keyword != ''"> and dictName like CONCAT('%',#{keyword},'%')</if>
+    </select>
+</mapper>

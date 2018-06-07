@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ultra.nlp.mainsite.dao.IServiceDao" >
+
+
+    <!--页首列表-->
+    <select id="getServiceTypeList" resultType="map" parameterType="map" >
+      SELECT id,`name`,ser_type,descr,icon,img,p_id,leaf,rec_num,ext1,ext2 FROM nlp_classify
+      WHERE ext1 = '01'
+      <if test="queryStart != null and pageSize != null and pageSize !=0">
+          limit #{queryStart}, #{pageSize}
+      </if>
+   </select>
+    <select id="getServiceTypeListCounts" resultType="int" parameterType="map" >
+        SELECT COUNT(id) FROM nlp_classify
+        WHERE ext1 = '01'
+        <if test="id != null">
+            and p_id = #{id}
+        </if>
+    </select>
+
+    <!--查询基础热门服务第一级-->
+    <!--首先查询基础服务下的大类并筛选出有热门服务的大类，并根据大类将小类进行分组，然后
+    count小类的数量，最后根据小类的数量进行排序-->
+    <select id="getRecServiceList1" resultType="map" parameterType="map" >
+
+        SELECT c.name AS `name`,c.p_id AS id ,c.icon  FROM (
+            SELECT b.`name`,a.`p_id`,SUM(a.`rec_num`) AS recNums,b.icon
+            FROM nlp_classify a
+            INNER JOIN (
+                SELECT id,`name`,descr,rec_num,icon FROM nlp_classify
+                WHERE `ser_type` = 0 AND p_id LIKE '00_'
+            ) b ON a.`p_id` = b.id
+            WHERE a.`rec_num` > 0
+            GROUP BY b.`name`,a.`p_id`,b.icon
+        ) c ORDER BY recNums DESC
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+
+    <!--查询基础热门服务第二级-->
+    <select id="getRecServiceList2" resultType="map" parameterType="map" >
+        SELECT id,`name`,descr
+        FROM nlp_classify
+        WHERE p_id=#{id} AND rec_num =1
+        <!--<if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>-->
+        limit #{size}
+    </select>
+    <select id="getServiceTypeListCounts2" resultType="int" parameterType="map" >
+        SELECT COUNT(id) FROM nlp_classify
+        WHERE p_id=#{id} AND rec_num=1
+        <if test="id != null">
+            and p_id = #{id}
+        </if>
+    </select>
+
+    <!--查询具体服务-->
+    <select id="getService" resultType="java.util.HashMap" parameterType="int">
+        SELECT id,class_id,name
+        from nlp_service
+        WHERE class_id = #{id}
+    </select>
+
+    <!--查询热门应用服务-->
+    <select id="getRecClsList" resultType="map" parameterType="map" >
+        SELECT p_id,name,descr,icon,img
+        FROM nlp_classify
+        WHERE p_id ='002'
+    </select>
+    <select id="getRecClsListCounts" resultType="int" parameterType="map" >
+        SELECT count(id) FROM nlp_classify
+        WHERE p_id = '002'
+    </select>
+
+    <!--根据第三级typeId查询service列表-->
+    <select id="getServiceListByType3Id" resultType="map" parameterType="map" >
+        SELECT id,class_id,serviceName,academyName,serviceDescr,serviceIcon,acceptTime
+        from nlp_service_manage
+        WHERE class_id=#{id}
+    </select>
+    <select id="getServiceListByType3IdCounts" resultType="int" parameterType="map" >
+        SELECT count(id) FROM nlp_service_manage
+        WHERE class_id=#{id}
+    </select>
+
+   <!-- 服务列表页模糊查询-->
+    <select id="searchServiceByCondition" resultType="map" parameterType="map" >
+        SELECT
+        id,serviceType,class_id,className,serviceName,serviceDescr,serviceIcon,
+        professorName,academyName,groupName,FROM_UNIXTIME(rel_time/1000,'%Y-%m-%d %H:%i:%s') as rel_time
+        FROM nlp_service_manage
+        WHERE
+        ( className LIKE concat(concat('%',#{keyword}),'%')
+        OR serviceName LIKE concat(concat('%',#{keyword}),'%')
+        OR serviceDescr LIKE concat(concat('%',#{keyword}),'%')
+        OR professorName LIKE concat(concat('%',#{keyword}),'%')
+        OR academyName LIKE concat(concat('%',#{keyword}),'%')
+        OR groupName LIKE concat(concat('%',#{keyword}),'%')
+        )
+        <if test="class_id != null">
+            AND class_id = #{class_id}
+        </if>
+        ORDER BY
+        <if test="useNum != null and useNum == 1">
+          use_num DESC,
+        </if>
+        <if test="relTime != null and relTime ==1">
+          rel_time DESC,
+        </if>
+        <if test="useNum != null and useNum == 2">
+          use_num ASC,
+        </if>
+        <if test="relTime != null and relTime == 2">
+          rel_time ASC,
+        </if>
+        id DESC
+
+        <if test="queryStart != null and pageSize != null and pageSize !=0">
+            limit #{queryStart}, #{pageSize}
+        </if>
+    </select>
+    <select id="searchServiceCountByKeyword" resultType="int" parameterType="map" >
+        SELECT count(id) FROM nlp_service_manage
+            WHERE
+            (      className LIKE  concat(concat('%',#{keyword}),'%')
+            OR     serviceName LIKE concat(concat('%',#{keyword}),'%')
+            OR     serviceDescr LIKE concat(concat('%',#{keyword}),'%')
+            OR     professorName LIKE concat(concat('%',#{keyword}),'%')
+            OR     academyName LIKE concat(concat('%',#{keyword}),'%')
+            OR     groupName  LIKE concat(concat('%',#{keyword}),'%')
+            )
+        <if test="class_id != null">
+            AND class_id = #{class_id}
+        </if>
+    </select>
+
+    <!--<select id="detailsdao" resultType="map" parameterType="Integer">
+        SELECT id,class_id,name,ser_type,descr,image,rel_time,tech_feature,tech_content,
+        tech_onetitle,tech_onecont,tech_twotitle,tech_twocont,app_scene,app_content,url,in_arg,
+        tech_onetitle,tech_onecont,app_onetitle,app_onecont,app_twotitle,app_twocont,api_key,secret_key,ext1,
+        ext2
+        from nlp_service where id=#{id}
+    </select>-->
+    <select id="detailsdao" resultType="map" parameterType="Integer">
+
+        SELECT n1.id ,n1.serviceName,n1.serviceDescr,n1.url,n1.banner,n1.in_arg,n2.relateType,n2.title,n2.content
+        FROM nlp_service_manage n1
+        RIGHT JOIN  nlp_service_relate n2
+        ON n1.id = n2.serviceId
+        WHERE n1.id=#{id}
+    </select>
+    <resultMap id="serviceDetailResultMap" type="com.ultra.nlp.mainsite.model.ServiceDetail">
+        <id property="id" column="id"/>
+        <result property="serviceDescr" column="serviceDescr"/>
+        <result property="banner" column="banner"/>
+        <result property="in_arg" column="in_arg"/>
+        <result property="serviceName" column="serviceName"/>
+        <result property="className" column="className"/>
+        <result property="methodType" column="methodType"/>
+        <result property="class_id" column="class_id"/>
+        <result property="url" column="url"/>
+        <collection property="serviceRelates" javaType="ArrayList" column="id" ofType="com.ultra.nlp.mainsite.model.ServiceRelate"
+                    select="com.ultra.nlp.mainsite.dao.IServiceDao.getServiceRelates">
+            <result property="relateType" column="relateType"/>
+            <result property="title" column="title"/>
+            <result property="content" column="content"/>
+            <result property="banner" column="banner"/>
+            <result property="dictName" column="dictName"/>
+        </collection>
+    </resultMap>
+    <!--获取服务详情com.ultra.nlp.mainsite.model.ServiceDetail-->
+    <select id="getServiceInfo" resultMap="serviceDetailResultMap" parameterType="Integer">
+        SELECT s.id ,s.serviceDescr,s.banner,s.in_arg,c.`name` AS className,s.`serviceName`,s.`class_id`,s.url,s.methodType
+        FROM nlp_service_manage  s
+        INNER JOIN nlp_classify c ON s.`class_id` = c.`id`
+        where s.id=#{id}
+    </select>
+    <!--获取服务关联属性列表-->
+    <select id="getServiceRelates" resultType="com.ultra.nlp.mainsite.model.ServiceRelate" parameterType="Integer">
+        SELECT nsr.relateType,nsr.title,nsr.content,nd.dictName
+        FROM nlp_service_relate nsr INNER JOIN nlp_dict nd ON nsr.relateType=nd.dictCode
+        WHERE serviceId=#{serviceId};
+    </select>
+    <!--<select id="getdatasetlist" resultType="com.ultra.nlp.mainsite.model.Data" parameterType="Integer">
+        select id,name,uploader,introduce,type,type_name,image,attr from nlp_data where type=#{id}
+    </select>-->
+
+    <!--根据服务类别查询服务查询服务所在服务器信息-->
+    <select id="getServiceIpAndPort" resultType="map" parameterType="map">
+        SELECT dictCode,dictName,dictValue,parentCode,parentName,dictDesc,dictState
+        FROM nlp_dict WHERE dictCode = #{dictCode}
+    </select>
+
+
+    <!--查询导航栏的解决方案列表-->
+    <select id="getSolutionList" resultType="map">
+        SELECT id,solutionName,solutionDesc,solutionIcon,solutionUrl
+        FROM nlp_solution
+    </select>
+
+    <update id="updateServiceUseCount" parameterType="map">
+        <if test="type == 1">
+            UPDATE nlp_monitorservice
+            SET invoke_count = invoke_count+ 1
+            WHERE
+              service_id = #{serviceId}
+            AND (user_id = #{userId} or userName = #{userName})
+            AND date_time= #{dateTime}
+            AND fromType= #{fromType}
+        </if>
+        <if test="type == 2">
+            UPDATE nlp_monitorservice
+            SET fail_count = fail_count+ 1
+            WHERE
+              service_id = #{serviceId}
+            AND (user_id = #{userId} or userName = #{userName})
+            AND date_time= #{dateTime}
+            AND fromType= #{fromType}
+        </if>
+    </update>
+
+    <select id="getServiceTypeNameById" resultType="map" parameterType="map">
+        SELECT id,`name` AS classifyName,descr AS classifyDesc,p_id
+        FROM nlp_classify WHERE id = #{class_id}
+    </select>
+</mapper>

@@ -1,0 +1,369 @@
+package com.ultra.nlp.manage.model;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 添加了isCharge属性
+ * @date 2018/5/21 11:13
+ * last modified by JIT
+ */
+public class NlpServiceManage {
+
+    private String id;
+
+    private String serviceType;
+
+    private String methodType;
+
+    private String class_id;
+
+    private String className;
+
+    private String fromType;
+
+    private String serviceName;
+
+    private String serviceDescr;
+
+    private String serviceIcon;
+
+    private String rel_time;
+
+    private Integer use_num;
+
+    private String accessTime;
+
+    private String serviceState;
+
+    private Integer createUserId;
+
+    private Integer professorId;
+
+    private String acceptUserName;
+
+    private String professorName;
+
+    private Integer academyId;
+
+    private String academyName;
+
+    private Integer groupId;
+
+    private String groupName;
+
+    private String accessWay;
+
+    private String accessLog;
+
+    private String url;
+
+    private String in_arg;
+
+    private String banner;
+
+    private String apikey;
+
+    private String secretkey;
+
+    private String createTime;
+
+    private String updateTime;
+
+    public String getIsCharge() {
+        return isCharge;
+    }
+
+    public void setIsCharge(String isCharge) {
+        this.isCharge = isCharge;
+    }
+
+    private String isCharge;
+
+    private List<Map<String,Object>> relates;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+
+    public String getMethodType() {
+        return methodType;
+    }
+
+    public void setMethodType(String methodType) {
+        this.methodType = methodType;
+    }
+
+    public String getClass_id() {
+        return class_id;
+    }
+
+    public void setClass_id(String class_id) {
+        this.class_id = class_id;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public String getFromType() {
+        return fromType;
+    }
+
+    public void setFromType(String fromType) {
+        this.fromType = fromType;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getServiceDescr() {
+        return serviceDescr;
+    }
+
+    public void setServiceDescr(String serviceDescr) {
+        this.serviceDescr = serviceDescr;
+    }
+
+    public String getServiceIcon() {
+        return serviceIcon;
+    }
+
+    public void setServiceIcon(String serviceIcon) {
+        this.serviceIcon = serviceIcon;
+    }
+
+    public String getRel_time() {
+        return rel_time;
+    }
+
+    public void setRel_time(String rel_time) {
+        this.rel_time = rel_time;
+    }
+
+    public Integer getUse_num() {
+        return use_num;
+    }
+
+    public void setUse_num(Integer use_num) {
+        this.use_num = use_num;
+    }
+
+    public String getAccessTime() {
+        return accessTime;
+    }
+
+    public void setAccessTime(String accessTime) {
+        this.accessTime = accessTime;
+    }
+
+    public String getServiceState() {
+        return serviceState;
+    }
+
+    public void setServiceState(String serviceState) {
+        this.serviceState = serviceState;
+    }
+
+    public Integer getCreateUserId() {
+        return createUserId;
+    }
+
+    public void setCreateUserId(Integer createUserId) {
+        this.createUserId = createUserId;
+    }
+
+    public Integer getProfessorId() {
+        return professorId;
+    }
+
+    public void setProfessorId(Integer professorId) {
+        this.professorId = professorId;
+    }
+
+    public String getAcceptUserName() {
+        return acceptUserName;
+    }
+
+    public void setAcceptUserName(String acceptUserName) {
+        this.acceptUserName = acceptUserName;
+    }
+
+    public String getProfessorName() {
+        return professorName;
+    }
+
+    public void setProfessorName(String professorName) {
+        this.professorName = professorName;
+    }
+
+    public Integer getAcademyId() {
+        return academyId;
+    }
+
+    public void setAcademyId(Integer academyId) {
+        this.academyId = academyId;
+    }
+
+    public String getAcademyName() {
+        return academyName;
+    }
+
+    public void setAcademyName(String academyName) {
+        this.academyName = academyName;
+    }
+
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public String getAccessWay() {
+        return accessWay;
+    }
+
+    public void setAccessWay(String accessWay) {
+        this.accessWay = accessWay;
+    }
+
+    public String getAccessLog() {
+        return accessLog;
+    }
+
+    public void setAccessLog(String accessLog) {
+        this.accessLog = accessLog;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getIn_arg() {
+        return in_arg;
+    }
+
+    public void setIn_arg(String in_arg) {
+        this.in_arg = in_arg;
+    }
+
+    public String getBanner() {
+        return banner;
+    }
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    public String getApikey() {
+        return apikey;
+    }
+
+    public void setApikey(String apikey) {
+        this.apikey = apikey;
+    }
+
+    public String getSecretkey() {
+        return secretkey;
+    }
+
+    public void setSecretkey(String secretkey) {
+        this.secretkey = secretkey;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public List<Map<String, Object>> getRelates() {
+        return relates;
+    }
+
+    public void setRelates(List<Map<String, Object>> relates) {
+        this.relates = relates;
+    }
+
+    @Override
+    public String toString() {
+        return "NlpServiceManage{" +
+                "id='" + id + '\'' +
+                ", serviceType='" + serviceType + '\'' +
+                ", methodType='" + methodType + '\'' +
+                ", class_id='" + class_id + '\'' +
+                ", className='" + className + '\'' +
+                ", fromType='" + fromType + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", serviceDescr='" + serviceDescr + '\'' +
+                ", serviceIcon='" + serviceIcon + '\'' +
+                ", rel_time='" + rel_time + '\'' +
+                ", use_num=" + use_num +
+                ", accessTime='" + accessTime + '\'' +
+                ", serviceState='" + serviceState + '\'' +
+                ", createUserId=" + createUserId +
+                ", professorId=" + professorId +
+                ", acceptUserName='" + acceptUserName + '\'' +
+                ", professorName='" + professorName + '\'' +
+                ", academyId=" + academyId +
+                ", academyName='" + academyName + '\'' +
+                ", groupId=" + groupId +
+                ", groupName='" + groupName + '\'' +
+                ", accessWay='" + accessWay + '\'' +
+                ", accessLog='" + accessLog + '\'' +
+                ", url='" + url + '\'' +
+                ", in_arg='" + in_arg + '\'' +
+                ", banner='" + banner + '\'' +
+                ", apikey='" + apikey + '\'' +
+                ", secretkey='" + secretkey + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                ", relates=" + relates +
+                '}';
+    }
+}

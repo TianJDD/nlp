@@ -1,0 +1,60 @@
+package com.ultra.nlp.manage.model;
+
+public class NlpAcademy {
+    private int id;
+    private String academyName;
+    private String academyDesc;
+    private String academyPhone;
+    private String academyURL;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAcademyName() {
+        return academyName;
+    }
+
+    public void setAcademyName(String academyName) {
+        this.academyName = academyName;
+    }
+
+    public String getAcademyDesc() {
+        return academyDesc;
+    }
+
+    public void setAcademyDesc(String academyDesc) {
+        this.academyDesc = academyDesc;
+    }
+
+    public String getAcademyPhone() {
+        return academyPhone;
+    }
+
+    public void setAcademyPhone(String academyPhone) {
+        this.academyPhone = academyPhone;
+    }
+
+    public String getAcademyURL() {
+        return academyURL;
+    }
+
+    public void setAcademyURL(String academyURL) {
+        this.academyURL = academyURL;
+    }
+
+    @Override
+    public String toString() {
+        return "NlpAcademy{" +
+                "id=" + id +
+                ", academyName='" + academyName + '\'' +
+                ", academyDesc='" + academyDesc + '\'' +
+                ", academyPhone='" + academyPhone + '\'' +
+                ", academyURL='" + academyURL + '\'' +
+                '}';
+    }
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bing-upms" />
+        <module name="mybatisplustest" />
+        <module name="nlp-mainsite" />
+        <module name="nlp-manage" />
+        <module name="renren-admin" />
+        <module name="renren-api" />
+        <module name="renren-common" />
+        <module name="renren-generator" />
+        <module name="shiro-admin" />
+        <module name="shiro-core" />
+        <module name="shiro.demo" />
+        <module name="spring-boot-seckill" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bing-upms" target="1.8" />
+      <module name="mybatisplustest" target="1.5" />
+      <module name="nlp-mainsite" target="1.8" />
+      <module name="nlp-manage" target="1.8" />
+      <module name="nlp-sso" target="1.8" />
+      <module name="renren-admin" target="1.8" />
+      <module name="renren-api" target="1.8" />
+      <module name="renren-common" target="1.8" />
+      <module name="renren-generator" target="1.8" />
+      <module name="renren-security" target="1.8" />
+      <module name="shiro" target="1.7" />
+      <module name="shiro-admin" target="1.7" />
+      <module name="shiro-core" target="1.7" />
+      <module name="shiro.demo" target="1.7" />
+      <module name="shiroTest" target="1.5" />
+      <module name="spring-boot-seckill" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

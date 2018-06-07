@@ -1,0 +1,125 @@
+package com.ultra.nlp.manage.controller;
+
+import com.alibaba.fastjson.JSONObject;
+import com.ultra.nlp.manage.config.BaseTestConfig;
+import com.ultra.nlp.manage.model.NlpAcademy;
+import com.ultra.nlp.manage.model.NlpDict;
+import com.ultra.nlp.manage.model.NlpGroup;
+import com.ultra.nlp.manage.model.NlpProfessor;
+import org.junit.Test;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.UUID;
+
+public class TestAcademyController extends BaseTestConfig {
+
+    @Test
+    public void academyList () throws Exception{
+        /**
+         * 用例
+         * 1、输入条件：更改pageNow或者pageSize大小
+         *    响应结果：返回查询当前页的大学/机构列表，条数为pageSize大小
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/list")
+                .param("pageNow","1")
+                .param("pageSize","1")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    /**
+     * 大学/机构 信息修改
+     */
+    public void updateAcademy () throws Exception{
+        NlpAcademy nlpAcademy = new NlpAcademy();
+        nlpAcademy.setId(2);
+        nlpAcademy.setAcademyName("鼎富科技研究院");
+        nlpAcademy.setAcademyDesc("assdfgfdasfdgfds");
+        nlpAcademy.setAcademyPhone("1777777777777");
+        nlpAcademy.setAcademyURL("www.dingfuk.com");
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/updateAcademy")
+                .content(JSONObject.toJSONString(nlpAcademy))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    /**
+     * 大学/机构 信息修改
+     */
+    public void updateProfessor () throws Exception{
+        NlpProfessor nlpProfessor = new NlpProfessor();
+        nlpProfessor.setId(1);
+        nlpProfessor.setAcademyId(1);
+        nlpProfessor.setGroupId(1);
+        nlpProfessor.setProfessorSex(9001);
+        nlpProfessor.setProfessorDesc("asdfgfdfdgfdfd");
+        nlpProfessor.setProfessorPhone(1777777777);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/updateProfessor")
+                .content(JSONObject.toJSONString(nlpProfessor))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    /**
+     * 课题组/部门 信息修改
+     */
+    public void updateGroup () throws Exception{
+        NlpGroup nlpGroup = new NlpGroup();
+        nlpGroup.setId(1);
+        nlpGroup.setAcademyId(1);
+        nlpGroup.setAcademyName("哈尔滨工业大学");
+        nlpGroup.setGroupName("研究学院");//研究学院
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/academy/updateGroup")
+                .content(JSONObject.toJSONString(nlpGroup))
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void addAcademy () throws Exception{
+        /**
+         * 添加学校/机构用例
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/addAcademy")
+                .param("academyName","测试1111122")
+                .param("academyDesc","1234655")
+                .param("academyURL","www.wwwww.com")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void delAcademy () throws Exception{
+        /**
+         * 删除学校/机构用例
+         */
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/academy/delAcademy")
+                .param("id","10")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
+        System.out.println("==============单元测试完成===============");
+        System.out.println("返回信息：" + result.getResponse().getContentAsString());
+    }
+}
